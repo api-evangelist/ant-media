@@ -5,9 +5,9 @@ apis:
   - aid: ant-media:ant-media
     name: Ant Media
     tags:
-      - Videos
       - Broadcasting
       - Streaming
+      - Videos
     humanURL: ' https://antmedia.io/rest/'
     properties:
       - url: ' https://antmedia.io/rest/'
@@ -16,9 +16,9 @@ apis:
       Ant Media Server REST API Reference.
 name: Ant Media
 tags:
-  - Videos
   - Broadcasting
   - Streaming
+  - Videos
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
