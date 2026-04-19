@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ant-media/refs/heads/main/json-structure/ant-media-broadcast-structure.json",
+  "description": "An Ant Media Server broadcast/stream representing a live or recorded video stream with its configuration and current status.",
+  "type": "object",
+  "properties": {
+    "streamId": {
+      "type": "string",
+      "description": "Unique identifier for the stream.",
+      "example": "stream500123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for the broadcast.",
+      "example": "Product Launch Livestream"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "broadcasting",
+        "finished"
+      ],
+      "description": "Current broadcast status.",
+      "example": "broadcasting"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "liveStream",
+        "ipCamera",
+        "streamSource",
+        "VOD"
+      ],
+      "description": "Type of broadcast.",
+      "example": "liveStream"
+    },
+    "publishType": {
+      "type": "string",
+      "enum": [
+        "WebRTC",
+        "RTMP",
+        "RTSP",
+        "SRT"
+      ],
+      "description": "Protocol used to publish the stream.",
+      "example": "WebRTC"
+    },
+    "streamUrl": {
+      "type": "uri",
+      "description": "URL for RTSP, SRT, or IP camera source streams.",
+      "example": "rtsp://camera.example.com/stream"
+    },
+    "hlsViewerCount": {
+      "type": "int32",
+      "description": "Current number of HLS viewers.",
+      "example": 1250
+    },
+    "webRTCViewerCount": {
+      "type": "int32",
+      "description": "Current number of WebRTC viewers.",
+      "example": 45
+    },
+    "rtmpViewerCount": {
+      "type": "int32",
+      "description": "Current number of RTMP viewers.",
+      "example": 0
+    },
+    "mp4Enabled": {
+      "type": "int32",
+      "description": "Whether MP4 recording is enabled (1 = enabled, 0 = disabled).",
+      "example": 1
+    },
+    "webMEnabled": {
+      "type": "int32",
+      "description": "Whether WebM recording is enabled.",
+      "example": 0
+    },
+    "duration": {
+      "type": "int32",
+      "description": "Duration of the stream in milliseconds.",
+      "example": 300000
+    },
+    "startTime": {
+      "type": "int32",
+      "description": "Unix epoch milliseconds when broadcasting started.",
+      "example": 1745000000000
+    },
+    "absoluteStartTimeMs": {
+      "type": "int32",
+      "description": "Absolute start time in Unix epoch milliseconds.",
+      "example": 1745000000000
+    },
+    "plannedStartDate": {
+      "type": "int32",
+      "description": "Planned start time in Unix epoch milliseconds for scheduled broadcasts.",
+      "example": 1745000000000
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the broadcast.",
+      "example": "Live product launch event with Q&A session."
+    },
+    "token": {
+      "type": "string",
+      "description": "One-time publish token for secured stream publishing.",
+      "example": "abc123def456"
+    },
+    "is360": {
+      "type": "boolean",
+      "description": "Whether this is a 360-degree stream.",
+      "example": false
+    },
+    "latitude": {
+      "type": "string",
+      "description": "GPS latitude for geo-tagged streams.",
+      "example": "37.7749"
+    },
+    "longitude": {
+      "type": "string",
+      "description": "GPS longitude for geo-tagged streams.",
+      "example": "-122.4194"
+    },
+    "altitude": {
+      "type": "string",
+      "description": "GPS altitude for geo-tagged streams.",
+      "example": "10"
+    }
+  },
+  "required": [
+    "streamId",
+    "name",
+    "status",
+    "type"
+  ],
+  "name": "Broadcast"
+}

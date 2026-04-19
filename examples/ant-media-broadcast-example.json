@@ -1,0 +1,21 @@
+{
+  "streamId": "stream500123",
+  "name": "Product Launch Livestream",
+  "status": "broadcasting",
+  "type": "liveStream",
+  "publishType": "WebRTC",
+  "hlsViewerCount": 1250,
+  "webRTCViewerCount": 45,
+  "rtmpViewerCount": 0,
+  "mp4Enabled": 1,
+  "webMEnabled": 0,
+  "duration": 300000,
+  "startTime": 1745000000000,
+  "absoluteStartTimeMs": 1745000000000,
+  "description": "Live product launch event with Q&A session.",
+  "token": "abc123def456",
+  "is360": false,
+  "latitude": "37.7749",
+  "longitude": "-122.4194",
+  "altitude": "10"
+}

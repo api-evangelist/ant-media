@@ -1,0 +1,105 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Ant Media
+  description: >-
+    Vocabulary covering the Ant Media Server REST API including key data
+    entities, stream types, protocols, actions, and parameters for live
+    streaming, WebRTC, and video management.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Ant Media Server REST API
+      namespace: ant-media
+      version: "v2"
+      baseUrl: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+      status: active
+
+  resources:
+    - name: broadcasts
+      description: Live stream and broadcast configurations and status.
+      apis: [ant-media]
+      actions: [create, get, list, update, delete, start, stop]
+    - name: streams
+      description: Active and historical stream records.
+      apis: [ant-media]
+      actions: [get, list]
+    - name: tokens
+      description: Authentication tokens for secured stream publishing and playback.
+      apis: [ant-media]
+      actions: [create, get, list, delete]
+    - name: recordings
+      description: MP4 or HLS recordings of live streams.
+      apis: [ant-media]
+      actions: [get, list, delete]
+    - name: conferencerooms
+      description: WebRTC conference room sessions.
+      apis: [ant-media]
+      actions: [create, get, list, delete]
+    - name: cluster-nodes
+      description: Ant Media Server cluster node instances.
+      apis: [ant-media]
+      actions: [get, list]
+
+  actions:
+    - name: create
+      description: Create a new broadcast or resource.
+      http_method: POST
+      pattern: write
+    - name: get
+      description: Retrieve a single resource by ID.
+      http_method: GET
+      pattern: read
+    - name: list
+      description: List resources with pagination.
+      http_method: GET
+      pattern: read
+    - name: update
+      description: Update broadcast settings.
+      http_method: PUT
+      pattern: write
+    - name: delete
+      description: Delete a broadcast or resource.
+      http_method: DELETE
+      pattern: destructive
+    - name: start
+      description: Start a stream source or IP camera broadcast.
+      http_method: POST
+      pattern: write
+    - name: stop
+      description: Stop an active broadcast.
+      http_method: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: Broadcast
+        description: A live stream or broadcast configuration with status and viewer metrics.
+        key_properties: [streamId, name, status, type, publishType, hlsViewerCount, webRTCViewerCount]
+
+  enums:
+    broadcast_status:
+      - created
+      - broadcasting
+      - finished
+    broadcast_type:
+      - liveStream
+      - ipCamera
+      - streamSource
+      - VOD
+    publish_type:
+      - WebRTC
+      - RTMP
+      - RTSP
+      - SRT
+
+  authentication:
+    schemes:
+      - type: basic
+        description: HTTP Basic Auth for REST API management endpoints.
+      - type: bearer
+        description: JWT token for secured stream publish and play operations.
+      - type: querystring
+        description: One-time publish/play tokens passed as query parameters for stream access control.

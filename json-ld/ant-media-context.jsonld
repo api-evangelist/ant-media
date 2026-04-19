@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "antmedia": "https://api-evangelist.github.io/ant-media/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Broadcast": "antmedia:Broadcast",
+    "streamId": {"@id": "dcterms:identifier", "@type": "xsd:string"},
+    "name": "schema:name",
+    "description": "schema:description",
+    "status": {"@id": "antmedia:status", "@type": "xsd:string"},
+    "type": {"@id": "antmedia:type", "@type": "xsd:string"},
+    "publishType": {"@id": "antmedia:publish_type", "@type": "xsd:string"},
+    "streamUrl": {"@id": "schema:url", "@type": "@id"},
+    "hlsViewerCount": {"@id": "antmedia:hls_viewer_count", "@type": "xsd:integer"},
+    "webRTCViewerCount": {"@id": "antmedia:webrtc_viewer_count", "@type": "xsd:integer"},
+    "rtmpViewerCount": {"@id": "antmedia:rtmp_viewer_count", "@type": "xsd:integer"},
+    "mp4Enabled": {"@id": "antmedia:mp4_enabled", "@type": "xsd:integer"},
+    "duration": {"@id": "antmedia:duration", "@type": "xsd:integer"},
+    "startTime": {"@id": "schema:dateCreated", "@type": "xsd:integer"},
+    "is360": {"@id": "antmedia:is360", "@type": "xsd:boolean"},
+    "latitude": {"@id": "schema:latitude", "@type": "xsd:string"},
+    "longitude": {"@id": "schema:longitude", "@type": "xsd:string"}
+  }
+}
