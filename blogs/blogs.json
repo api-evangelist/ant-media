@@ -1,0 +1,13 @@
+{
+  "repo": "ant-media",
+  "feeds": [
+    {
+      "source": "https://antmedia.io/blog/",
+      "feed_url": "https://antmedia.io/feed/",
+      "saved": 10,
+      "title": "Shop"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:22:07Z"
+}
