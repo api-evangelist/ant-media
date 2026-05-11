@@ -60,6 +60,12 @@ apis:
       - FN: Ant Media Support
         url: https://antmedia.io/contact/
 
+integrations:
+  - name: 'Circle: Online Video Conferencing (Free)'
+  - name: _N9KR90oXoS
+  - name: customer_agent
+  - name: zixi-plugin
+  - name: Media Push Plugin
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
@@ -154,3 +160,5 @@ common:
         description: >-
           Integrate Zoom meetings and webinars with Ant Media Server for
           re-broadcasting to larger streaming audiences.
+  - type: Integrations
+    url: https://antmedia.io/marketplace/
