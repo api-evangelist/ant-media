@@ -72,6 +72,8 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/antmedia
   - type: Portal
     url: https://antmedia.io
   - type: Documentation
