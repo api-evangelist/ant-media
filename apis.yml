@@ -6,7 +6,7 @@ description: >-
   video applications with sub-second latency. Available in Community (open-source)
   and Enterprise editions with adaptive bitrate streaming, cloud auto-scaling,
   video recording, and REST API management.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/ant-media/refs/heads/main/apis.yml
 created: "2025-03-01"
 modified: "2026-04-19"
@@ -26,7 +26,7 @@ apis:
       broadcast configuration, recording control, token authentication,
       cluster management, and server settings. Supports RTMP ingest, WebRTC
       publish/play, HLS delivery, and adaptive bitrate configuration.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://antmedia.io/rest/
     baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
     tags:
