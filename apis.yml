@@ -47,13 +47,13 @@ apis:
         url: https://antmedia.io/docs/guides/developer-sdk-and-api/rest-api-guide/
       - type: GitHubRepository
         url: https://github.com/ant-media/Ant-Media-Server
-      - type: SDK
+      - type: SDKs
         url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
         title: JavaScript SDK
-      - type: SDK
+      - type: SDKs
         url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
         title: Android SDK
-      - type: SDK
+      - type: SDKs
         url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
         title: iOS SDK
     contact:
@@ -164,5 +164,5 @@ common:
           re-broadcasting to larger streaming audiences.
   - type: Integrations
     url: https://antmedia.io/marketplace/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://antmedia.io/llms.txt
