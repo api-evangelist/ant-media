@@ -2,11 +2,13 @@
   "repo": "ant-media",
   "feeds": [
     {
-      "source": "https://antmedia.io/blog/",
+      "source": "https://antmedia.io/pricing/",
+      "feed_url": "https://antmedia.io/pricing/",
+      "title": "",
       "saved": 0,
-      "error": "HTTP 403 Forbidden"
+      "method": "none"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-06-27T12:23:28Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
