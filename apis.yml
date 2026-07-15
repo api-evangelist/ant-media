@@ -72,6 +72,8 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/ant-media-agentic-access.yml
   - type: DomainSecurity
     url: security/ant-media-domain-security.yml
   - type: LinkedIn
