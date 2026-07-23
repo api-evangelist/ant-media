@@ -1,0 +1,353 @@
+openapi: 3.0.1
+info:
+  title: Ant Media Server REST API Reference Broadcasts Vods API
+  description: Ant Media Server REST API Reference
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: V2.0
+servers:
+- url: https://test.antmedia.io:5443/Sandbox/rest/
+  description: test server
+tags:
+- name: Vods
+paths:
+  /v2/vods/{id}:
+    get:
+      summary: VoD file from database
+      description: Retrieves a VoD file from the database by its ID.
+      operationId: getVoD
+      parameters:
+      - name: id
+        in: path
+        description: ID of the VoD file
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD file retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoD'
+        '404':
+          description: VoD file not found
+      tags:
+      - Vods
+    delete:
+      summary: Delete specific VoD File
+      description: Deletes a specific VoD file from the database by its ID.
+      operationId: deleteVoD
+      parameters:
+      - name: id
+        in: path
+        description: ID of the VoD file
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD file deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+        '404':
+          description: VoD file not found
+      tags:
+      - Vods
+  /v2/vods:
+    delete:
+      summary: Delete bulk VoD Files based on Vod Id
+      description: Deletes multiple VoD files from the database by their IDs.
+      operationId: deleteVoDsBulk
+      parameters:
+      - name: ids
+        in: query
+        description: Comma-separated IDs of the VoD files
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD files deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Vods
+  /v2/vods/count:
+    get:
+      summary: Get the total number of VoDs
+      description: Retrieves the total number of VoD files in the database.
+      operationId: getTotalVodNumber
+      responses:
+        '200':
+          description: Total number of VoDs retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleStat'
+      tags:
+      - Vods
+  /v2/vods/count/{search}:
+    get:
+      summary: Get the partial number of VoDs depending on the searched items
+      description: Retrieves the number of VoD files that include the specified search parameter.
+      operationId: getTotalVodNumber_1
+      parameters:
+      - name: search
+        in: path
+        description: Search parameter to get the number of items including it
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Partial number of VoDs retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleStat'
+      tags:
+      - Vods
+  /v2/vods/list/{offset}/{size}:
+    get:
+      summary: Get the VoD list from database
+      description: Retrieves the list of VoD files from the database. It returns up to 50 items. You can use offset value to get result page by page.
+      operationId: getVodList
+      parameters:
+      - name: offset
+        in: path
+        description: Offset of the list
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: path
+        description: Number of items that will be fetched
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: sort_by
+        in: query
+        description: Field to sort. Possible values are 'name', 'date'
+        schema:
+          type: string
+      - name: order_by
+        in: query
+        description: '''asc'' for Ascending, ''desc'' for Descending order'
+        schema:
+          type: string
+      - name: streamId
+        in: query
+        description: ID of the stream to filter the results by stream ID
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Search string
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD list retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoD'
+      tags:
+      - Vods
+  /v2/vods/directory:
+    post:
+      summary: Import VoD files from a directory and make them streamable.
+      description: Imports VoD files from a directory to the datastore and links them to the streams.
+      operationId: importVoDs
+      parameters:
+      - name: directory
+        in: query
+        description: The full path of the directory that VoD files will be imported to the datastore and linked to the streams
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD files imported successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Vods
+    delete:
+      summary: Unlinks VoD path from streams directory and delete the database record.
+      description: Deletes the database record associated with the specified directory, without deleting the files themselves.
+      operationId: unlinksVoD
+      parameters:
+      - name: directory
+        in: query
+        description: The full path of the directory from which imported VoD files will be deleted from the database
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: VoD records unlinked successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Vods
+  /v2/vods/import-to-stalker:
+    post:
+      summary: Import VoDs to Stalker Portal
+      description: Imports VoDs to the Stalker Portal.
+      operationId: importVoDsToStalker
+      responses:
+        '200':
+          description: VoDs imported successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Vods
+  /v2/vods/create:
+    post:
+      summary: Upload external VoD file to Ant Media Server
+      description: Uploads an external VoD file to Ant Media Server.
+      operationId: uploadVoDFile
+      parameters:
+      - name: name
+        in: query
+        description: Name of the VoD File
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - file
+              type: object
+              properties:
+                file:
+                  type: object
+                  description: VoD file
+      responses:
+        '200':
+          description: VoD file uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Vods
+components:
+  schemas:
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
+          type: integer
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
+    VoD:
+      type: object
+      properties:
+        streamName:
+          type: string
+          description: The object id of the VoD
+        vodName:
+          type: string
+          description: The name of the VoD
+        streamId:
+          type: string
+          description: The stream id of the VoD
+        creationDate:
+          type: integer
+          description: The creation date of the VoD
+          format: int64
+        startTime:
+          type: integer
+          description: The start time of the VoD recording in milliseconds (UTC- Unix epoch)
+          format: int64
+        duration:
+          type: integer
+          description: The duration of the VoD
+          format: int64
+        fileSize:
+          type: integer
+          description: The size of the VoD file in bytes
+          format: int64
+        filePath:
+          type: string
+          description: The path of the VoD
+        vodId:
+          type: string
+          description: The id of the VoD
+        type:
+          type: string
+          description: The type of the VoD, such as userVod, streamVod, uploadedVod
+        previewFilePath:
+          type: string
+          description: The file path for the preview of the VoD
+        processStatus:
+          type: string
+          description: The status of the VoD processing. It can be inqueue, processing, finished, failed
+        processStartTime:
+          type: integer
+          description: The start time of the VoD processing in milliseconds (UTC- Unix epoch)
+          format: int64
+          readOnly: true
+        processEndTime:
+          type: integer
+          description: The end time of the VoD processing in milliseconds
+          format: int64
+          readOnly: true
+        description:
+          type: string
+          description: The description of the VoD.
+        metadata:
+          type: string
+          description: The metadata of the VoD.
+        latitude:
+          type: string
+          description: The latitude of the VoD.
+        longitude:
+          type: string
+          description: The longitude of the VoD.
+        altitude:
+          type: string
+          description: The altitude of the VoD.
+      description: The recorded video-on-demand object class
+externalDocs:
+  url: https://antmedia.io

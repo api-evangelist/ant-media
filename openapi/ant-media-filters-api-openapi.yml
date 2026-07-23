@@ -1,0 +1,177 @@
+openapi: 3.0.1
+info:
+  title: Ant Media Server REST API Reference Broadcasts Filters API
+  description: Ant Media Server REST API Reference
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: V2.0
+servers:
+- url: https://test.antmedia.io:5443/Sandbox/rest/
+  description: test server
+tags:
+- name: Filters
+paths:
+  /v2/filters/create:
+    post:
+      summary: Creates or update the filter
+      operationId: create
+      requestBody:
+        description: Filter object with the updates
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterConfiguration'
+      responses:
+        '200':
+          description: Filter created or updated
+      tags:
+      - Filters
+  /v2/filters/room-mcu-filter/{roomId}:
+    post:
+      summary: Creates MCU filter for non MCU room
+      operationId: createMCU
+      parameters:
+      - name: roomId
+        in: path
+        description: Room Id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: MCU filter created for room
+      tags:
+      - Filters
+    delete:
+      summary: Deletes MCU filter for non MCU room
+      operationId: deleteMCU
+      parameters:
+      - name: roomId
+        in: path
+        description: Room Id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: MCU filter deleted for room
+      tags:
+      - Filters
+  /v2/filters/{id}:
+    delete:
+      summary: Delete the filter according to the filterId
+      operationId: delete
+      parameters:
+      - name: id
+        in: path
+        description: Filter id for deleting filter
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Filter deleted
+      tags:
+      - Filters
+  /v2/filters/list/{offset}/{size}:
+    get:
+      summary: Returns the list of filters effective in the application
+      operationId: getFilters
+      parameters:
+      - name: offset
+        in: path
+        description: This is the offset of the list, it is useful for pagination. If you want to use sort mechanism, we recommend using Mongo DB.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: path
+        description: Number of items that will be fetched. If there is not enough item in the datastore, returned list size may less then this value
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: List of filters returned
+      tags:
+      - Filters
+  /v2/filters/mcu-filter/{id}:
+    delete:
+      summary: Reset the default MCU filter
+      operationId: resetMCUFilter
+      parameters:
+      - name: id
+        in: path
+        description: Filter object with the updates
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Default MCU filter reset
+      tags:
+      - Filters
+  /v2/filters/mcu-filter:
+    put:
+      summary: Set a filter specific to the MCU room
+      operationId: setCustomMCUFilter
+      requestBody:
+        description: Filter object with the updates
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilterConfiguration'
+      responses:
+        '200':
+          description: Custom MCU filter set
+      tags:
+      - Filters
+  /v2/filters/mcu-plugin-type:
+    put:
+      summary: Set the plugin type of the MCU function
+      operationId: setPluginType
+      parameters:
+      - name: type
+        in: query
+        description: 'Change the plugin type for a filter: synchronous | asynchronous (default) | lastpoint'
+        schema:
+          type: string
+      responses:
+        '200':
+          description: MCU plugin type set
+      tags:
+      - Filters
+components:
+  schemas:
+    FilterConfiguration:
+      type: object
+      properties:
+        filterId:
+          type: string
+        inputStreams:
+          type: array
+          items:
+            type: string
+        outputStreams:
+          type: array
+          items:
+            type: string
+        videoFilter:
+          type: string
+        audioFilter:
+          type: string
+        type:
+          type: string
+        videoEnabled:
+          type: boolean
+        audioEnabled:
+          type: boolean
+externalDocs:
+  url: https://antmedia.io
