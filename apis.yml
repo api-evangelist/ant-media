@@ -6,7 +6,19 @@ description: >-
   video applications with sub-second latency. Available in Community (open-source)
   and Enterprise editions with adaptive bitrate streaming, cloud auto-scaling,
   video recording, and REST API management.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ant-media.png
 url: https://raw.githubusercontent.com/api-evangelist/ant-media/refs/heads/main/apis.yml
 created: "2025-03-01"
 modified: "2026-04-19"
@@ -19,47 +31,95 @@ tags:
   - Video
   - WebRTC
 apis:
-  - name: Ant Media Server REST API
-    description: >-
-      The Ant Media Server REST API provides programmatic access to all
-      streaming server management functions including stream management,
-      broadcast configuration, recording control, token authentication,
-      cluster management, and server settings. Supports RTMP ingest, WebRTC
-      publish/play, HLS delivery, and adaptive bitrate configuration.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://antmedia.io/rest/
-    baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-    tags:
-      - Broadcasting
-      - HLS
-      - Live Streaming
-      - Media Server
-      - RTMP
-      - Streaming
-      - Video
-      - WebRTC
-    properties:
-      - type: Documentation
-        url: https://antmedia.io/rest/
-      - type: GettingStarted
-        url: https://antmedia.io/docs/guides/getting-started/quick-start/
-      - type: Authentication
-        url: https://antmedia.io/docs/guides/developer-sdk-and-api/rest-api-guide/
-      - type: GitHubRepository
-        url: https://github.com/ant-media/Ant-Media-Server
-      - type: SDKs
-        url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
-        title: JavaScript SDK
-      - type: SDKs
-        url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
-        title: Android SDK
-      - type: SDKs
-        url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
-        title: iOS SDK
-    contact:
-      - FN: Ant Media Support
-        url: https://antmedia.io/contact/
-
+- name: Ant Media Server REST API
+  description: >-
+    The Ant Media Server REST API provides programmatic access to all streaming server management functions
+    including stream management, broadcast configuration, recording control, token authentication, cluster
+    management, and server settings. Supports RTMP ingest, WebRTC publish/play, HLS delivery, and adaptive
+    bitrate configuration.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Broadcasting
+  - HLS
+  - Live Streaming
+  - Media Server
+  - RTMP
+  - Streaming
+  - Video
+  - WebRTC
+  properties:
+  - type: Documentation
+    url: https://antmedia.io/rest/
+  - type: GettingStarted
+    url: https://antmedia.io/docs/guides/getting-started/quick-start/
+  - type: Authentication
+    url: https://antmedia.io/docs/guides/developer-sdk-and-api/rest-api-guide/
+  - type: GitHubRepository
+    url: https://github.com/ant-media/Ant-Media-Server
+  - type: SDKs
+    url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
+    title: JavaScript SDK
+  - type: SDKs
+    url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
+    title: Android SDK
+  - type: SDKs
+    url: https://antmedia.io/docs/guides/developer-sdk-and-api/sdk-integration/
+    title: iOS SDK
+  contact:
+  - FN: Ant Media Support
+    url: https://antmedia.io/contact/
+- aid: ant-media:ant-media-broadcasts-api
+  name: Ant Media Broadcasts API
+  description: The Broadcasts API from Ant Media — 45 operation(s) for broadcasts.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Broadcasts
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-broadcasts-api-openapi.yml
+- aid: ant-media:ant-media-filters-api
+  name: Ant Media Filters API
+  description: The Filters API from Ant Media — 7 operation(s) for filters.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Filters
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-filters-api-openapi.yml
+- aid: ant-media:ant-media-push-notification-api
+  name: Ant Media Push Notification API
+  description: The Push Notification API from Ant Media — 3 operation(s) for push notification.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Push Notification
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-push-notification-api-openapi.yml
+- aid: ant-media:ant-media-version-api
+  name: Ant Media Version API
+  description: The Version API from Ant Media — 1 operation(s) for version.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Version
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-version-api-openapi.yml
+- aid: ant-media:ant-media-vods-api
+  name: Ant Media Vods API
+  description: The Vods API from Ant Media — 8 operation(s) for vods.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
+  tags:
+  - Vods
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-vods-api-openapi.yml
 integrations:
   - name: 'Circle: Online Video Conferencing (Free)'
   - name: _N9KR90oXoS
