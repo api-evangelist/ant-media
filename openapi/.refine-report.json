@@ -1,0 +1,22 @@
+{
+  "provider": "ant-media",
+  "sources": [
+    "ant-media-broadcasts-api-openapi.yml",
+    "ant-media-filters-api-openapi.yml",
+    "ant-media-push-notification-api-openapi.yml",
+    "ant-media-version-api-openapi.yml",
+    "ant-media-vods-api-openapi.yml"
+  ],
+  "outputs": [
+    "ant-media-broadcasts-api-openapi.yml",
+    "ant-media-filters-api-openapi.yml",
+    "ant-media-push-notification-api-openapi.yml",
+    "ant-media-version-api-openapi.yml",
+    "ant-media-vods-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
