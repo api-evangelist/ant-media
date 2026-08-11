@@ -132,6 +132,10 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: IssueTracker
+    url: https://github.com/ant-media/Ant-Media-Server/issues
+  - type: Releases
+    url: https://github.com/ant-media/Ant-Media-Server/releases
   - type: AgenticAccess
     url: agentic-access/ant-media-agentic-access.yml
   - type: DomainSecurity
