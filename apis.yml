@@ -22,7 +22,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ant-media.
 url: https://raw.githubusercontent.com/api-evangelist/ant-media/refs/heads/main/apis.yml
 created: "2025-03-01"
 modified: "2026-04-19"
-specificationVersion: '0.16'
+specificationVersion: '0.23'
 tags:
   - Broadcasting
   - Live Streaming
