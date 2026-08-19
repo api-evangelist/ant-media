@@ -1,0 +1,666 @@
+{
+  "item": [
+    {
+      "id": "4017d0dc-3e36-4069-b7b3-6b085683c8ea",
+      "name": "Filters",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06476264-fa9c-4067-a5ad-ef5c4f193c17",
+          "name": "Creates or update the filter",
+          "request": {
+            "name": "Creates or update the filter",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filterId\": \"<string>\",\n  \"inputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"outputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"videoFilter\": \"<string>\",\n  \"audioFilter\": \"<string>\",\n  \"type\": \"<string>\",\n  \"videoEnabled\": \"<boolean>\",\n  \"audioEnabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7f3bce84-b118-4566-a25b-7d53668b3d13",
+              "name": "Filter created or updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterId\": \"<string>\",\n  \"inputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"outputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"videoFilter\": \"<string>\",\n  \"audioFilter\": \"<string>\",\n  \"type\": \"<string>\",\n  \"videoEnabled\": \"<boolean>\",\n  \"audioEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc13c2f3-9adb-4adf-b2cd-b6bc0ee7bbc3",
+          "name": "Creates MCU filter for non MCU room",
+          "request": {
+            "name": "Creates MCU filter for non MCU room",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "room-mcu-filter",
+                ":roomId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "roomId",
+                  "description": "(Required) Room Id"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "257274ff-3c1e-4c67-9d76-65e733f1436d",
+              "name": "MCU filter created for room",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "room-mcu-filter",
+                    ":roomId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "roomId",
+                      "description": "(Required) Room Id"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "849adbde-a185-41dd-b870-478ba352ed35",
+          "name": "Deletes MCU filter for non MCU room",
+          "request": {
+            "name": "Deletes MCU filter for non MCU room",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "room-mcu-filter",
+                ":roomId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "roomId",
+                  "description": "(Required) Room Id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0cc6835-29c6-4fce-a5a4-6cf44f6a0068",
+              "name": "MCU filter deleted for room",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "room-mcu-filter",
+                    ":roomId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "roomId",
+                      "description": "(Required) Room Id"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a29abea-f43b-468f-a375-c10d3d8585cb",
+          "name": "Delete the filter according to the filterId",
+          "request": {
+            "name": "Delete the filter according to the filterId",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Filter id for deleting filter"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "699cab94-f07e-444c-a425-aa4e0808a0b3",
+              "name": "Filter deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Filter id for deleting filter"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf88341a-8887-426f-8777-ba1f6076ed05",
+          "name": "Returns the list of filters effective in the application",
+          "request": {
+            "name": "Returns the list of filters effective in the application",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "list",
+                ":offset",
+                ":size"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "offset",
+                  "description": "(Required) This is the offset of the list, it is useful for pagination. If you want to use sort mechanism, we recommend using Mongo DB."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "size",
+                  "description": "(Required) Number of items that will be fetched. If there is not enough item in the datastore, returned list size may less then this value"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ea4db46-a182-426b-9162-bd819a50b57c",
+              "name": "List of filters returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "list",
+                    ":offset",
+                    ":size"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "offset",
+                      "description": "(Required) This is the offset of the list, it is useful for pagination. If you want to use sort mechanism, we recommend using Mongo DB."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "size",
+                      "description": "(Required) Number of items that will be fetched. If there is not enough item in the datastore, returned list size may less then this value"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "169f8b88-35a7-44e0-80a9-5c2305f41351",
+          "name": "Reset the default MCU filter",
+          "request": {
+            "name": "Reset the default MCU filter",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "mcu-filter",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Filter object with the updates"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47470891-1910-4807-ac17-945bb67a6c66",
+              "name": "Default MCU filter reset",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "mcu-filter",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Filter object with the updates"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e933edbe-d07d-48ed-9435-051264f25729",
+          "name": "Set a filter specific to the MCU room",
+          "request": {
+            "name": "Set a filter specific to the MCU room",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "mcu-filter"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filterId\": \"<string>\",\n  \"inputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"outputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"videoFilter\": \"<string>\",\n  \"audioFilter\": \"<string>\",\n  \"type\": \"<string>\",\n  \"videoEnabled\": \"<boolean>\",\n  \"audioEnabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb38898b-b030-4c26-907c-b9ee49105b70",
+              "name": "Custom MCU filter set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "mcu-filter"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filterId\": \"<string>\",\n  \"inputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"outputStreams\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"videoFilter\": \"<string>\",\n  \"audioFilter\": \"<string>\",\n  \"type\": \"<string>\",\n  \"videoEnabled\": \"<boolean>\",\n  \"audioEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26b1a911-5093-4949-8842-1aca3a54ae0c",
+          "name": "Set the plugin type of the MCU function",
+          "request": {
+            "name": "Set the plugin type of the MCU function",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "filters",
+                "mcu-plugin-type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Change the plugin type for a filter: synchronous | asynchronous (default) | lastpoint"
+                }
+              ],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fefe66a7-36db-4f02-82b0-e9bb8f37dcbb",
+              "name": "MCU plugin type set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "filters",
+                    "mcu-plugin-type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.antmedia.io:5443/Sandbox/rest/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4d53e47c-cb6e-4980-bd46-3254df8aade6",
+    "name": "Ant Media Server REST API Reference Broadcasts Filters API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ant Media Server REST API Reference\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+      "type": "text/plain"
+    }
+  }
+}

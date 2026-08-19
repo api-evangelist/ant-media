@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ant Media Server REST API Reference Broadcasts Push Notification API",
+    "version": "V2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Push Notification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSubscriberAuthenticationToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/push-notification/subscriber-auth-token",
+            "params": [
+              {
+                "name": "subscriberId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "timeoutSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "sendPushNotification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/push-notification/subscribers",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "sendPushNotification_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/push-notification/topics/:topic",
+            "params": [
+              {
+                "name": "topic",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

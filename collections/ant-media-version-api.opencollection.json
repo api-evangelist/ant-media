@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ant Media Server REST API Reference Broadcasts Version API",
+    "version": "V2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Version",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns the Ant Media Server Version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/version"
+          },
+          "docs": "Retrieves the version information of the Ant Media Server."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

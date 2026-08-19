@@ -1,0 +1,168 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ant Media Server REST API Reference Broadcasts Filters API",
+    "version": "V2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates or update the filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or update the filter"
+        },
+        {
+          "info": {
+            "name": "Creates MCU filter for non MCU room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/room-mcu-filter/:roomId",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Room Id"
+              }
+            ]
+          },
+          "docs": "Creates MCU filter for non MCU room"
+        },
+        {
+          "info": {
+            "name": "Deletes MCU filter for non MCU room",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/room-mcu-filter/:roomId",
+            "params": [
+              {
+                "name": "roomId",
+                "value": "",
+                "type": "path",
+                "description": "Room Id"
+              }
+            ]
+          },
+          "docs": "Deletes MCU filter for non MCU room"
+        },
+        {
+          "info": {
+            "name": "Delete the filter according to the filterId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Filter id for deleting filter"
+              }
+            ]
+          },
+          "docs": "Delete the filter according to the filterId"
+        },
+        {
+          "info": {
+            "name": "Returns the list of filters effective in the application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/list/:offset/:size",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "path",
+                "description": "This is the offset of the list, it is useful for pagination. If you want to use sort mechanism, we recommend using Mongo DB."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "path",
+                "description": "Number of items that will be fetched. If there is not enough item in the datastore, returned list size may less then this value"
+              }
+            ]
+          },
+          "docs": "Returns the list of filters effective in the application"
+        },
+        {
+          "info": {
+            "name": "Reset the default MCU filter",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/mcu-filter/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Filter object with the updates"
+              }
+            ]
+          },
+          "docs": "Reset the default MCU filter"
+        },
+        {
+          "info": {
+            "name": "Set a filter specific to the MCU room",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/mcu-filter",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a filter specific to the MCU room"
+        },
+        {
+          "info": {
+            "name": "Set the plugin type of the MCU function",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://test.antmedia.io:5443/Sandbox/rest/v2/filters/mcu-plugin-type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Change the plugin type for a filter: synchronous | asynchronous (default) | lastpoint"
+              }
+            ]
+          },
+          "docs": "Set the plugin type of the MCU function"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
