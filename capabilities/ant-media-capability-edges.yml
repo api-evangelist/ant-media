@@ -1,0 +1,27 @@
+slug: ant-media
+provider: Ant Media
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Broadcasts
+  spec_file: ant-media-broadcasts-api-openapi.yml
+  capability_id: BC-3740.20
+  capability_id_l1: BC-3740
+  capability_name: OTT & Streaming Delivery
+  confidence: 0.8
+  evidence: POST /v2/broadcasts/{id}/rtmp-endpoint  addEndpointV3  Adds a third party RTMP end point to
+    the stream
+  reason: Operations create and update live broadcasts, attach third-party RTMP republish endpoints, manage
+    subtracks and per-stream subscribers/tokens — i.e. operating streaming origin and live stream delivery
+    to consumers and partners, which is OTT & Streaming Delivery. Some spread into content protection
+    (Token) and telemetry (WebRTC*Stats) schemas, hence not maximal confidence.

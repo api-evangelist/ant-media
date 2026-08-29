@@ -145,6 +145,9 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: CapabilityMap
+    url: capabilities/ant-media-capability-edges.yml
+    name: Ant Media Business Capability Map
   - type: IssueTracker
     url: https://github.com/ant-media/Ant-Media-Server/issues
   - type: Releases
