@@ -1,0 +1,222 @@
+specification: API Commons Conventions
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: derived
+source: >-
+  Derived from the six OpenAPI documents in openapi/ (published by Ant Media at
+  https://antmedia.io/rest/folders.php, version 3.1.0) and confirmed against
+  https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/ (HTTP 200, 2026-09-02).
+description: >-
+  Cross-cutting runtime semantics for the Ant Media Server REST API — how an agent
+  authenticates, pages, reads errors, and (critically) whether the writes it makes can be
+  taken back. Ant Media Server is self-hosted, so every convention here is a property of the
+  software the customer runs, not of a vendor-operated endpoint.
+auth:
+  style: jwt-bearer
+  header: Authorization
+  management_header: ProxyAuthorization
+  detail: See authentication/ant-media-authentication.yml. No API keys, no OAuth 2 client flow.
+  scopes: none — a valid JWT grants the whole REST surface of the application it is scoped to.
+versioning:
+  style: uri-path
+  current: v2
+  detail: >-
+    Every operation sits under /v2/. The path version has not moved since Ant Media Server 2.x
+    and did not change for the 3.x server line; info.version in the specs reads "V2.0" while
+    the server itself is at 3.1.0, so the API version and the product version are independent.
+  product_versions_documented: ['3.0', '2.17', '2.16']
+  docs: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/
+pagination:
+  style: offset-size path parameters
+  detail: >-
+    List endpoints take offset and size as REQUIRED PATH segments, not query parameters —
+    /v2/broadcasts/list/{offset}/{size}, /v2/vods/list/{offset}/{size},
+    /v2/filters/list/{offset}/{size}, /v2/broadcasts/{id}/subscribers/list/{offset}/{size},
+    /v2/broadcasts/{id}/tokens/list/{offset}/{size},
+    /v2/broadcasts/{id}/connection-events/{offset}/{size}, /v2/cluster/nodes/{offset}/{size}.
+    There is no cursor, no next link and no envelope: the response is a bare JSON array.
+  total_count:
+    detail: >-
+      Totals come from separate counting operations rather than from a response header or an
+      envelope field — getTotalBroadcastNumberV2 (/v2/broadcasts/count), getTotalVodNumber
+      (/v2/vods/count), getNodeCount (/v2/cluster/node-count), each returning a SimpleStat
+      with a `number` field. Search-scoped variants add a {search} path segment.
+  filtering:
+    detail: >-
+      Several list operations accept optional query parameters — type_by, sort_by, order_by,
+      search — but they are per-operation, not a shared convention.
+  agent_note: >-
+    Because offset and size are path segments, an agent cannot omit them; there is no server
+    default page size to fall back on.
+field_expansion:
+  supported: false
+sparse_fields:
+  supported: false
+metadata:
+  supported: true
+  detail: >-
+    The Broadcast object carries a free-form `metaData` string (and the webhook payloads echo
+    it as `metadata`). If the value is a JSON string, Ant Media parses it into a JSON object
+    when delivering webhooks.
+request_id_tracing:
+  supported: false
+  detail: >-
+    No correlation or request-id header is declared in any of the six specs or documented in
+    the REST API guide. Tracing is done through the server log file (getLogFile) and through
+    the Grafana/Prometheus and New Relic monitoring integrations, not through per-request ids.
+error_envelope:
+  format: proprietary
+  rfc9457: false
+  schema: Result
+  media_type: application/json
+  fields:
+    success: boolean — the result of the operation
+    message: string — human-readable message
+    dataId: string — id of the created record, when the operation created one
+    errorId: integer (int32) — numeric error id
+  detail: >-
+    The dominant failure mode is HTTP 200 with {"success": false, "message": "..."} in the
+    body. Only a minority of operations declare 400 or 404; most declare a single 200 or a
+    `default` response typed as Result. An agent that branches on HTTP status alone WILL read
+    failures as successes — it must read Result.success.
+  see: errors/ant-media-problem-types.yml
+rate_limit_signaling:
+  published: false
+  detail: >-
+    No rate-limit headers, no 429 response and no documented quota anywhere in the specs or
+    the REST API guide. Capacity is a property of the customer's own hardware, and the pricing
+    page states outright that licensing imposes no connection or viewer limit.
+  see: rate-limits/ant-media-rate-limits.yml
+idempotency:
+  supported: false
+  state: na-partial
+  detail: >-
+    There is no Idempotency-Key header and no documented replay protection. Some writes are
+    naturally idempotent because the resource id is caller-supplied — createBroadcast accepts a
+    streamId, and re-adding an RTMP endpoint that already exists is documented to return false
+    rather than duplicating it (addEndpointV3). Others are not: sendPushNotification and
+    sendMessage will fire twice if retried, and importVoDs/uploadVoDFile will create duplicates.
+  agent_note: >-
+    Retrying a failed write is unsafe in the general case. Prefer supplying your own streamId
+    so a retry collides instead of duplicating.
+dry_run_mode:
+  supported: false
+  detail: >-
+    No preview, simulate or validate flag on any write operation. validateTokenV2 validates a
+    publish/play token, not a pending request, and is not a dry run.
+reversibility:
+  grade: verified
+  summary: >-
+    The management surface is genuinely reversible — nearly every create has a matching delete
+    and every start has a matching stop, all callable immediately and without a time limit.
+    The one-way doors are the media/notification actions, which leave the server the moment
+    they are called, and the destructive bulk deletes.
+  write_surfaces:
+    - operation: createBroadcast
+      reversal: deleteBroadcast
+      window: >-
+        Unbounded — a broadcast can be deleted at any time. Ant Media documents no retention
+        period after which the record becomes undeletable.
+      docs: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/
+      grade: verified
+    - operation: startStreamSourceV2
+      reversal: stopStreamingV2
+      window: >-
+        Any time while the stream is live. Broadcast state is start/stop, not a committed
+        transaction; stopping immediately ends delivery to viewers.
+      docs: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/
+      grade: verified
+    - operation: addEndpointV3
+      reversal: removeEndpointV2
+      window: >-
+        Any time. The spec states removal "will stop immediately" for a broadcasting stream.
+        Caveat published in the spec: if the endpoint was added WITH a resolutionHeight, the
+        same resolutionHeight must be supplied on removal or the endpoint will not be removed.
+      grade: verified
+    - operation: addSubTrack
+      reversal: removeSubTrack
+      window: Any time while the main track exists.
+      grade: verified
+    - operation: addSubscriber
+      reversal: deleteSubscriber (one) / revokeSubscribers (all on the stream)
+      window: Any time.
+      grade: verified
+    - operation: blockSubscriber
+      reversal: >-
+        Self-expiring — the block takes a {seconds} path parameter and lapses on its own; there
+        is no explicit unblock operation.
+      window: The {seconds} value supplied on the call.
+      grade: verified
+    - operation: getTokenV2 / getJwtTokenV2
+      reversal: revokeTokensV2
+      window: >-
+        Any time before the token is used. Tokens also carry their own expireDate; revocation
+        removes all tokens for the stream, not one.
+      grade: verified
+    - operation: enableRecording
+      reversal: enableRecording with recording-status=false
+      window: >-
+        Any time while recording. Footage already written to disk is NOT withdrawn — the
+        resulting VoD must be removed separately with deleteVoD.
+      grade: verified
+    - operation: importVoDs (link a directory)
+      reversal: unlinksVoD
+      window: Any time.
+      grade: verified
+    - operation: create (filter) / createMCU / setCustomMCUFilter
+      reversal: delete / deleteMCU / resetMCUFilter
+      window: Any time.
+      grade: verified
+    - operation: createApplication
+      reversal: deleteApplication
+      window: >-
+        Any time. Destructive — deleting an application removes its settings and content; there
+        is no undelete and no documented grace period.
+      grade: verified
+      irreversible_effects: Application data is not recoverable through the API.
+    - operation: addUser
+      reversal: deleteUser
+      window: Any time.
+      grade: verified
+  irreversible:
+    - operation: deleteBroadcastsBulk
+      note: >-
+        Bulk delete by id list. No trash, no restore window, no undo operation anywhere in the
+        spec. Agents should treat it as permanent.
+    - operation: deleteVoDsBulk / deleteVoD
+      note: Removes the VoD record; no restore operation exists.
+    - operation: sendPushNotification / sendPushNotification_1
+      note: >-
+        The notification leaves the server on call. Nothing recalls it. Firing twice delivers
+        twice.
+    - operation: sendMessage / addID3Data / addSEIData
+      note: >-
+        Data is injected into the live stream or data channel in the moment. There is no
+        retraction path.
+    - operation: resetBroadcast
+      note: >-
+        Resets viewer counts and broadcast statuses in the database. The previous values are
+        not snapshotted and cannot be restored.
+    - operation: changeServerSettings / changeSettings / configureSsl
+      note: >-
+        Settings are replaced, not versioned. The API returns no prior value, so an agent that
+        intends to roll back must GET getServerSettings / getSettings and keep the response
+        BEFORE writing.
+    - operation: triggerGc / getHeapDump / setShutdownStatus
+      note: Operational side effects on the running JVM; not transactional and not reversible.
+  agent_guidance: >-
+    Read-before-write is the only rollback for the settings operations. For content operations,
+    prefer per-resource deletes over the bulk variants, and never retry a push notification or
+    a stream data message on an ambiguous result — read Result.success instead.
+cross_links:
+  errors: errors/ant-media-problem-types.yml
+  lifecycle: lifecycle/ant-media-lifecycle.yml
+  authentication: authentication/ant-media-authentication.yml
+  rate_limits: rate-limits/ant-media-rate-limits.yml
+  webhooks: asyncapi/ant-media-webhooks.yml
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

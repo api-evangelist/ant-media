@@ -1,0 +1,82 @@
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://github.com/ant-media/Ant-Media-Server/releases, https://docs.antmedia.io/ (version
+  selector), https://status.antmedia.io/status/home, https://antmedia.io/support/ and
+  https://antmedia.io/pricing/ — all fetched 2026-09-02.
+description: >-
+  How the Ant Media REST API changes over time, what the vendor commits to, and where an
+  operator finds out that something is wrong. Ant Media Server is licensed software that the
+  customer runs, so "lifecycle" here is a release and support-window question rather than a
+  hosted-service deprecation question.
+versioning:
+  api_version: v2
+  style: uri-path
+  stability: >-
+    The /v2/ prefix has survived the whole 2.x line and the move to 3.x. No /v3/ surface
+    exists as of server 3.1.0.
+  product_versions_documented:
+    - '3.0'
+    - '2.17'
+    - '2.16'
+  docs_version_selector: https://docs.antmedia.io/
+  note: >-
+    The documentation site keeps three product versions live simultaneously, each with its own
+    complete REST API guide, and https://antmedia.io/rest/folders.php keeps the OpenAPI for
+    every release back through the 2.x line. Old versions are archived rather than deleted.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  detail: >-
+    No deprecation policy page, no Sunset or Deprecation response headers, and no `deprecated:
+    true` flag on any operation in the six published OpenAPI documents. The only deprecation
+    signal found is a release note — PR #7742 in 3.0.1, "Remove deprecated methods to get ready
+    for v3.0 (may be breaking)" — which removed deprecated Java methods, announced in the
+    release body rather than through the API.
+  evidence:
+    - url: https://github.com/ant-media/Ant-Media-Server/releases
+      note: 3.0.1 release body marks the deprecated-method removal as possibly breaking.
+  deprecated_operations: []
+support:
+  page: https://antmedia.io/support/
+  detail: >-
+    Every license holder receives Standard Support at no extra cost; priority and dedicated
+    plans are sold separately. The perpetual license includes standard support and upgrades
+    for the first year, then $449/year after it. Community Edition users are supported through
+    the developer forum, Stack Overflow and GitHub issues rather than a support contract.
+  channels:
+    - https://antmedia.io/support/
+    - https://github.com/ant-media/Ant-Media-Server/issues
+    - https://antmedia.io/contact-us/
+sla:
+  published: false
+  detail: >-
+    No numeric availability SLA is published. This is consistent with the delivery model: the
+    customer operates the server, so uptime is theirs. The pricing page states there is no
+    connection or viewer limit and that capacity depends on the customer's own infrastructure.
+status_page:
+  url: https://status.antmedia.io/status/home
+  verified: '2026-09-02'
+  http_status: 200
+  detail: >-
+    A hosted status page, linked from the antmedia.io footer as "Status". It is JavaScript-
+    rendered, so an unauthenticated crawler sees only a "requires JavaScript" shell; the page
+    itself resolves (200) at https://status.antmedia.io/status/home. It reports Ant Media's own
+    services — it cannot report on a customer's self-hosted instance.
+releases:
+  feed: https://github.com/ant-media/Ant-Media-Server/releases
+  cadence: >-
+    Roughly monthly to six-weekly across 2026 — 2.17.0 (Jan), 2.17.1 (Feb), 3.0.1 (Apr),
+    3.0.2 and 3.0.3 (May), 3.1.0 (Aug).
+  current: 3.1.0 (2026-08-31)
+  see: changelog/ant-media-changelog.yml
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

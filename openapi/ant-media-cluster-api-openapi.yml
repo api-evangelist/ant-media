@@ -1,0 +1,240 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST API Cluster API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+servers:
+- url: https://{ant-media-server}:5443/rest/
+  description: Ant Media Server management panel REST base. Ant Media Server is self-hosted, so the host is the customer's own server; port 5443 and the /rest/ prefix are the values published in the Management Panel REST API guide.
+  variables:
+    ant-media-server:
+      default: your-ant-media-server
+      description: Hostname or IP of your Ant Media Server instance
+tags:
+- name: Cluster
+paths:
+  /v2/cluster/node/{id}:
+    delete:
+      operationId: deleteNode
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Cluster
+  /v2/cluster/node-count:
+    get:
+      operationId: getNodeCount
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SimpleStat'
+      tags:
+      - Cluster
+  /v2/cluster/nodes/{offset}/{size}:
+    get:
+      operationId: getNodeList
+      parameters:
+      - name: offset
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClusterNode'
+      tags:
+      - Cluster
+  /v2/cluster/node/{id}/note:
+    put:
+      operationId: updateNodeNote
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: note
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Cluster
+  /cluster/deleteNode/{id}:
+    get:
+      operationId: deleteNode_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Cluster
+  /cluster/node-count:
+    get:
+      operationId: getNodeCount_1
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SimpleStat'
+      tags:
+      - Cluster
+  /cluster/nodes/{offset}/{size}:
+    get:
+      operationId: getNodeList_1
+      parameters:
+      - name: offset
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClusterNode'
+      tags:
+      - Cluster
+  /cluster/node/{id}/note:
+    put:
+      operationId: updateNodeNote_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: note
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Cluster
+  /v2/cluster-mode-status:
+    get:
+      summary: Returns the server mode
+      operationId: isInClusterMode
+      responses:
+        '200':
+          description: Server mode returned
+      tags:
+      - Cluster
+components:
+  schemas:
+    ClusterNode:
+      type: object
+      properties:
+        id:
+          type: string
+        ip:
+          type: string
+        lastUpdateTime:
+          type: integer
+          format: int64
+        memory:
+          type: string
+        cpu:
+          type: string
+        dbQueryAveargeTimeMs:
+          type: integer
+          format: int32
+        note:
+          type: string
+        status:
+          type: string
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
+          type: integer
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
+externalDocs:
+  url: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  description: Management Panel REST API Services

@@ -1,0 +1,67 @@
+generated: '2026-09-02'
+method: probed
+source: >-
+  Direct HTTPS probes with a browser User-Agent against the provider's marketing host and
+  documentation host, 2026-09-02.
+note: >-
+  NO POINTER EMITTED. Nothing was served. antmedia.io answers every /.well-known/* path with
+  an nginx 403 Forbidden (548-byte error page, not a document). docs.antmedia.io is a
+  Docusaurus site whose catch-all returns HTTP 200 with the same 59,070-byte HTML shell for
+  every unknown path, including all five /.well-known/* probes — a soft-404, not a document.
+  This file records that absence so the measurement is a true zero backed by status codes.
+  Ant Media Server is self-hosted software, so a customer's own instance host is not a
+  provider-controlled surface and was not probed.
+hosts:
+  - host: antmedia.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        file: null
+      - path: /.well-known/openid-configuration
+        status: 403
+        file: null
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        file: null
+      - path: /.well-known/api-catalog
+        status: 403
+        file: null
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        file: null
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+      - path: /.well-known/agent.json
+        status: 403
+        file: null
+  - host: docs.antmedia.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        note: HTML SPA shell (Docusaurus catch-all), not a document — counted as a miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        note: HTML SPA shell, not a document — counted as a miss.

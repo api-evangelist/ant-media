@@ -1,0 +1,142 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: searched
+source: >-
+  Registry metadata read unauthenticated from registry.npmjs.org, pub.dev/api/packages,
+  search.maven.org/solrsearch and the GitHub API for the ant-media organization, cross-checked
+  against https://docs.antmedia.io/guides/developer-sdk-and-api/sdk-integration/
+description: >-
+  First-party Ant Media client SDKs and distribution packages. Ant Media Server itself is
+  self-hosted software, so the server artifacts (Maven io.antmedia:ant-media-server, the
+  Community Edition ZIP on GitHub Releases) sit alongside the browser and mobile SDKs that
+  talk to a running server over WebRTC and the REST API.
+note: >-
+  CURRENCY SIGNAL — the server releases 3.1.0 (2026-08-31) while several first-party SDKs
+  trail well behind it: the JavaScript WebRTC adaptor is pinned at 2.16.2 (2025-12-08), the
+  Android framework published to Maven Central is 2.11.1 (2024-10-21) even though the SDK
+  repository is tagged v2.17.2, the iOS SDK's newest tag is v2.10.0 (2024-07-11), and the
+  Maven server artifact is 2.14.0 (2025-05-13). The Android and iOS SDKs are effectively
+  distributed by git tag / Swift Package Manager rather than by a package registry, which is
+  why their registry versions understate what is actually shipping.
+packages:
+  - name: '@antmedia/webrtc_adaptor'
+    registry: npm
+    url: https://www.npmjs.com/package/@antmedia/webrtc_adaptor
+    language: javascript
+    official: true
+    version: 2.16.2
+    published: '2025-12-08'
+    repository: https://github.com/ant-media/StreamApp
+    description: WebRTC Adaptor for implementing a front end using Ant Media Server.
+  - name: '@antmedia/web_player'
+    registry: npm
+    url: https://www.npmjs.com/package/@antmedia/web_player
+    language: javascript
+    official: true
+    version: 2.13.1
+    published: '2026-08-27'
+    repository: https://github.com/ant-media/Web-Player
+    description: Ant Media Server Player that can play WebRTC, HLS, DASH.
+  - name: '@antmedia/videojs-webrtc-plugin'
+    registry: npm
+    url: https://www.npmjs.com/package/@antmedia/videojs-webrtc-plugin
+    language: javascript
+    official: true
+    version: 2.0.1
+    published: '2026-08-27'
+    repository: https://github.com/ant-media/videojs-webrtc-plugin
+    description: WebRTC plug-in for video.js backed by Ant Media Server.
+  - name: '@antmedia/react-native-ant-media'
+    registry: npm
+    url: https://www.npmjs.com/package/@antmedia/react-native-ant-media
+    language: javascript
+    official: true
+    version: 1.11.2
+    published: '2026-08-12'
+    repository: https://github.com/ant-media/WebRTC-React-Native-SDK
+    description: Ant Media Server WebRTC React Native SDK and reference project.
+  - name: ant_media_flutter
+    registry: pub.dev
+    url: https://pub.dev/packages/ant_media_flutter
+    language: dart
+    official: true
+    version: 1.5.4
+    published: '2025-12-10'
+    repository: https://github.com/ant-media/WebRTC-Flutter-SDK
+    description: Flutter package for Ant Media Server Enterprise Edition streaming.
+  - name: io.antmedia:webrtc-android-framework
+    registry: maven
+    url: https://central.sonatype.com/artifact/io.antmedia/webrtc-android-framework
+    language: java
+    official: true
+    version: 2.11.1
+    published: '2024-10-21'
+    repository: https://github.com/ant-media/WebRTC-Android-SDK
+    description: Android WebRTC framework used by the Ant Media Android SDK.
+    note: >-
+      Maven Central lags the source repository, whose newest tag is v2.17.2 (2026-03-11);
+      the docs direct Android developers to the GitHub release/AAR rather than Maven.
+  - name: io.antmedia:ant-media-server
+    registry: maven
+    url: https://central.sonatype.com/artifact/io.antmedia/ant-media-server
+    language: java
+    official: true
+    version: 2.14.0
+    published: '2025-05-13'
+    repository: https://github.com/ant-media/Ant-Media-Server
+    description: Ant Media Server core server artifact.
+  - name: io.antmedia:rtmp-client
+    registry: maven
+    url: https://central.sonatype.com/artifact/io.antmedia/rtmp-client
+    language: java
+    official: true
+    version: 3.2.0
+    published: '2021-10-21'
+    repository: https://github.com/ant-media/LibRtmp-Client-for-Android
+    description: Small RTMP client for Android over JNI.
+  - name: WebRTCiOSSDK
+    registry: swiftpm
+    url: https://github.com/ant-media/WebRTC-iOS-SDK
+    language: swift
+    official: true
+    version: v2.10.0
+    published: '2024-07-11'
+    repository: https://github.com/ant-media/WebRTC-iOS-SDK
+    description: Ant Media Server iOS WebRTC SDK, distributed as a Swift package / xcframework.
+    note: >-
+      Distributed through Swift Package Manager from the GitHub repository, not a package
+      registry; version and date are the newest git tag and its commit date. The CocoaPods
+      trunk record for WebRTCiOSSDK carries no published versions.
+  - name: Ant Media Server Community Edition
+    registry: github-releases
+    url: https://github.com/ant-media/Ant-Media-Server/releases
+    language: java
+    official: true
+    version: ams-v3.1.0
+    published: '2026-08-31'
+    repository: https://github.com/ant-media/Ant-Media-Server
+    description: Community Edition server distribution ZIP published on GitHub Releases.
+third_party:
+  - name: AntMedia.Net
+    registry: nuget
+    url: https://www.nuget.org/packages/AntMedia.Net
+    official: false
+    version: 2.17.2.6
+    published: null
+    note: >-
+      Community .NET/MAUI binding published by an individual (s.bokatuk), not by Ant Media;
+      recorded so it is not mistaken for a first-party SDK. Publish date not read.
+  - name: Xamarin.Android.AntMedia.RtmpClient
+    registry: nuget
+    url: https://www.nuget.org/packages/Xamarin.Android.AntMedia.RtmpClient
+    official: false
+    version: 3.2.0.10
+    published: null
+    note: Microsoft-published Xamarin binding of Ant Media's RTMP client. Publish date not read.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

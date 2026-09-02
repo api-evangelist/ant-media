@@ -1,0 +1,30 @@
+specification: Agent Skills Index
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: generated
+source: >-
+  Authored by API Evangelist from the six published Ant Media OpenAPI documents in openapi/ and
+  https://docs.antmedia.io/. Every operationId referenced was grepped from the specs, not
+  invented. Ant Media publishes no agent skills of its own; the AGENTS.md in
+  ant-media/Ant-Media-Server is a Java code-review guide for contributors, not an API skill.
+skills:
+  - name: ant-media-publish-a-live-stream
+    file: ant-media-publish-a-live-stream.md
+    api: Ant Media Broadcasts API
+    description: Create, start, monitor and stop a broadcast.
+  - name: ant-media-secure-a-stream-with-tokens
+    file: ant-media-secure-a-stream-with-tokens.md
+    api: Ant Media Broadcasts API
+    description: Issue and revoke publish/play tokens; manage subscribers and TOTP.
+  - name: ant-media-manage-applications-and-server
+    file: ant-media-manage-applications-and-server.md
+    api: Ant Media Management API
+    description: Authenticate to the management panel API and manage applications, users and settings.
+  - name: ant-media-receive-stream-events
+    file: ant-media-receive-stream-events.md
+    api: Ant Media Broadcasts API
+    description: Register webhooks and handle the twelve documented stream events.
+conventions: conventions/ant-media-conventions.yml
+errors: errors/ant-media-problem-types.yml
+authentication: authentication/ant-media-authentication.yml

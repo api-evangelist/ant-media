@@ -17,6 +17,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "ant-media-broadcasts-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "ant-media-filters-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "ant-media-push-notification-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "ant-media-version-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "ant-media-vods-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

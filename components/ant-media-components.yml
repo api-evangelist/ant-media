@@ -1,0 +1,82 @@
+specification: API Commons Components
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://docs.antmedia.io/guides/developer-sdk-and-api/sdk-integration/,
+  https://www.npmjs.com/package/@antmedia/web_player, the ant-media GitHub organization and
+  https://antmedia.io/samples/ — all read 2026-09-02.
+description: >-
+  Client-side and embeddable surfaces Ant Media ships for putting video on a page without
+  writing WebRTC signalling. Distinct from the SDKs in packages/: these are drop-in players and
+  panels, not API clients.
+families:
+  - name: Web Player
+    description: >-
+      A prebuilt player that negotiates WebRTC, HLS or DASH against an Ant Media Server and
+      falls back between them. Embeddable as a script, an npm module, or the hosted play.html
+      page shipped with StreamApp.
+    components:
+      - name: '@antmedia/web_player'
+        type: player
+        loader: npm / script tag
+        url: https://www.npmjs.com/package/@antmedia/web_player
+        repository: https://github.com/ant-media/Web-Player
+        version: 2.13.1
+        published: '2026-08-27'
+      - name: play.html
+        type: hosted player page
+        description: >-
+          Shipped inside every Ant Media application (StreamApp), served from the customer's own
+          instance at /{application}/play.html?id={streamId}.
+        repository: https://github.com/ant-media/StreamApp
+  - name: video.js plugin
+    description: WebRTC playback plugin for the video.js player.
+    components:
+      - name: '@antmedia/videojs-webrtc-plugin'
+        type: player plugin
+        loader: npm / script tag
+        url: https://www.npmjs.com/package/@antmedia/videojs-webrtc-plugin
+        repository: https://github.com/ant-media/videojs-webrtc-plugin
+        version: 2.0.1
+        published: '2026-08-27'
+  - name: Management Console
+    description: >-
+      The Angular web panel used to create, publish and play streams and to configure the
+      server. It is the UI in front of the management panel REST API documented in
+      openapi/ant-media-management-api-openapi.yml. A rewrite is in progress in the
+      management-panel-reborn repository.
+    components:
+      - name: Ant-Media-Management-Console
+        type: embedded dashboard
+        repository: https://github.com/ant-media/Ant-Media-Management-Console
+      - name: management-panel-reborn
+        type: embedded dashboard (in development)
+        repository: https://github.com/ant-media/management-panel-reborn
+  - name: Conference Call Application
+    description: >-
+      A complete, forkable React conference application (Circle) built on the WebRTC adaptor —
+      a reference surface rather than a component library, but it is how most customers start a
+      multi-party build.
+    components:
+      - name: conference-call-application
+        type: reference application
+        repository: https://github.com/ant-media/conference-call-application
+  - name: Samples
+    description: Hosted WebRTC and HLS sample pages on the marketing site.
+    components:
+      - name: WebRTC samples
+        type: hosted demo
+        url: https://antmedia.io/samples/
+      - name: HLS player sample
+        type: hosted demo
+        url: https://antmedia.io/samples/hls-player/
+      - name: WebRTC vs HLS comparison
+        type: hosted demo
+        url: https://antmedia.io/samples/webrtc-vs-hls/
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

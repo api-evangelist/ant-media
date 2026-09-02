@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Ant Media Server REST API Reference Broadcasts Vods API
   description: Ant Media Server REST API Reference
@@ -272,14 +272,6 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
-    SimpleStat:
-      type: object
-      properties:
-        number:
-          type: integer
-          description: the stat value
-          format: int64
-      description: Simple generic statistics class to return single values
     VoD:
       type: object
       properties:
@@ -349,5 +341,13 @@ components:
           type: string
           description: The altitude of the VoD.
       description: The recorded video-on-demand object class
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
 externalDocs:
   url: https://antmedia.io

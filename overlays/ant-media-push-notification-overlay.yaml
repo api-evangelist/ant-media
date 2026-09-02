@@ -1,0 +1,60 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Ant Media Server REST API Reference Broadcasts Push Notification API
+  version: 1.0.0
+extends: ant-media-push-notification-api-openapi.yml
+x-provenance:
+  generated: '2026-09-02'
+  method: generated
+  source: Authored by API Evangelist from https://docs.antmedia.io/ and live probes 2026-09-02. Applies on top of the vendor
+    spec; the vendor spec is never mutated.
+actions:
+- target: $.servers
+  description: Ant Media ships servers[] pointing at https://test.antmedia.io:5443/Sandbox/rest/, which returns HTTP 404 (probed
+    2026-09-02). The demo application that actually answers is /LiveApp/. This overlay adds the working demo base and a templated
+    self-hosted base without removing the vendor value.
+  update:
+  - url: https://test.antmedia.io:5443/LiveApp/rest/
+    description: Ant Media public demo server, verified 200 on /v2/version 2026-09-02
+  - url: https://{ant-media-server}:5443/{application}/rest/
+    description: Self-hosted instance. Base form published in the JWT REST API Filter guide.
+    variables:
+      ant-media-server:
+        default: your-ant-media-server
+        description: Hostname or IP of your Ant Media Server
+      application:
+        default: LiveApp
+        description: Name of the deployed application, e.g. LiveApp or WebRTCAppEE
+- target: $.components.securitySchemes
+  description: The published specs declare no securitySchemes at all, though the docs document JWT bearer auth on the application
+    REST API and a ProxyAuthorization JWT plus a JSESSIONID session on the management API. This overlay states the auth model
+    the documentation defines.
+  update:
+    jwtRestApiFilter:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT signed HS256 with the secret configured in the JWT REST API Filter. Disabled by default; the IP filter
+        is the default protection. https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+- target: $.info
+  description: Record that the failure signal in this API is the Result body, not the HTTP status.
+  update:
+    x-error-envelope:
+      schema: Result
+      fields:
+      - success
+      - message
+      - dataId
+      - errorId
+      note: Most operations declare only HTTP 200. A failure normally arrives as 200 with success=false. Clients MUST read
+        Result.success. See errors/ant-media-problem-types.yml.
+    x-rate-limits:
+      published: false
+      note: No rate-limit headers, no 429, no published quota. See rate-limits/ant-media-rate-limits.yml.
+    x-reversibility:
+      see: conventions/ant-media-conventions.yml
+- target: $.paths['/v2/push-notification/subscribers'].post
+  description: A sent push notification cannot be recalled; retries deliver twice.
+  update:
+    x-irreversible: true
+    x-idempotent: false

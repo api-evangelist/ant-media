@@ -1,0 +1,81 @@
+specification: API Commons MCP
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: derived
+status: candidate
+source: >-
+  Derived from the six OpenAPI documents in openapi/. Searched for a first-party server on
+  2026-09-02 — the ant-media GitHub organization (30 repositories), npm (@antmedia scope),
+  https://docs.antmedia.io/ and https://antmedia.io/llms.txt — and found none. Ant Media
+  publishes no MCP server.
+description: >-
+  A candidate MCP tool surface derived from Ant Media Server's published REST operations.
+  NOTHING HERE IS SHIPPED BY ANT MEDIA. It is a design sketch of what a server would expose if
+  one existed, so the gap is legible rather than invisible.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+  note: >-
+    No hosted endpoint and no stdio package. Any future server would be per-instance, since
+    Ant Media Server is self-hosted: the endpoint would live on the customer's own host and the
+    credential would be the instance's JWT secret, not a vendor-issued key.
+candidate_tools:
+  - name: create_broadcast
+    rest: [createBroadcast]
+    description: Create a broadcast, optionally with a caller-supplied streamId and listenerHookURL.
+  - name: list_broadcasts
+    rest: [getBroadcastList, getTotalBroadcastNumberV2]
+    description: Page through broadcasts; offset and size are path segments, not query parameters.
+  - name: get_broadcast
+    rest: [getBroadcast, getStreamInfo]
+  - name: update_broadcast
+    rest: [updateBroadcast]
+  - name: delete_broadcast
+    rest: [deleteBroadcast, deleteBroadcastsBulk]
+    destructive: true
+  - name: start_stream_source
+    rest: [startStreamSourceV2]
+  - name: stop_stream
+    rest: [stopStreamingV2]
+  - name: enable_recording
+    rest: [enableRecording]
+  - name: add_rtmp_endpoint
+    rest: [addEndpointV3, removeEndpointV2]
+  - name: manage_subscribers
+    rest: [addSubscriber, deleteSubscriber, revokeSubscribers, blockSubscriber, listSubscriberV2, getTOTP]
+  - name: issue_stream_token
+    rest: [getTokenV2, getJwtTokenV2, validateTokenV2, listTokensV2, revokeTokensV2]
+  - name: broadcast_statistics
+    rest: [getBroadcastStatistics, getBroadcastTotalStatistics, getAppLiveStatistics, getWebRTCClientStatsListV2]
+  - name: list_vods
+    rest: [getVodList, getTotalVodNumber]
+  - name: delete_vod
+    rest: [deleteVoD, deleteVoDsBulk]
+    destructive: true
+  - name: discover_ip_cameras
+    rest: [searchOnvifDevicesV2, getOnvifDeviceProfiles, moveIPCamera, stopMove]
+  - name: send_push_notification
+    rest: [sendPushNotification, sendPushNotification_1, getSubscriberAuthenticationToken]
+    irreversible: true
+  - name: server_status
+    rest: [getSystemInfo, getCPUInfo, getJVMMemoryInfo, getSystemResourcesInfo, getVersion, liveness]
+  - name: manage_applications
+    rest: [getApplications, createApplication, deleteApplication, getSettings, changeSettings]
+    destructive: true
+  - name: cluster_nodes
+    rest: [getNodeList, getNodeCount, deleteNode, updateNodeNote]
+tool_count: 19
+agent_notes: >-
+  Any agent driving this API must read Result.success rather than the HTTP status, must supply
+  offset and size as path segments on every list call, and must not retry
+  send_push_notification or stream-data writes — see conventions/ant-media-conventions.yml.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

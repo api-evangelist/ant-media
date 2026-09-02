@@ -1,0 +1,71 @@
+specification: API Commons Sandbox
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: probed
+source: >-
+  servers[] in the published OpenAPI documents (https://antmedia.io/rest/3.1.0/swagger.json),
+  plus live unauthenticated probes of test.antmedia.io:5443 on 2026-09-02.
+description: >-
+  Ant Media runs a public demo server at test.antmedia.io:5443 and names it as the server in
+  every published OpenAPI document. There are no test-vs-live API keys, no test cards and no
+  fixture tooling — Ant Media Server is self-hosted software, so the real "sandbox" is an
+  instance you install yourself, or a 7-day free trial of the Enterprise Edition.
+sandbox_type: shared-demo-server
+demo_server:
+  host: test.antmedia.io
+  port: 5443
+  scheme: https
+  declared_in_spec: https://test.antmedia.io:5443/Sandbox/rest/
+  live_base: https://test.antmedia.io:5443/LiveApp/rest/
+  edition: Enterprise Edition
+  probes:
+    - url: https://test.antmedia.io:5443/LiveApp/rest/v2/version
+      status: 200
+      response: '{"versionName":"4.0.0-SNAPSHOT","versionType":"Enterprise Edition","buildNumber":"20260727_2329"}'
+      auth: none — answered unauthenticated
+    - url: https://test.antmedia.io:5443/Sandbox/rest/v2/version
+      status: 404
+      note: The application named in every spec's servers[] block is not deployed on the demo host.
+    - url: https://test.antmedia.io:5443/WebRTCAppEE/rest/v2/version
+      status: 403
+      note: Present but IP-filtered.
+    - url: https://test.antmedia.io:5443/
+      status: 200
+      note: Demo landing page.
+  finding: >-
+    The servers[] URL Ant Media ships in its own OpenAPI — https://test.antmedia.io:5443/Sandbox/rest/ —
+    returns HTTP 404. The demo application that actually answers is /LiveApp/. An agent that
+    trusts servers[] verbatim gets a 404 on its first call. This is the single highest-value
+    fix available to Ant Media in this profile: change one string in the spec generator.
+  caveats:
+    - The demo server reports 4.0.0-SNAPSHOT, i.e. a pre-release build, not the 3.1.0 release.
+    - It is shared and unauthenticated; anything published there is public.
+    - No data isolation, no reset endpoint, no seeded fixtures.
+test_credentials:
+  published: false
+  detail: >-
+    No test-mode keys and no key prefixes exist in this product. Authentication is a JWT signed
+    with a secret the operator sets on their own instance, so there is nothing for Ant Media to
+    issue. See authentication/ant-media-authentication.yml.
+test_clocks:
+  supported: false
+fixtures:
+  supported: false
+  detail: >-
+    No fixture, trigger or event-simulation tooling. Webhook events can only be produced by
+    actually publishing and stopping a stream.
+trial:
+  url: https://antmedia.io/ant-media-free-trial/
+  status: 200
+  detail: >-
+    A 7-day free trial of the Enterprise Edition is offered through the cloud marketplace
+    listings; https://antmedia.io/pricing/ advertises "7-Day Free Trial - Try It For Free" on
+    the AWS launch path. The Community Edition is free and open source with no time limit and
+    is the most complete self-service way to exercise the REST API.
+  community_edition: https://github.com/ant-media/Ant-Media-Server/releases
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

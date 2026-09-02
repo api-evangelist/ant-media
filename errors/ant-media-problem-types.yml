@@ -1,0 +1,113 @@
+specification: API Commons Error Catalog
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: derived
+source: >-
+  Derived from the 4xx and default responses declared across the six OpenAPI documents in
+  openapi/ (Ant Media Server 3.1.0 specs, published at https://antmedia.io/rest/folders.php),
+  enriched from https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/.
+format: proprietary
+rfc9457: false
+media_type: application/json
+envelope:
+  schema: Result
+  fields:
+    success: boolean — false on failure
+    message: string — human-readable explanation
+    dataId: string — id of the record when the operation created one
+    errorId: integer (int32) — numeric error id
+headline: >-
+  THE STATUS CODE IS NOT THE ERROR SIGNAL. Across 118 operations in six specs, only four
+  declare a 400 and three declare a 404. Nineteen declare nothing but a `default` response.
+  Everything else declares a single 200 whose body is a Result — so a failed call normally
+  arrives as HTTP 200 with {"success": false, "message": "..."}. Any client that branches on
+  the HTTP status alone will silently treat failures as successes.
+problem_types:
+  - id: result-failure
+    status: 200
+    title: Operation failed, reported in the body
+    detail: >-
+      The canonical Ant Media failure. HTTP 200, Content-Type application/json, body is a
+      Result with success=false and a message. errorId carries a numeric code when the server
+      has one.
+    remediation: >-
+      Always parse the body and test Result.success before treating a 2xx as success. Log
+      Result.message and Result.errorId; do not retry blindly, since the message often
+      describes a permanent condition (id already in use, endpoint already added).
+    operations: all write and most read operations
+  - id: stream-id-already-used
+    status: 400
+    title: Stream id already in use in the data store
+    detail: >-
+      Declared on createBroadcast — "If stream id is already used in the data store, it returns
+      error". Raised when the caller supplies a streamId that already exists.
+    remediation: >-
+      Either reuse the existing broadcast (GET /v2/broadcasts/{id}) or generate a new streamId.
+      Because the id is caller-supplied, this collision is also what makes a createBroadcast
+      retry safe — see the idempotency notes in conventions/ant-media-conventions.yml.
+    operations: [createBroadcast]
+  - id: token-creation-error
+    status: 400
+    title: Error creating token
+    detail: >-
+      Declared on getTokenV2 and getJwtTokenV2 — "When there is an error in creating token".
+      Typically raised when token/JWT stream security is not enabled on the application or the
+      secret is unset.
+    remediation: >-
+      Confirm the token or JWT stream security filter is enabled for the application and that a
+      secret is configured before requesting tokens.
+    operations: [getTokenV2, getJwtTokenV2]
+  - id: bad-application-name
+    status: 400
+    title: Application name entered in the wrong format
+    detail: >-
+      Declared on isShutdownProperly — "Either entered in wrong format or typed incorrectly
+      application name".
+    remediation: Pass an application name exactly as returned by getApplications.
+    operations: [isShutdownProperly]
+  - id: broadcast-not-found
+    status: 404
+    title: Broadcast object not found
+    detail: Declared on getBroadcast when no broadcast exists with the supplied id.
+    remediation: >-
+      List with getBroadcastList or count with getTotalBroadcastNumberV2 before addressing an
+      id, or treat 404 as "not created yet" and create.
+    operations: [getBroadcast]
+  - id: vod-not-found
+    status: 404
+    title: VoD file not found
+    detail: Declared on getVoD and deleteVoD when the VoD id does not resolve.
+    remediation: Confirm the id with getVodList; a deleted VoD does not come back.
+    operations: [getVoD, deleteVoD]
+  - id: undeclared-default
+    status: default
+    title: Undeclared response
+    detail: >-
+      Nineteen operations declare only a `default` response typed as Result — including
+      addID3Data, addSEIData, deleteSession, getSubscriberAuthenticationToken, getTOTP,
+      getBroadcastList and the whole cluster surface. The spec makes no statement about which
+      status codes are actually possible.
+    remediation: >-
+      Treat any non-2xx as transport-level and any 2xx as needing a Result.success check.
+      Do not assume a status-code contract that the spec does not declare.
+transport_errors:
+  - status: 401
+    detail: >-
+      Returned by the servlet filters when the JWT REST API filter is enabled and the
+      Authorization / ProxyAuthorization header is missing or fails validation. Not declared in
+      the OpenAPI.
+    source: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+  - status: 403
+    detail: >-
+      Returned by the REST IP filter when the caller's address is not in the application's IP
+      Filter Settings allow-list, and by the web panel CIDR filter. Not declared in the OpenAPI.
+    source: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/securing-rest-apis/
+  - status: 429
+    present: false
+    detail: No rate limiting is implemented or documented; 429 is not part of this API.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

@@ -4,92 +4,76 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ant Media
 providerId: ant-media
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Broadcasting
-  - Live Streaming
-  - Media
-  - Streaming
-  - Video
-  - WebRTC
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Ant Media API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/ and
+  https://antmedia.io/pricing/ (both HTTP 200, 2026-09-02), plus the six published OpenAPI
+  documents in openapi/.
+supersedes: >-
+  The 2026-05-04 bulk-sweep scaffold, which invented free/professional/enterprise tiers with
+  10/100/1000 requests per minute and monthly quotas. None of those exist. They are removed
+  here rather than left to be read as Ant Media's published limits.
+limit_count: 0
+description: >-
+  Ant Media Server publishes NO API rate limits. This is not an omission in the documentation —
+  it follows from the delivery model. The server is software the customer runs on their own
+  hardware, so there is no vendor-side meter to enforce, and Ant Media states on its pricing
+  page that licensing imposes no connection or concurrent-viewer limit either. Throughput is
+  bounded by the operator's CPU, memory, network and cluster size.
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  published: false
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+  detail: >-
+    No X-RateLimit-*, no RateLimit-*, and no Retry-After appears in any of the six OpenAPI
+    documents or in the REST API guide. An agent gets no runtime backpressure signal from this
+    API at all.
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Ant Media Server REST API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Ant Media Server REST API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Ant Media Server REST API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Ant Media Server REST API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Ant Media Server REST API
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  throttled: null
+  detail: >-
+    429 is not declared on any operation and is not mentioned in the docs. The declared error
+    codes are 400 (4 operations), 404 (3 operations) and an untyped `default` (19 operations);
+    everything else declares only 200. See errors/ant-media-problem-types.yml.
+limits: []
+capacity_controls:
+  note: >-
+    Ant Media has no request-rate controls, but it does ship per-resource capacity controls
+    that an operator sets themselves. These are viewer ceilings, not API throttles, and they
+    are recorded here so the honest zero above is not mistaken for "no controls of any kind".
+  controls:
+    - field: webRTCViewerLimit
+      scope: broadcast
+      source: Broadcast schema, openapi/ant-media-broadcasts-api-openapi.yml
+    - field: hlsViewerLimit
+      scope: broadcast
+      source: Broadcast schema, openapi/ant-media-broadcasts-api-openapi.yml
+    - field: dashViewerLimit
+      scope: broadcast
+      source: Broadcast schema, openapi/ant-media-broadcasts-api-openapi.yml
+    - field: subtracksLimit
+      scope: broadcast (conference main track)
+      source: Broadcast schema, openapi/ant-media-broadcasts-api-openapi.yml
+    - field: IP Filter Settings
+      scope: application
+      note: An allow-list of IPs/CIDRs, the default protection on the REST API. Access control, not rate control.
+      source: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/securing-rest-apis/
+  webhook_retry:
+    webhookRetryCount: 0
+    webhookRetryDelay: 1000
+    note: Outbound webhook retry policy, operator-configurable. Default retry count is 0.
+    source: https://docs.antmedia.io/guides/advanced-usage/webhooks/
+published_statement:
+  quote: >-
+    "Ant Media Server licensing does not impose fixed limits on connections or concurrent
+    viewers. Actual capacity depends on your infrastructure resources, server configuration,
+    and scaling architecture."
+  source: https://antmedia.io/pricing/
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
-    X: apievangelist
     url: https://apievangelist.com

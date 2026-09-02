@@ -1,0 +1,194 @@
+specification: API Commons Conformance
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: derived
+source: >-
+  Derived from the six OpenAPI documents in openapi/ (Ant Media Server 3.1.0, published at
+  https://antmedia.io/rest/folders.php) and confirmed against https://docs.antmedia.io/
+  (fetched 2026-09-02).
+description: >-
+  Which cross-cutting API standards the Ant Media contract actually conforms to, and which
+  streaming-industry standards the contract itself declares. Every entry cites the exact place
+  in the spec or docs that establishes it.
+conformance:
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No oauth2 securityScheme in any of the six specs, and no OAuth authorization-code or
+      client-credentials flow in the docs. The nearest thing is optional JWKS validation, where
+      the operator points the instance at an external OAuth issuer — Ant Media consumes tokens,
+      it does not issue them.
+  - id: oidc
+    conforms: partial
+    evidence: >-
+      settings.jwksURL in red5-web.properties lets the instance validate REST JWTs against an
+      external issuer's /.well-known/jwks.json (documented example: an Auth0 tenant). That is
+      OIDC-adjacent token validation, not an OIDC provider. Keycloak integration is documented
+      separately for stream security.
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+  - id: jwt-rfc7519
+    conforms: true
+    evidence: >-
+      REST authentication is a JWT signed HS256 and presented in the Authorization header as
+      "Bearer {JWTToken}"; the optional exp claim is honoured. Management panel calls carry the
+      same JWT in a ProxyAuthorization header.
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+  - id: jwks-rfc7517
+    conforms: true
+    evidence: >-
+      settings.jwksURL configures JSON Web Key Set retrieval for signature validation.
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+  - id: totp-rfc6238
+    conforms: true
+    evidence: >-
+      Subscriber authentication supports time-based one-time passwords with a base32 b32Secret
+      whose length must be a multiple of 8 — see the addSubscriber description and the getTOTP
+      operation in openapi/ant-media-broadcasts-api-openapi.yml.
+  - id: rfc9457
+    conforms: false
+    evidence: >-
+      No application/problem+json anywhere. Errors are returned in a proprietary Result object
+      (success/message/dataId/errorId), usually with HTTP 200. See
+      errors/ant-media-problem-types.yml.
+  - id: pagination
+    conforms: partial
+    evidence: >-
+      Offset/size paging exists on every list operation but is expressed as REQUIRED PATH
+      SEGMENTS (/v2/broadcasts/list/{offset}/{size}), with no cursor, no Link header and no
+      response envelope. Totals come from separate /count operations returning SimpleStat.
+  - id: idempotency
+    conforms: false
+    evidence: >-
+      No Idempotency-Key header on any operation and no replay guidance in the docs. Some
+      writes are naturally idempotent because ids are caller-supplied; notification and stream-
+      data operations are not. See conventions/ant-media-conventions.yml.
+  - id: json-schema
+    conforms: true
+    evidence: >-
+      All request and response bodies are described by OpenAPI 3 component schemas
+      (23 in the broadcasts spec alone, 14 in the management spec).
+  - id: openapi
+    conforms: true
+    evidence: >-
+      Ant Media publishes OpenAPI 3.0.1 for every release at
+      https://antmedia.io/rest/{version}/swagger.json and
+      https://antmedia.io/rest/{version}-management/swagger.json, indexed at
+      https://antmedia.io/rest/folders.php.
+  - id: webhooks
+    conforms: true
+    evidence: >-
+      Eleven documented outbound events delivered as HTTP POST with application/json (or
+      application/x-www-form-urlencoded), with configurable retry count and delay
+      (webhookRetryCount, webhookRetryDelay) since server 2.8.3.
+      https://docs.antmedia.io/guides/advanced-usage/webhooks/
+  - id: asyncapi
+    conforms: false
+    evidence: The webhook catalog is prose in the docs; no AsyncAPI document is published.
+  - id: rate-limiting
+    conforms: false
+    evidence: No rate-limit headers, no 429, no published quota. See rate-limits/.
+  - id: fhir
+    conforms: false
+    evidence: >-
+      Not applicable — Ant Media markets a telehealth use case but the API carries video
+      streams, not clinical records, and declares no FHIR resource.
+  - id: scim
+    conforms: false
+    evidence: >-
+      User management exists (/v2/users, addUser, editUser, deleteUser, getUserList) but the
+      User schema is proprietary — no urn:ietf:params:scim:schemas URN and no SCIM endpoints.
+  - id: odata
+    conforms: false
+    evidence: No $metadata surface and no OData query options.
+domain_standards:
+  note: >-
+    REWARD-ONLY. These are the standards of the live-video market that the CONTRACT itself
+    declares — each entry cites the spec or docs location, not a marketing claim.
+  standards:
+    - id: onvif
+      name: ONVIF (IP camera discovery and PTZ profiles)
+      declared: true
+      evidence: >-
+        openapi/ant-media-broadcasts-api-openapi.yml declares
+        GET /v2/broadcasts/onvif-devices (searchOnvifDevicesV2),
+        GET /v2/broadcasts/{id}/ip-camera/device-profiles (getOnvifDeviceProfiles),
+        POST /v2/broadcasts/{id}/ip-camera/move (moveIPCamera) and
+        POST /v2/broadcasts/{id}/ip-camera/stop-move (stopMove) — ONVIF device discovery,
+        profile enumeration and PTZ control expressed directly as REST operations.
+      buyer_impact: >-
+        A surveillance integrator whose cameras already speak ONVIF can enumerate and steer
+        them through this API with no bespoke connector.
+    - id: id3
+      name: ID3 timed metadata in HLS
+      declared: true
+      evidence: >-
+        POST /v2/broadcasts/{stream_id}/id3 (addID3Data) — "Add ID3 data to HLS stream at the
+        moment", in openapi/ant-media-broadcasts-api-openapi.yml.
+    - id: sei
+      name: H.264/H.265 SEI supplemental enhancement information
+      declared: true
+      evidence: >-
+        POST /v2/broadcasts/{stream_id}/sei (addSEIData) — "Add SEI data to HLS stream at the
+        moment", in openapi/ant-media-broadcasts-api-openapi.yml.
+    - id: hls-rfc8216
+      name: HTTP Live Streaming (and LL-HLS)
+      declared: true
+      evidence: >-
+        HLSParameters is a first-class component schema in the broadcasts spec, and the
+        Broadcast object carries hlsViewerCount and hlsViewerLimit. LL-HLS is a separately
+        licensed plugin (https://antmedia.io/marketplace/ll-hls-plugin/).
+    - id: rtmp
+      name: RTMP ingest and republish
+      declared: true
+      evidence: >-
+        POST/DELETE /v2/broadcasts/{id}/rtmp-endpoint with the Endpoint schema; the Broadcast
+        object carries rtmpURL and rtmpViewerCount.
+    - id: webrtc
+      name: WebRTC
+      declared: true
+      evidence: >-
+        WebRTCClientStats, WebRTCSendStats, WebRTCReceiveStats, WebRTCVideoSendStats,
+        WebRTCAudioSendStats, WebRTCVideoReceiveStats and WebRTCAudioReceiveStats are component
+        schemas, exposed through getWebRTCClientStatsListV2, getWebRTCLowLevelSendStats and
+        getWebRTCLowLevelReceiveStats.
+    - id: dash
+      name: MPEG-DASH / LL-DASH (CMAF)
+      declared: true
+      evidence: The Broadcast object declares dashViewerCount and dashViewerLimit.
+    - id: scte-35
+      name: SCTE-35 ad insertion markers
+      declared: false
+      evidence: >-
+        Shipped as a separately licensed plugin from server 2.17.0
+        (https://github.com/ant-media/Plugins/tree/master/SCTE35Plugin), not as an operation in
+        the core published contract. Recorded as a product capability, not a contract
+        declaration.
+    - id: whip-whep
+      name: WHIP / WHEP WebRTC ingest and egress
+      declared: false
+      evidence: >-
+        Documented as a supported protocol on https://antmedia.io/pricing/ and in the docs
+        introduction, but no WHIP/WHEP endpoint appears in the published REST contract — it is
+        a signalling surface, not a REST operation.
+compliance:
+  published: false
+  detail: >-
+    No trust centre, no SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP certification page, and no
+    security.txt. https://antmedia.io/security/ and https://antmedia.io/trust/ both return 404.
+    The marketing site describes "enterprise-grade security protocols" but names no audited
+    framework. For a self-hosted product the certification burden largely sits with the
+    operator, but the absence is worth recording: the telehealth positioning on
+    https://antmedia.io/solutions/telehealth/ invites a HIPAA question the site does not answer.
+  probes:
+    - url: https://antmedia.io/security/
+      status: 404
+    - url: https://antmedia.io/trust/
+      status: 404
+    - url: https://antmedia.io/.well-known/security.txt
+      status: 403
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

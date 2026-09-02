@@ -1,0 +1,86 @@
+specification: API Commons ChangeLog
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: searched
+source: https://github.com/ant-media/Ant-Media-Server/releases
+docs: https://github.com/ant-media/Ant-Media-Server/releases
+description: >-
+  Ant Media publishes no separate API changelog. The product changelog is the GitHub Releases
+  feed on the Community Edition repository, where each release lists the merged issues and PRs
+  across the server, StreamApp, the management console and the parent POM. The REST API's own
+  path version (v2) has not moved across any of these releases.
+scheme:
+  product: semver — MAJOR.MINOR.PATCH, tagged ams-vX.Y.Z
+  api: uri-path — /v2/, unchanged since the 2.x line
+  note: >-
+    Product version and API version move independently. The 3.x server line still serves /v2/
+    and its specs still read info.version "V2.0".
+current_version:
+  product: 3.1.0
+  released: '2026-08-31'
+  api: v2
+  spec_source: https://antmedia.io/rest/3.1.0/swagger.json
+spec_index:
+  url: https://antmedia.io/rest/folders.php
+  detail: >-
+    Ant Media serves a machine-readable index of every published spec version behind the
+    Swagger UI at https://antmedia.io/rest/ — a JSON array of {url, name} pairs, one pair per
+    release for the application REST API and one for the management panel REST API. As of
+    2026-09-02 it lists 3.1.0 down to the 2.x line. This is an unusually good versioned-spec
+    archive and it is the single most useful discovery surface Ant Media publishes.
+entries:
+  - version: 3.1.0
+    date: '2026-08-31'
+    breaking: false
+    highlights:
+      - Upgrade to Java 21 (#8020)
+      - Security fixes for CVE-2026-40973 and CVE-2026-54512 (#8034)
+      - New management panel updates (#8023)
+      - NDI native library rebuilt against older glibc to match the SDK (#8041)
+      - Fix for multi-audio HLS master playlist deleted after rapid stream reconnection (#8032)
+  - version: 3.0.3
+    date: '2026-05-05'
+    breaking: false
+    highlights:
+      - Maintenance release across Ant-Media-Server, Enterprise, StreamApp and the management console
+  - version: 3.0.2
+    date: '2026-05-04'
+    breaking: false
+    highlights:
+      - Code quality, security and stability improvements
+  - version: 3.0.1
+    date: '2026-04-19'
+    breaking: true
+    highlights:
+      - AV1 codec support (#7164)
+      - 'Deprecated methods removed in preparation for v3.0 — flagged by Ant Media as possibly breaking (PR #7742, issue #6874)'
+      - Improved database connection validation and refactored caching
+    note: >-
+      The only release in the recent window that Ant Media itself marks as potentially
+      breaking. The removal was of deprecated Java methods in the server, not of REST paths.
+  - version: 2.17.1
+    date: '2026-02-12'
+    breaking: false
+    highlights:
+      - Local license server support
+      - Restream to SRT endpoints
+      - Auto start/stop playlist according to playback demand
+      - Non-WebRTC to WebRTC timing conversion fixes
+  - version: 2.17.0
+    date: '2026-01-06'
+    breaking: false
+    highlights:
+      - Server Side Ad Insertion (SSAI) with SCTE-35 via the SCTE35 plugin
+      - WebRTC Web SDK v2 introduced
+      - LL-HLS cluster play support and LL-HLS improvements
+  - version: 2.16.2
+    date: '2025-12-08'
+    breaking: false
+    highlights:
+      - Maintenance release; matches the newest published @antmedia/webrtc_adaptor npm version
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

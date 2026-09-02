@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Ant Media Server REST API Reference Broadcasts Push Notification API
   description: Ant Media Server REST API Reference
@@ -89,15 +89,6 @@ paths:
       - Push Notification
 components:
   schemas:
-    PushNotificationToSubscribers:
-      type: object
-      properties:
-        subscribers:
-          type: array
-          items:
-            type: string
-        jsonMessage:
-          type: string
     Result:
       type: object
       properties:
@@ -115,5 +106,14 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
+    PushNotificationToSubscribers:
+      type: object
+      properties:
+        subscribers:
+          type: array
+          items:
+            type: string
+        jsonMessage:
+          type: string
 externalDocs:
   url: https://antmedia.io

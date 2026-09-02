@@ -1,0 +1,104 @@
+specification: API Commons Webhooks
+specificationVersion: '0.1'
+provider: Ant Media
+providerId: ant-media
+generated: '2026-09-02'
+method: searched
+source: https://docs.antmedia.io/guides/advanced-usage/webhooks/
+docs: https://docs.antmedia.io/guides/advanced-usage/webhooks/
+description: >-
+  Ant Media Server's outbound event surface. The server POSTs a JSON body to a URL the operator
+  registers, either once for the whole application or per broadcast. No AsyncAPI document is
+  published — this catalog is transcribed from the webhooks guide (HTTP 200, fetched
+  2026-09-02).
+asyncapi_published: false
+transport:
+  protocol: http
+  method: POST
+  content_type: application/json
+  alternate_content_type: application/x-www-form-urlencoded
+  content_type_setting: 'webhookContentType (advanced application settings)'
+  expected_response: >-
+    HTTP 200. The docs warn that hooks are called on the event-loop thread, so the receiver must
+    respond quickly and do its work asynchronously.
+registration:
+  default:
+    how: Set the Webhook URL in the application settings in the web panel.
+    scope: application
+  per_stream:
+    how: >-
+      Set the listenerHookURL field on the Broadcast object passed to createBroadcast
+      (POST /v2/broadcasts/create).
+    scope: broadcast
+    operation: createBroadcast
+delivery:
+  retries: true
+  since: 2.8.3
+  settings:
+    webhookRetryCount: 0
+    webhookRetryDelay: 1000
+  detail: >-
+    If the receiver answers anything other than 200, or the connection errors or times out, the
+    server retries. Both the retry count and the delay in milliseconds are operator-configurable
+    in advanced application settings. The shipped default retry count is 0 — retries are OFF
+    until an operator turns them on.
+signing:
+  supported: false
+  detail: >-
+    No signature header, no shared secret and no replay protection are documented. A receiver
+    cannot verify that a POST came from its Ant Media Server; protect the endpoint with network
+    controls or an unguessable URL.
+common_fields:
+  id: The stream id of the broadcast.
+  action: The event name, repeated in the body.
+  streamName: Name of the stream; may be null.
+  category: Category of the stream; may be null.
+  metadata: The Broadcast object's metaData field, parsed to an object when it is a JSON string.
+  timestamp: Server time in milliseconds, as a string.
+events:
+  - name: liveStreamStarted
+    trigger: A new live stream starts.
+    fields: [id, action, streamName, category, metadata, timestamp]
+  - name: liveStreamEnded
+    trigger: A live stream ends.
+    fields: [id, action, streamName, category, metadata, timestamp]
+  - name: vodReady
+    trigger: Recording of a live stream completes.
+    fields: [id, app, duration, action, vodName, vodId, metadata, timestamp]
+  - name: endpointFailed
+    trigger: An RTMP endpoint republish fails.
+    fields: [id, action, streamName, category, metadata, timestamp]
+    note: metadata carries the RTMP URL of the failed endpoint.
+  - name: publishTimeoutError
+    trigger: Publish timeout — the server stopped receiving frames.
+    fields: [id, action, streamName, category, metadata, timestamp]
+    note: metadata is a JSON object containing subscriberId.
+  - name: encoderNotOpenedError
+    trigger: The encoder could not be opened.
+    fields: [id, action, streamName, category, metadata, timestamp]
+  - name: playStarted
+    trigger: A WebRTC player starts playing a stream.
+    fields: [id, action, streamName, category, subscriberId, timestamp]
+  - name: playStopped
+    trigger: A WebRTC player stops playing a stream.
+    fields: [id, action, streamName, category, subscriberId, timestamp]
+  - name: subtrackAddedInTheMainTrack
+    trigger: A subtrack is created within a main track — in conferencing, a participant joined.
+    fields: [id, action, streamName, category, subscriberId, mainTrackId, timestamp]
+  - name: subtrackLeftTheMainTrack
+    trigger: A subtrack left the main track — in conferencing, a participant left.
+    fields: [id, action, streamName, category, subscriberId, mainTrackId, timestamp]
+  - name: firstActiveTrackAddedInMainTrack
+    trigger: The first active subtrack appears in a main track — the first participant joined the room.
+    fields: [id, action, streamName, category, subscriberId, mainTrackId, timestamp]
+  - name: noActiveSubtracksLeftInMainTrack
+    trigger: No active subtracks remain — the room emptied.
+    fields: [id, action, streamName, category, subscriberId, mainTrackId, timestamp]
+event_count: 12
+related:
+  webhook_authorization: https://docs.antmedia.io/guides/stream-security/
+  push_notifications: openapi/ant-media-push-notification-api-openapi.yml
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    url: https://apievangelist.com

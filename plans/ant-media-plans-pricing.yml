@@ -4,151 +4,133 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ant Media
 providerId: ant-media
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - Broadcasting
-  - Live Streaming
-  - Media
-  - Streaming
-  - Video
-  - WebRTC
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+modified: '2026-09-02'
+generated: '2026-09-02'
+method: searched
+source: https://antmedia.io/pricing/
+supersedes: >-
+  The 2026-05-04 bulk-sweep scaffold that invented free/professional/enterprise API-request
+  quotas. Ant Media does not sell API requests at all — it sells server licences. Every number
+  below is read from the published pricing page.
+description: >-
+  Ant Media licenses the Enterprise Edition per server instance — hourly, monthly, annual or
+  perpetual — or by the hour through the AWS, Azure and Google Cloud marketplaces. The
+  Community Edition is free and open source. There is no per-API-call pricing, no request
+  quota and, per Ant Media's own FAQ, no connection or concurrent-viewer limit; capacity is a
+  function of the customer's own infrastructure.
+pricing_model: per-instance licence
+metered_on: server uptime (hourly plans) or instance count (monthly/annual/perpetual)
+plan_count: 8
 plans:
-  - id: ant-media-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Ant Media API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Ant Media Server REST API
-  - id: ant-media-pro
-    name: Professional
+  - id: community-edition
+    name: Community Edition
+    type: free
+    price: '0'
+    currency: USD
+    period: perpetual
+    description: >-
+      Free, open-source streaming server. WebRTC ingest only (no WebRTC playback), 8-12 second
+      end-to-end latency, RTMP/SRT/RTSP ingest, HLS and MP4 recording, community support.
+    limits:
+      webrtc_playback: false
+      adaptive_bitrate: false
+      clustering: false
+      latency: 8-12 seconds
+    source: https://docs.antmedia.io/
+    elements: [Open source, Community support (forum, Slack), REST API, Web management dashboard]
+  - id: self-hosted-hourly
+    name: Hourly License
     type: paid
-    description: Production tier for Ant Media. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Ant Media Server REST API
-  - id: ant-media-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Ant Media. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
-    entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://your-ant-media-server:5080/WebRTCAppEE/rest/v2/
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Ant Media Server REST API
+    price: '0.24'
+    currency: USD
+    period: hour
+    unit: per instance per hour of uptime
+    signup_fee: '1'
+    description: >-
+      Enterprise Edition billed on server uptime only. Ant Media positions it for event-based
+      and variable workloads.
+    elements: [No connection limit, Transcoding, SDKs included, Standard support, Free software upgrade]
+  - id: self-hosted-monthly
+    name: Monthly License
+    type: paid
+    price: '109'
+    currency: USD
+    period: month
+    unit: per instance per month
+    description: Enterprise Edition monthly subscription with flex scalability charging. Positioned for always-on streaming.
+    elements: [No connection limit, Transcoding, Flex scalability charging, SDKs included, Standard support, Free software upgrade]
+  - id: self-hosted-annual
+    name: Annual License
+    type: paid
+    price: '89'
+    currency: USD
+    period: month
+    unit: per instance per month, billed annually
+    description: Enterprise Edition annual subscription with advanced scalability.
+    elements: [No connection limit, Transcoding, Advanced scalability, SDKs included, Standard support, Free software upgrade]
+  - id: self-hosted-perpetual
+    name: Perpetual License
+    type: paid
+    price: '2799'
+    currency: USD
+    period: one-time
+    unit: per instance
+    description: >-
+      Lifetime Enterprise Edition licence including standard support and upgrades for the first
+      year. Offline licence support is included, which is what makes air-gapped deployment
+      possible.
+    renewal:
+      name: Standard Support/Upgrade after year 1
+      price: '449'
+      currency: USD
+      period: year
+    elements: [Lifetime usage, No connection limit, Transcoding, Advanced scalability, SDKs included, Offline license support]
+  - id: cloud-aws
+    name: AWS Marketplace
+    type: paid
+    price: '0.33'
+    currency: USD
+    period: hour
+    unit: starting from, per hour
+    description: >-
+      Enterprise and Community Editions launched from the AWS Marketplace, hourly or annual.
+      Includes a 7-day free trial. Infrastructure is billed separately by AWS.
+    trial: 7 days
+  - id: cloud-azure
+    name: Azure Marketplace
+    type: paid
+    price: '0.44'
+    currency: USD
+    period: hour
+    unit: starting from, per hour
+    description: Enterprise and Community Editions from the Azure Marketplace, hourly or annual. Infrastructure billed separately.
+  - id: cloud-gcp
+    name: Google Cloud Marketplace
+    type: paid
+    price: '0.56'
+    currency: USD
+    period: hour
+    unit: starting from, per hour
+    description: Enterprise Edition from Google Cloud Marketplace, hourly. Infrastructure billed separately; up to $300 in GCP trial credits.
+support_plans:
+  url: https://antmedia.io/support/
+  detail: >-
+    All licence owners receive Standard Support at no extra cost. Priority and dedicated plans
+    are sold separately.
+published_statements:
+  - claim: No connection or viewer limit
+    quote: >-
+      "Ant Media Server licensing does not impose fixed limits on connections or concurrent
+      viewers. Actual capacity depends on your infrastructure resources, server configuration,
+      and scaling architecture."
+    source: https://antmedia.io/pricing/
+  - claim: Cloud pricing excludes infrastructure
+    quote: >-
+      "Cloud marketplace pricing covers only the Ant Media Server license. Infrastructure costs
+      — including compute, storage, and bandwidth — are billed separately by the cloud provider."
+    source: https://antmedia.io/pricing/
+calculator: https://antmedia.io/pricing/
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
-    X: apievangelist
     url: https://apievangelist.com
