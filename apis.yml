@@ -70,7 +70,8 @@ apis:
   - type: GettingStarted
     url: https://docs.antmedia.io/quick-start/
   - type: Authentication
-    url: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/jwt-rest-api-filter/
   - type: GitHubRepository
     url: https://github.com/ant-media/Ant-Media-Server
   - type: SDKs
@@ -145,38 +146,14 @@ apis:
     url: openapi/ant-media-vods-api-openapi.yml
   - type: Overlay
     url: overlays/ant-media-vods-overlay.yaml
-- aid: ant-media:ant-media-management-api
-  name: Ant Media Management API
-  description: >-
-    The Ant Media Server Management Panel REST API — 50 operations for non-application-specific
-    administration: creating and deleting applications, managing operator accounts, reading and
-    writing server and application settings, SSL configuration, licence status, and the full
-    system-health surface (CPU, GPU, JVM memory, file system, network throughput, thread and heap
-    dumps, liveness). Harvested verbatim from the specification Ant Media publishes at
-    https://antmedia.io/rest/3.1.0-management/swagger.json.
-  humanURL: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
-  baseURL: https://{ant-media-server}:5443/rest/v2/
-  tags:
-  - Management
-  - Administration
-  - Server Settings
-  - Monitoring
-  properties:
-  - type: OpenAPI
-    url: openapi/ant-media-management-api-openapi.yml
-  - type: Overlay
-    url: overlays/ant-media-management-overlay.yaml
-  - type: Documentation
-    url: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
-  - type: Authentication
-    url: authentication/ant-media-authentication.yml
 - aid: ant-media:ant-media-cluster-api
   name: Ant Media Cluster API
   description: >-
-    The cluster surface of the Ant Media Server management panel REST API — 9 operations for
-    listing cluster nodes with offset/size paging, counting them, annotating a node with a note,
-    and removing a node. Exposed at both /v2/cluster/... and a legacy /cluster/... prefix.
-  humanURL: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+    The cluster surface of the Ant Media Server management panel REST API — 9 operations for listing cluster
+    nodes with offset/size paging, counting them, annotating a node with a note, and removing a node.
+    Exposed at both /v2/cluster/... and a legacy /cluster/... prefix.
+  humanURL: >-
+    https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
   baseURL: https://{ant-media-server}:5443/rest/v2/
   tags:
   - Cluster
@@ -188,6 +165,502 @@ apis:
     url: overlays/ant-media-cluster-overlay.yaml
   - type: Documentation
     url: https://docs.antmedia.io/category/clustering-and-scaling/
+- aid: ant-media:ant-media-admin-status-api
+  name: Ant Media Admin Status API
+  description: The Admin Status API from Ant Media — 1 operation(s) for admin status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Admin Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-admin-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-applications-api
+  name: Ant Media Applications API
+  description: The Applications API from Ant Media — 6 operation(s) for applications.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-applications-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-applications-info-api
+  name: Ant Media Applications Info API
+  description: The Applications Info API from Ant Media — 1 operation(s) for applications info.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Applications Info
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-applications-info-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-authentication-status-api
+  name: Ant Media Authentication Status API
+  description: The Authentication Status API from Ant Media — 1 operation(s) for authentication status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Authentication Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-authentication-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-cluster-mode-status-api
+  name: Ant Media Cluster Mode Status API
+  description: The Cluster Mode Status API from Ant Media — 1 operation(s) for cluster mode status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Cluster Mode Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-cluster-mode-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-cpu-status-api
+  name: Ant Media Cpu Status API
+  description: The Cpu Status API from Ant Media — 1 operation(s) for cpu status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Cpu Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-cpu-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-enterprise-edition-api
+  name: Ant Media Enterprise Edition API
+  description: The Enterprise Edition API from Ant Media — 1 operation(s) for enterprise edition.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Enterprise Edition
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-enterprise-edition-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-file-system-status-api
+  name: Ant Media File System Status API
+  description: The File System Status API from Ant Media — 1 operation(s) for file system status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - File System Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-file-system-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-first-login-status-api
+  name: Ant Media First Login Status API
+  description: The First Login Status API from Ant Media — 1 operation(s) for first login status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - First Login Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-first-login-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-gpu-status-api
+  name: Ant Media Gpu Status API
+  description: The Gpu Status API from Ant Media — 1 operation(s) for gpu status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Gpu Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-gpu-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-heap-dump-api
+  name: Ant Media Heap Dump API
+  description: The Heap Dump API from Ant Media — 1 operation(s) for heap dump.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Heap Dump
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-heap-dump-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-jvm-memory-status-api
+  name: Ant Media Jvm Memory Status API
+  description: The Jvm Memory Status API from Ant Media — 1 operation(s) for jvm memory status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Jvm Memory Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-jvm-memory-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-last-licence-status-api
+  name: Ant Media Last Licence Status API
+  description: The Last Licence Status API from Ant Media — 1 operation(s) for last licence status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Last Licence Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-last-licence-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-licence-status-api
+  name: Ant Media Licence Status API
+  description: The Licence Status API from Ant Media — 1 operation(s) for licence status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Licence Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-licence-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-live-clients-size-api
+  name: Ant Media Live Clients Size API
+  description: The Live Clients Size API from Ant Media — 1 operation(s) for live clients size.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Live Clients Size
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-live-clients-size-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-liveness-api
+  name: Ant Media Liveness API
+  description: The Liveness API from Ant Media — 1 operation(s) for liveness.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Liveness
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-liveness-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-log-file-api
+  name: Ant Media Log File API
+  description: The Log File API from Ant Media — 1 operation(s) for log file.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Log File
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-log-file-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-network-status-api
+  name: Ant Media Network Status API
+  description: The Network Status API from Ant Media — 1 operation(s) for network status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Network Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-network-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-server-settings-api
+  name: Ant Media Server Settings API
+  description: The Server Settings API from Ant Media — 1 operation(s) for server settings.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Server Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-server-settings-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-server-time-api
+  name: Ant Media Server Time API
+  description: The Server Time API from Ant Media — 1 operation(s) for server time.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Server Time
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-server-time-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-shutdown-proper-status-api
+  name: Ant Media Shutdown Proper Status API
+  description: >-
+    The Shutdown Proper Status API from Ant Media — 1 operation(s) for shutdown proper status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Shutdown Proper Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-shutdown-proper-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-shutdown-properly-api
+  name: Ant Media Shutdown Properly API
+  description: The Shutdown Properly API from Ant Media — 1 operation(s) for shutdown properly.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Shutdown Properly
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-shutdown-properly-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-ssl-settings-api
+  name: Ant Media Ssl Settings API
+  description: The Ssl Settings API from Ant Media — 1 operation(s) for ssl settings.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Ssl Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-ssl-settings-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-support-api
+  name: Ant Media Support API
+  description: The Support API from Ant Media — 1 operation(s) for support.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Support
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-support-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-system-api
+  name: Ant Media System API
+  description: The System API from Ant Media — 1 operation(s) for system.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - System
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-system-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-system-memory-status-api
+  name: Ant Media System Memory Status API
+  description: The System Memory Status API from Ant Media — 1 operation(s) for system memory status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - System Memory Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-system-memory-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-system-resources-api
+  name: Ant Media System Resources API
+  description: The System Resources API from Ant Media — 2 operation(s) for system resources.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - System Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-system-resources-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-system-status-api
+  name: Ant Media System Status API
+  description: The System Status API from Ant Media — 1 operation(s) for system status.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - System Status
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-system-status-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-thread-dump-api
+  name: Ant Media Thread Dump API
+  description: The Thread Dump API from Ant Media — 1 operation(s) for thread dump.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Thread Dump
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-thread-dump-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-thread-dump-json-api
+  name: Ant Media Thread Dump Json API
+  description: The Thread Dump Json API from Ant Media — 1 operation(s) for thread dump json.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Thread Dump Json
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-thread-dump-json-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-threads-api
+  name: Ant Media Threads API
+  description: The Threads API from Ant Media — 1 operation(s) for threads.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Threads
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-threads-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-user-list-api
+  name: Ant Media User List API
+  description: The User List API from Ant Media — 1 operation(s) for user list.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - User List
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-user-list-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
+- aid: ant-media:ant-media-users-api
+  name: Ant Media Users API
+  description: The Users API from Ant Media — 7 operation(s) for users.
+  humanURL: https://antmedia.io/rest/
+  baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/ant-media-users-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
+  - type: Authentication
+    url: authentication/ant-media-authentication.yml
 integrations:
   - name: 'Circle: Online Video Conferencing (Free)'
   - name: _N9KR90oXoS
@@ -200,6 +673,8 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: Overlay
+    url: overlays/ant-media-management-overlay.yaml
   - type: Website
     url: https://antmedia.io/
   - type: CapabilityMap
