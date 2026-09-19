@@ -92,6 +92,8 @@ apis:
   humanURL: https://antmedia.io/rest/
   baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
   tags:
+  - Broadcast
+  tags_raw:
   - Broadcasts
   properties:
   - type: OpenAPI
@@ -186,6 +188,8 @@ apis:
   humanURL: https://antmedia.io/rest/
   baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -652,6 +656,8 @@ apis:
   humanURL: https://antmedia.io/rest/
   baseURL: https://{ant-media-server}:5443/{application}/rest/v2/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
