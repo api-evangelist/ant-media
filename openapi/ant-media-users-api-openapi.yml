@@ -1,0 +1,238 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Users API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Users
+paths:
+  /v2/users/initial:
+    post:
+      summary: Creates initial user
+      description: Creates initial user. This is a one time scenario when initial user creation required and shouldn't be used otherwise. User object is required and can't be null
+      operationId: addInitialUser
+      requestBody:
+        description: User object. If it is null, new user won't be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+  /v2/users:
+    put:
+      summary: Edit the user
+      description: Edit the user in the server management panel's user list. It can change password or user type (admin, read-only).
+      operationId: editUser
+      requestBody:
+        description: User to be edited. It finds the user with username.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+    post:
+      summary: Creates a new user
+      description: Creates a new user. If user object is null or if user is not authenticated, new user won't be created.
+      operationId: addUser
+      requestBody:
+        description: User object. If it is null, new user won't be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+  /v2/users/authenticate:
+    post:
+      summary: Authenticates user
+      description: Authenticates user with given username and password. Requires user object to authenticate.
+      operationId: authenticateUser
+      requestBody:
+        description: User object to authenticate
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+  /v2/users/password:
+    post:
+      summary: Changes the given user's password
+      operationId: changeUserPassword
+      requestBody:
+        description: User object to change the password
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Users
+  /v2/users/logout:
+    delete:
+      operationId: deleteSession
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+      summary: Delete session
+      x-summary-source: derived
+  /v2/users/{username}:
+    delete:
+      summary: Delete the user
+      description: Delete the user from the server management panel's user list
+      operationId: deleteUser
+      parameters:
+      - name: username
+        in: path
+        description: User name or e-mail of the user to be deleted
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+  /v2/users/{usermail}/blocked:
+    get:
+      summary: Returns if user is blocked
+      description: User is blocked for a specific time if there are login attempts
+      operationId: getBlockedStatus
+      parameters:
+      - name: usermail
+        in: path
+        description: User name or e-mail of the user to check its status
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Users
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The email of the user
+        password:
+          type: string
+          description: The password of the user
+          writeOnly: true
+        userType:
+          type: string
+          description: The type of the user
+          enum:
+          - ADMIN
+          - READ_ONLY
+          - USER
+          - ADMIN
+          - READ-ONLY
+          - USER
+        scope:
+          type: string
+          description: The scope of the user. If it's 'system', it can access system-level stuff. If it's an application name, it can access application-level stuff.
+        appNameUserType:
+          type: object
+          additionalProperties:
+            type: string
+            description: Holds app -> scope of access data. After 2.9.1 users can have multiple app access with different access types.
+          description: Holds app -> scope of access data. After 2.9.1 users can have multiple app access with different access types.
+        newPassword:
+          type: string
+          description: The new password of the user
+          writeOnly: true
+        firstName:
+          type: string
+          description: The first name of the user
+        lastName:
+          type: string
+          description: The last name of the user
+        fullName:
+          type: string
+          description: The full name of the user
+        picture:
+          type: string
+          description: The URL of the user's picture
+      description: The user information
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
+          type: integer
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

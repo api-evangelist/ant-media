@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST System Status API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: System Status
+paths:
+  /v2/system-status:
+    get:
+      summary: Returns system information
+      operationId: getSystemInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - System Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

@@ -6,9 +6,18 @@ artifacts:
   agentic-access/ant-media-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  asyncapi/ant-media-webhooks.yml:
+    method: searched
+    evidence: declared in the artifact
+  authentication/ant-media-authentication.yml:
+    method: searched
+    evidence: declared in the artifact
   capabilities/ant-media-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  changelog/ant-media-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/ant-media-broadcasts-api.opencollection.json:
     method: derived
     evidence: openapi/ant-media-broadcasts-api
@@ -45,6 +54,21 @@ artifacts:
   collections/ant-media.postman_collection.json:
     method: derived
     evidence: openapi/ant-media
+  components/ant-media-components.yml:
+    method: searched
+    evidence: declared in the artifact
+  conformance/ant-media-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/ant-media-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/ant-media-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/ant-media-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/ant-media-broadcast-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -60,70 +84,7 @@ artifacts:
   json-structure/ant-media-broadcast-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-23T094130.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-23T182523.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-26T223651.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-27T083119.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-27T190208.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T115055.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T170848.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T172558.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T192327.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-28T200725.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T133250.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T151044.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T162206.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-07-31T202106.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T163141.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T163302.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-01T171935.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-03T113057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-03T161012.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-04T083143.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-05T153418.yml:
+  kin/checks-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-06T210741.yml:
@@ -207,36 +168,153 @@ artifacts:
   kin/score-2026-08-28T221322.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-29T213958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-29T230545.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-30T203505.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-30T220315.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-08-31T223420.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T063623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T210448.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-01T222808.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-02T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-02T224043.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-03T161828.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-03T174231.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T062714.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T212454.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-04T224856.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T055819.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T072335.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/ant-media-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
   llms/ant-media-llms-probe.yml:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
+  llms/ant-media-llms.txt:
+    method: searched
+    evidence: 'derive-llms-provenance.py: harvested'
+  mcp/ant-media-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
+  openapi/_original/ant-media-management-openapi.json:
+    method: harvested
+    evidence: fetched from the provider as-is; byte-identical to the source
+  openapi/_original/ant-media-openapi.json:
+    method: harvested
+    evidence: fetched from the provider as-is; byte-identical to the source
   openapi/ant-media-broadcasts-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/ant-media-cluster-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/ant-media-filters-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/ant-media-management-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/ant-media-push-notification-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/ant-media-version-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/ant-media-vods-api-openapi.yml:
-    method: unknown
-    evidence: no authorship recorded
-  plans/ant-media-plans-pricing.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/ant-media-broadcasts-overlay.yaml:
     method: generated
     evidence: declared in the artifact
-  rate-limits/ant-media-rate-limits.yml:
+  overlays/ant-media-cluster-overlay.yaml:
     method: generated
+    evidence: declared in the artifact
+  overlays/ant-media-filters-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/ant-media-management-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/ant-media-push-notification-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/ant-media-version-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/ant-media-vods-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  packages/ant-media-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  plans/ant-media-plans-pricing.yml:
+    method: searched
+    evidence: declared in the artifact
+  rate-limits/ant-media-rate-limits.yml:
+    method: searched
     evidence: declared in the artifact
   rules/ant-media-jsonschema-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
+  sandbox/ant-media-sandbox.yml:
+    method: unknown
+    evidence: no authorship recorded
   security/ant-media-domain-security.yml:
     method: unknown
     evidence: no authorship recorded
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/ant-media-manage-applications-and-server.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/ant-media-publish-a-live-stream.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/ant-media-receive-stream-events.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/ant-media-secure-a-stream-with-tokens.md:
+    method: generated
+    evidence: declared in the artifact
   vocabulary/ant-media-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/ant-media-well-known.yml:
     method: unknown
     evidence: no authorship recorded

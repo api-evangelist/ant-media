@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Gpu Status API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Gpu Status
+paths:
+  /v2/gpu-status:
+    get:
+      summary: Gets GPU information
+      operationId: getGPUInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Gpu Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

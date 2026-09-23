@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ant Media Server REST API Reference Broadcasts Vods API
+  title: Ant Media Server REST API Reference Vods API
   description: Ant Media Server REST API Reference
   contact:
     name: Ant Media Info
@@ -168,7 +168,7 @@ paths:
       - Vods
   /v2/vods/directory:
     post:
-      summary: Import VoD files from a directory and make them streamable.
+      summary: Import VoD files from a directory and make them streamable
       description: Imports VoD files from a directory to the datastore and links them to the streams.
       operationId: importVoDs
       parameters:
@@ -188,7 +188,7 @@ paths:
       tags:
       - Vods
     delete:
-      summary: Unlinks VoD path from streams directory and delete the database record.
+      summary: Unlinks VoD path from streams directory and delete the database record
       description: Deletes the database record associated with the specified directory, without deleting the files themselves.
       operationId: unlinksVoD
       parameters:
@@ -255,23 +255,14 @@ paths:
       - Vods
 components:
   schemas:
-    Result:
+    SimpleStat:
       type: object
       properties:
-        success:
-          type: boolean
-          description: The result of the operation
-        message:
-          type: string
-          description: The message of the operation result
-        dataId:
-          type: string
-          description: The id of the record if operation is about adding a record
-        errorId:
+        number:
           type: integer
-          description: The id of error of the operation result
-          format: int32
-      description: The basic result class
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
     VoD:
       type: object
       properties:
@@ -341,13 +332,22 @@ components:
           type: string
           description: The altitude of the VoD.
       description: The recorded video-on-demand object class
-    SimpleStat:
+    Result:
       type: object
       properties:
-        number:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
           type: integer
-          description: the stat value
-          format: int64
-      description: Simple generic statistics class to return single values
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
 externalDocs:
   url: https://antmedia.io

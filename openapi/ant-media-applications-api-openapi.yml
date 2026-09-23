@@ -1,0 +1,632 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Applications API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Applications
+paths:
+  /v2/applications/settings/{appname}:
+    get:
+      summary: Returns the specified application settings
+      operationId: getSettings
+      parameters:
+      - name: appname
+        in: path
+        description: Application name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Application settings returned
+      tags:
+      - Applications
+    post:
+      summary: Changes the application settings
+      operationId: changeSettings
+      parameters:
+      - name: appname
+        in: path
+        description: Application name
+        required: true
+        schema:
+          type: string
+      requestBody:
+        description: New application settings, null fields will be set to default values
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppSettings'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Applications
+  /v2/applications/{appName}:
+    put:
+      summary: Creates a new application with given name and supports uploading custom WAR…
+      operationId: createApplication_1
+      parameters:
+      - name: appName
+        in: path
+        description: Name for the new application
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - file
+              type: object
+              properties:
+                file:
+                  type: object
+                  description: file
+      responses:
+        '200':
+          description: Custom application created successfully
+      tags:
+      - Applications
+    post:
+      summary: Creates a new application with given name
+      operationId: createApplication
+      parameters:
+      - name: appName
+        in: path
+        description: Name for the new application
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Application created successfully
+      tags:
+      - Applications
+    delete:
+      summary: Deletes application with the given name
+      operationId: deleteApplication
+      parameters:
+      - name: appName
+        in: path
+        description: Name of the application to delete
+        required: true
+        schema:
+          type: string
+      - name: deleteDB
+        in: query
+        description: Whether to delete associated database
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Application deleted successfully
+      tags:
+      - Applications
+  /v2/applications/live-streams/{appname}:
+    get:
+      summary: Returns live streams in the specified application
+      operationId: getAppLiveStreams
+      parameters:
+      - name: appname
+        in: path
+        description: Application name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Applications
+  /v2/applications/{appName}/metrics-history:
+    get:
+      summary: Gets recent per-application metric history (viewers, live streams)
+      operationId: getAppMetricsHistory
+      parameters:
+      - name: appName
+        in: path
+        description: Application name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Applications
+  /v2/applications:
+    get:
+      summary: Gets the applications in the server
+      operationId: getApplications
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Applications
+  /v2/applications/{appname}/reset:
+    post:
+      summary: Resets the viewer counts and broadcasts statuses in the db
+      operationId: resetBroadcast
+      parameters:
+      - name: appname
+        in: path
+        description: Application name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Broadcasts reset successfully
+      tags:
+      - Applications
+components:
+  schemas:
+    EncoderSettings:
+      type: object
+      properties:
+        height:
+          type: integer
+          format: int32
+        videoBitrate:
+          type: integer
+          format: int32
+        audioBitrate:
+          type: integer
+          format: int32
+        forceEncode:
+          type: boolean
+        forceSameResolutionEncode:
+          type: boolean
+    AppSettings:
+      type: object
+      properties:
+        remoteAllowedCIDR:
+          type: string
+        mp4MuxingEnabled:
+          type: boolean
+        webMMuxingEnabled:
+          type: boolean
+        addDateTimeToMp4FileName:
+          type: boolean
+        fileNameFormat:
+          type: string
+        hlsMuxingEnabled:
+          type: boolean
+        encoderSettingsString:
+          type: string
+        signalingEnabled:
+          type: boolean
+        signalingAddress:
+          type: string
+        hlsListSize:
+          type: string
+        hlsTime:
+          type: string
+        uploadExtensionsToS3:
+          type: integer
+          format: int32
+        s3StorageClass:
+          type: string
+        endpointHealthCheckPeriodMs:
+          type: integer
+          format: int32
+        endpointRepublishLimit:
+          type: integer
+          format: int32
+        endpointLiveEdgeEnabled:
+          type: boolean
+        dashSegDuration:
+          type: string
+        dashFragmentDuration:
+          type: string
+        targetLatency:
+          type: string
+        dashWindowSize:
+          type: string
+        dashExtraWindowSize:
+          type: string
+        hlsEnabledViaDash:
+          type: boolean
+        useTimelineDashMuxing:
+          type: boolean
+        webRTCEnabled:
+          type: boolean
+        useOriginalWebRTCEnabled:
+          type: boolean
+        deleteHLSFilesOnEnded:
+          type: boolean
+        deleteDASHFilesOnEnded:
+          type: boolean
+        tokenHashSecret:
+          type: string
+        hashControlPublishEnabled:
+          type: boolean
+        hashControlPlayEnabled:
+          type: boolean
+        listenerHookURL:
+          type: string
+        acceptOnlyStreamsInDataStore:
+          type: boolean
+        acceptOnlyRoomsInDataStore:
+          type: boolean
+        publishTokenControlEnabled:
+          type: boolean
+        playTokenControlEnabled:
+          type: boolean
+        enableTimeTokenForPlay:
+          type: boolean
+        timeTokenSecretForPlay:
+          type: string
+        enableTimeTokenForPublish:
+          type: boolean
+        timeTokenSecretForPublish:
+          type: string
+        timeTokenPeriod:
+          type: integer
+          format: int32
+        hlsPlayListType:
+          type: string
+        hlsSegmentType:
+          type: string
+        hlsSegmentFileSuffixFormat:
+          type: string
+        previewOverwrite:
+          type: boolean
+        createPreviewPeriod:
+          type: integer
+          format: int32
+        restartStreamFetcherPeriod:
+          type: integer
+          format: int32
+        startStreamFetcherAutomatically:
+          type: boolean
+        streamFetcherBufferTime:
+          type: integer
+          format: int32
+        hlsflags:
+          type: string
+        mySqlClientPath:
+          type: string
+        muxerFinishScript:
+          type: string
+        streamStartedScript:
+          type: string
+        streamEndedScript:
+          type: string
+        streamIdleTimeoutScript:
+          type: string
+        webRTCFrameRate:
+          type: integer
+          format: int32
+        webRTCPortRangeMin:
+          type: integer
+          format: int32
+        webRTCPortRangeMax:
+          type: integer
+          format: int32
+        stunServerURI:
+          type: string
+        turnServerUsername:
+          type: string
+        turnServerCredential:
+          type: string
+        webRTCTcpCandidatesEnabled:
+          type: boolean
+        webRTCSdpSemantics:
+          type: string
+        portAllocatorFlags:
+          type: integer
+          format: int32
+        encoderName:
+          type: string
+        encoderParameters:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+        encoderThreadCount:
+          type: integer
+          format: int32
+        encoderThreadType:
+          type: integer
+          format: int32
+        vp8EncoderThreadCount:
+          type: integer
+          format: int32
+        previewHeight:
+          type: integer
+          format: int32
+        generatePreview:
+          type: boolean
+        previewFormat:
+          type: string
+        previewQuality:
+          type: integer
+          format: int32
+        writeStatsToDatastore:
+          type: boolean
+        encoderSelectionPreference:
+          type: string
+        allowedPublisherCIDR:
+          type: string
+        excessiveBandwidthValue:
+          type: integer
+          format: int32
+        excessiveBandwidthCallThreshold:
+          type: integer
+          format: int32
+        excessiveBandwithTryCountBeforeSwitchback:
+          type: integer
+          format: int32
+        excessiveBandwidthAlgorithmEnabled:
+          type: boolean
+        packetLossDiffThresholdForSwitchback:
+          type: integer
+          format: int32
+        rttMeasurementDiffThresholdForSwitchback:
+          type: integer
+          format: int32
+        replaceCandidateAddrWithServerAddr:
+          type: boolean
+        appName:
+          type: string
+        webRTCClientStartTimeoutMs:
+          type: integer
+          format: int32
+        updateTime:
+          type: integer
+          format: int64
+        httpForwardingExtension:
+          type: string
+        httpForwardingBaseURL:
+          type: string
+        maxAnalyzeDurationMS:
+          type: integer
+          format: int32
+        disableIPv6Candidates:
+          type: boolean
+        rtspPullTransportType:
+          type: string
+        rtspTimeoutDurationMs:
+          type: integer
+          format: int32
+        maxFpsAccept:
+          type: integer
+          format: int32
+        maxResolutionAccept:
+          type: integer
+          format: int32
+        maxBitrateAccept:
+          type: integer
+          format: int32
+        h264Enabled:
+          type: boolean
+        vp8Enabled:
+          type: boolean
+        av1Enabled:
+          type: boolean
+        h265Enabled:
+          type: boolean
+        dataChannelEnabled:
+          type: boolean
+        dataChannelPlayerDistribution:
+          type: string
+        rtmpIngestBufferTimeMs:
+          type: integer
+          format: int64
+        dataChannelWebHookURL:
+          type: string
+        heightRtmpForwarding:
+          type: integer
+          format: int32
+        audioBitrateSFU:
+          type: integer
+          format: int32
+        dashMuxingEnabled:
+          type: boolean
+        aacEncodingEnabled:
+          type: boolean
+        gopSize:
+          type: integer
+          format: int32
+        webRTCViewerLimit:
+          type: integer
+          format: int32
+        appStatus:
+          type: string
+        appInstallationTime:
+          type: integer
+          format: int64
+        pullWarFile:
+          type: boolean
+        warFileOriginServerAddress:
+          type: string
+        jwtSecretKey:
+          type: string
+        jwtControlEnabled:
+          type: boolean
+        ipFilterEnabled:
+          type: boolean
+        ingestingStreamLimit:
+          type: integer
+          format: int32
+        webRTCKeyframeTime:
+          type: integer
+          format: int32
+        jwtStreamSecretKey:
+          type: string
+        publishJwtControlEnabled:
+          type: boolean
+        playJwtControlEnabled:
+          type: boolean
+        dashHttpStreaming:
+          type: boolean
+        subFolder:
+          type: string
+        s3StreamsFolderPath:
+          type: string
+        s3PreviewsFolderPath:
+          type: string
+        dashHttpEndpoint:
+          type: string
+        hlsHttpEndpoint:
+          type: string
+        forceDecoding:
+          type: boolean
+        addOriginalMuxerIntoHLSPlaylist:
+          type: boolean
+        s3RecordingEnabled:
+          type: boolean
+        s3AccessKey:
+          type: string
+        s3SecretKey:
+          type: string
+        s3BucketName:
+          type: string
+        s3RegionName:
+          type: string
+        s3Endpoint:
+          type: string
+        s3CacheControl:
+          type: string
+        s3PathStyleAccessEnabled:
+          type: boolean
+        s3Permission:
+          type: string
+        s3TransferBufferSizeInBytes:
+          type: integer
+          format: int32
+        hlsEncryptionKeyInfoFile:
+          type: string
+        jwksURL:
+          type: string
+        forceAspectRatioInTranscoding:
+          type: boolean
+        webhookAuthenticateURL:
+          type: string
+        maxAudioTrackCount:
+          type: integer
+          format: int32
+        maxVideoTrackCount:
+          type: integer
+          format: int32
+        vodUploadFinishScript:
+          type: string
+        contentSecurityPolicyHeaderValue:
+          type: string
+        rtmpPlaybackEnabled:
+          type: boolean
+        originEdgeIdleTimeout:
+          type: integer
+          format: int32
+        addDateTimeToHlsFileName:
+          type: boolean
+        playWebRTCStreamOnceForEachSession:
+          type: boolean
+        statsBasedABREnabled:
+          type: boolean
+        abrDownScalePacketLostRatio:
+          type: number
+          format: float
+        abrUpScalePacketLostRatio:
+          type: number
+          format: float
+        abrUpScaleRTTMs:
+          type: integer
+          format: int32
+        abrUpScaleJitterMs:
+          type: integer
+          format: int32
+        clusterCommunicationKey:
+          type: string
+        id3TagEnabled:
+          type: boolean
+        sendAudioLevelToViewers:
+          type: boolean
+        audioLevelThreshold:
+          type: integer
+          format: int32
+        hwScalingEnabled:
+          type: boolean
+        hwDecoderEnabled:
+          type: boolean
+        firebaseAccountKeyJSON:
+          type: string
+        subscriberAuthenticationKey:
+          type: string
+        apnsServer:
+          type: string
+        apnTeamId:
+          type: string
+        apnPrivateKey:
+          type: string
+        apnKeyId:
+          type: string
+        webhookRetryCount:
+          type: integer
+          format: int32
+        secureAnalyticEndpoint:
+          type: boolean
+        webhookRetryDelay:
+          type: integer
+          format: int64
+        webhookStreamStatusUpdatePeriodMs:
+          type: integer
+          format: int64
+        webhookPlayAuthUrl:
+          type: string
+        recordingSubfolder:
+          type: string
+        webhookContentType:
+          type: string
+        iceGatheringTimeoutMs:
+          type: integer
+          format: int64
+        participantVisibilityMatrix:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        customSettings:
+          type: object
+          additionalProperties:
+            type: object
+        relayRTMPMetaDataToMuxers:
+          type: boolean
+        dropWebRTCIngestIfNoPacketReceived:
+          type: boolean
+        srtReceiveLatencyInMs:
+          type: integer
+          format: int32
+        encodingQueueSize:
+          type: integer
+          format: int32
+        writeSubscriberEventsToDatastore:
+          type: boolean
+        disableAudio:
+          type: boolean
+        encoderSettings:
+          type: array
+          items:
+            $ref: '#/components/schemas/EncoderSettings'
+        lldashEnabled:
+          type: boolean
+        llhlsenabled:
+          type: boolean
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

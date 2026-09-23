@@ -1,0 +1,51 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Admin Status API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Admin Status
+paths:
+  /v2/admin-status:
+    get:
+      summary: Returns admin status
+      description: Returns whether current user is admin or not. If user is admin, it can call POST/PUT/DELETE methods
+      operationId: isAdmin
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - Admin Status
+components:
+  schemas:
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
+          type: integer
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

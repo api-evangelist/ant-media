@@ -1,0 +1,34 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Licence Status API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Licence Status
+paths:
+  /v2/licence-status:
+    get:
+      summary: Returns license status
+      operationId: getLicenceStatus_1
+      parameters:
+      - name: key
+        in: query
+        description: License key
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: License status returned
+      tags:
+      - Licence Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

@@ -1,0 +1,395 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Server Settings API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Server Settings
+paths:
+  /v2/server-settings:
+    get:
+      summary: Returns the server settings
+      operationId: getServerSettings
+      responses:
+        '200':
+          description: Server settings returned
+      tags:
+      - Server Settings
+    post:
+      summary: Changes server settings
+      operationId: changeServerSettings
+      requestBody:
+        description: Server settings
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServerSettings'
+        required: true
+      responses:
+        '200':
+          description: Server settings changed
+      tags:
+      - Server Settings
+components:
+  schemas:
+    Environment:
+      type: object
+      properties:
+        activeProfiles:
+          type: array
+          items:
+            type: string
+        defaultProfiles:
+          type: array
+          items:
+            type: string
+    ServerSettings:
+      type: object
+      properties:
+        allowedDashboardCIDR:
+          type: string
+        hostAddress:
+          type: string
+        serverName:
+          type: string
+        licenceKey:
+          type: string
+        buildForMarket:
+          type: boolean
+        marketplace:
+          type: string
+        logLevel:
+          type: string
+        offlineLicense:
+          type: boolean
+        nativeLogLevel:
+          type: string
+        heartbeatEnabled:
+          type: boolean
+        useGlobalIp:
+          type: boolean
+        proxyAddress:
+          type: string
+        nodeGroup:
+          type: string
+        cpuMeasurementPeriodMs:
+          type: integer
+          format: int32
+        cpuMeasurementWindowSize:
+          type: integer
+          format: int32
+        metricsHistorySamplePeriodMs:
+          type: integer
+          format: int32
+        metricsHistorySize:
+          type: integer
+          format: int32
+        appMetricsHistorySamplePeriodMs:
+          type: integer
+          format: int32
+        appMetricsHistorySize:
+          type: integer
+          format: int32
+        streamMetricsHistorySize:
+          type: integer
+          format: int32
+        defaultHttpPort:
+          type: integer
+          format: int32
+        jwtServerControlEnabled:
+          type: boolean
+        jwtServerSecretKey:
+          type: string
+        jwksURL:
+          type: string
+        originServerPort:
+          type: integer
+          format: int32
+        srtPort:
+          type: integer
+          format: int32
+        appIngestsSrtStreamsWithoutStreamId:
+          type: string
+        sslEnabled:
+          type: boolean
+        rtmpPort:
+          type: integer
+          format: int32
+        serverStatusWebHookURL:
+          type: string
+        localLicenceServerIps:
+          type: string
+        applicationContext:
+          $ref: '#/components/schemas/ApplicationContext'
+        hostAddressFromEnvironment:
+          type: string
+        webRTCLogLevel:
+          type: string
+          enum:
+          - LS_VERBOSE
+          - LS_INFO
+          - LS_WARNING
+          - LS_ERROR
+          - LS_NONE
+        rtmpsEnabled:
+          type: boolean
+          writeOnly: true
+    ApplicationContext:
+      type: object
+      properties:
+        parent:
+          $ref: '#/components/schemas/ApplicationContext'
+        id:
+          type: string
+        displayName:
+          type: string
+        startupDate:
+          type: integer
+          format: int64
+        applicationName:
+          type: string
+        autowireCapableBeanFactory:
+          $ref: '#/components/schemas/AutowireCapableBeanFactory'
+        environment:
+          $ref: '#/components/schemas/Environment'
+        beanDefinitionCount:
+          type: integer
+          format: int32
+        beanDefinitionNames:
+          type: array
+          items:
+            type: string
+        parentBeanFactory:
+          $ref: '#/components/schemas/BeanFactory'
+        classLoader:
+          type: object
+          properties:
+            name:
+              type: string
+            registeredAsParallelCapable:
+              type: boolean
+            parent:
+              type: object
+              properties:
+                name:
+                  type: string
+                registeredAsParallelCapable:
+                  type: boolean
+                unnamedModule:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    classLoader:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        registeredAsParallelCapable:
+                          type: boolean
+                        definedPackages:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              annotations:
+                                type: array
+                                items:
+                                  type: object
+                              declaredAnnotations:
+                                type: array
+                                items:
+                                  type: object
+                              sealed:
+                                type: boolean
+                              specificationTitle:
+                                type: string
+                              specificationVersion:
+                                type: string
+                              specificationVendor:
+                                type: string
+                              implementationTitle:
+                                type: string
+                              implementationVersion:
+                                type: string
+                              implementationVendor:
+                                type: string
+                        defaultAssertionStatus:
+                          type: boolean
+                          writeOnly: true
+                    descriptor:
+                      type: object
+                      properties:
+                        open:
+                          type: boolean
+                        automatic:
+                          type: boolean
+                    named:
+                      type: boolean
+                    annotations:
+                      type: array
+                      items:
+                        type: object
+                    declaredAnnotations:
+                      type: array
+                      items:
+                        type: object
+                    packages:
+                      uniqueItems: true
+                      type: array
+                      items:
+                        type: string
+                    nativeAccessEnabled:
+                      type: boolean
+                    layer:
+                      type: object
+                definedPackages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      annotations:
+                        type: array
+                        items:
+                          type: object
+                      declaredAnnotations:
+                        type: array
+                        items:
+                          type: object
+                      sealed:
+                        type: boolean
+                      specificationTitle:
+                        type: string
+                      specificationVersion:
+                        type: string
+                      specificationVendor:
+                        type: string
+                      implementationTitle:
+                        type: string
+                      implementationVersion:
+                        type: string
+                      implementationVendor:
+                        type: string
+                defaultAssertionStatus:
+                  type: boolean
+                  writeOnly: true
+            unnamedModule:
+              type: object
+              properties:
+                name:
+                  type: string
+                classLoader:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    registeredAsParallelCapable:
+                      type: boolean
+                    definedPackages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          annotations:
+                            type: array
+                            items:
+                              type: object
+                          declaredAnnotations:
+                            type: array
+                            items:
+                              type: object
+                          sealed:
+                            type: boolean
+                          specificationTitle:
+                            type: string
+                          specificationVersion:
+                            type: string
+                          specificationVendor:
+                            type: string
+                          implementationTitle:
+                            type: string
+                          implementationVersion:
+                            type: string
+                          implementationVendor:
+                            type: string
+                    defaultAssertionStatus:
+                      type: boolean
+                      writeOnly: true
+                descriptor:
+                  type: object
+                  properties:
+                    open:
+                      type: boolean
+                    automatic:
+                      type: boolean
+                named:
+                  type: boolean
+                annotations:
+                  type: array
+                  items:
+                    type: object
+                declaredAnnotations:
+                  type: array
+                  items:
+                    type: object
+                packages:
+                  uniqueItems: true
+                  type: array
+                  items:
+                    type: string
+                nativeAccessEnabled:
+                  type: boolean
+                layer:
+                  type: object
+            definedPackages:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  annotations:
+                    type: array
+                    items:
+                      type: object
+                  declaredAnnotations:
+                    type: array
+                    items:
+                      type: object
+                  sealed:
+                    type: boolean
+                  specificationTitle:
+                    type: string
+                  specificationVersion:
+                    type: string
+                  specificationVendor:
+                    type: string
+                  implementationTitle:
+                    type: string
+                  implementationVersion:
+                    type: string
+                  implementationVendor:
+                    type: string
+            defaultAssertionStatus:
+              type: boolean
+              writeOnly: true
+    AutowireCapableBeanFactory:
+      type: object
+    BeanFactory:
+      type: object
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

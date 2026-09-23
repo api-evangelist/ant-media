@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Enterprise Edition…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Enterprise Edition
+paths:
+  /v2/enterprise-edition:
+    get:
+      summary: Returns true if the server is enterprise edition
+      operationId: isEnterpriseEdition
+      responses:
+        '200':
+          description: Enterprise edition status
+      tags:
+      - Enterprise Edition
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

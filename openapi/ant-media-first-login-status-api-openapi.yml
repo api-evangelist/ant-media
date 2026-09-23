@@ -1,0 +1,51 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST First Login Status…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: First Login Status
+paths:
+  /v2/first-login-status:
+    get:
+      summary: Checks first login status
+      description: Checks first login status. If server being logged in first time, it returns true, otherwise false.
+      operationId: isFirstLogin
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+      tags:
+      - First Login Status
+components:
+  schemas:
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+          description: The result of the operation
+        message:
+          type: string
+          description: The message of the operation result
+        dataId:
+          type: string
+          description: The id of the record if operation is about adding a record
+        errorId:
+          type: integer
+          description: The id of error of the operation result
+          format: int32
+      description: The basic result class
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

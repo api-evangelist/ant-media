@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Threads API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Threads
+paths:
+  /v2/threads:
+    get:
+      summary: Returns processor's thread information
+      operationId: getThreadsInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Threads
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

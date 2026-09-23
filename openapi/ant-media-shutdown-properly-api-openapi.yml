@@ -1,0 +1,34 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Shutdown Properly API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Shutdown Properly
+paths:
+  /v2/shutdown-properly:
+    get:
+      summary: Set application or applications shutdown property to true
+      operationId: setShutdownStatus
+      parameters:
+      - name: appNames
+        in: query
+        description: Application name
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Shutdown status set
+      tags:
+      - Shutdown Properly
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

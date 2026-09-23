@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Last Licence Status…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Last Licence Status
+paths:
+  /v2/last-licence-status:
+    get:
+      summary: Returns the last checked license status
+      operationId: getLicenceStatus
+      responses:
+        '200':
+          description: Last checked license status returned
+      tags:
+      - Last Licence Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

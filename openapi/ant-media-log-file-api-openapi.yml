@@ -1,0 +1,48 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Log File API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Log File
+paths:
+  /v2/log-file/{offsetSize}/{charSize}:
+    get:
+      summary: Gets log file
+      operationId: getLogFile
+      parameters:
+      - name: charSize
+        in: path
+        description: Char size of the log
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: logType
+        in: query
+        description: Log type. ERROR can be used to get only error logs
+        required: true
+        schema:
+          type: string
+      - name: offsetSize
+        in: path
+        description: Offset of the retrieved log
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Log file retrieved successfully
+      tags:
+      - Log File
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

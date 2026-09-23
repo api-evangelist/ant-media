@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Cluster Mode Status…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Cluster Mode Status
+paths:
+  /v2/cluster-mode-status:
+    get:
+      summary: Returns the server mode
+      operationId: isInClusterMode
+      responses:
+        '200':
+          description: Server mode returned
+      tags:
+      - Cluster Mode Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

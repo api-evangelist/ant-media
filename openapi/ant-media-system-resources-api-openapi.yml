@@ -1,0 +1,36 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST System Resources API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: System Resources
+paths:
+  /v2/system-resources/history:
+    get:
+      summary: Gets recent system resource usage history
+      operationId: getSystemResourcesHistory
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - System Resources
+  /v2/system-resources:
+    get:
+      summary: Gets system resource information
+      operationId: getSystemResourcesInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - System Resources
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

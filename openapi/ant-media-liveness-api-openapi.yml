@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Liveness API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Liveness
+paths:
+  /v2/liveness:
+    get:
+      summary: Returns the hostname to check liveness with HTTP type healthcheck
+      operationId: liveness
+      responses:
+        '200':
+          description: Liveness check response
+      tags:
+      - Liveness
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

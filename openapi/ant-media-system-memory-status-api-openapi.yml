@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST System Memory Status…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: System Memory Status
+paths:
+  /v2/system-memory-status:
+    get:
+      summary: Gets system memory status
+      operationId: getSystemMemoryInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - System Memory Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

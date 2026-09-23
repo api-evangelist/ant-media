@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Server Time API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Server Time
+paths:
+  /v2/server-time:
+    get:
+      summary: Gets server time
+      operationId: getServerTime
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Server Time
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Authentication…
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Authentication Status
+paths:
+  /v2/authentication-status:
+    get:
+      summary: Returns true if user is authenticated to call rest api operations
+      operationId: isAuthenticatedRest
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Authentication Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

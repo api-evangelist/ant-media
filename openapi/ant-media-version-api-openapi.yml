@@ -1,7 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ant Media Server REST API Reference Broadcasts Version API
-  description: Ant Media Server REST API Reference
+  title: Ant Media Version API
   contact:
     name: Ant Media Info
     url: https://antmedia.io
@@ -9,7 +8,8 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org
-  version: V2.0
+  version: '1.0'
+  description: 'Operations tagged Version across 2 of this provider''s published API definitions: ant-media-management-openapi.json, ant-media-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://test.antmedia.io:5443/Sandbox/rest/
   description: test server
@@ -18,16 +18,11 @@ tags:
 paths:
   /v2/version:
     get:
-      summary: Returns the Ant Media Server Version
-      description: Retrieves the version information of the Ant Media Server.
+      summary: Returns the version of Ant Media Server
       operationId: getVersion
       responses:
         '200':
-          description: Ant Media Server Version
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Version'
+          description: Successful operation
       tags:
       - Version
 components:
@@ -45,5 +40,6 @@ components:
           type: string
           description: Build number(timestamp) of the software.
       description: The version class
-externalDocs:
-  url: https://antmedia.io
+x-refined-from:
+- ant-media-management-openapi.json
+- ant-media-openapi.json

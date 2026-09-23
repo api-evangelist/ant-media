@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST System API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: System
+paths:
+  /v2/system/gc:
+    post:
+      summary: Trigger garbage collector
+      operationId: triggerGc
+      responses:
+        '200':
+          description: Garbage collection triggered
+      tags:
+      - System
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

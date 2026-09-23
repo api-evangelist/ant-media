@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Jvm Memory Status API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Jvm Memory Status
+paths:
+  /v2/jvm-memory-status:
+    get:
+      summary: Returns JVM memory information
+      operationId: getJVMMemoryInfo
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Jvm Memory Status
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

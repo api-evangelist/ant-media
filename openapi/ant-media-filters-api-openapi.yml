@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ant Media Server REST API Reference Broadcasts Filters API
+  title: Ant Media Server REST API Reference Filters API
   description: Ant Media Server REST API Reference
   contact:
     name: Ant Media Info

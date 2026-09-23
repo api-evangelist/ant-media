@@ -1,0 +1,77 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Ssl Settings API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Ssl Settings
+paths:
+  /v2/ssl-settings:
+    post:
+      summary: Changes ssl settings
+      operationId: configureSsl
+      parameters:
+      - name: domain
+        in: query
+        description: SSL settings
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                fullChainFile:
+                  $ref: '#/components/schemas/FormDataContentDisposition'
+                privateKeyFile:
+                  $ref: '#/components/schemas/FormDataContentDisposition'
+                chainFile:
+                  $ref: '#/components/schemas/FormDataContentDisposition'
+      responses:
+        '200':
+          description: SSL settings configured, server will be restarted
+      tags:
+      - Ssl Settings
+components:
+  schemas:
+    FormDataContentDisposition:
+      type: object
+      properties:
+        type:
+          type: string
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        fileName:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        readDate:
+          type: string
+          format: date-time
+        size:
+          type: integer
+          format: int64
+        name:
+          type: string
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

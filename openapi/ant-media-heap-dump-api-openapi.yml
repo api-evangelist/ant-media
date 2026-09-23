@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Heap Dump API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Heap Dump
+paths:
+  /v2/heap-dump:
+    get:
+      summary: Returns heap dump
+      operationId: getHeapDump
+      responses:
+        '200':
+          description: Returns the heap dump
+      tags:
+      - Heap Dump
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ant Media Server Management Panel REST API Cluster API
+  title: Ant Media Server Management Panel REST Cluster API
   description: Ant Media Server Management Panel REST API
   contact:
     name: Ant Media Info
@@ -10,13 +10,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org
   version: v2.0
-servers:
-- url: https://{ant-media-server}:5443/rest/
-  description: Ant Media Server management panel REST base. Ant Media Server is self-hosted, so the host is the customer's own server; port 5443 and the /rest/ prefix are the values published in the Management Panel REST API guide.
-  variables:
-    ant-media-server:
-      default: your-ant-media-server
-      description: Hostname or IP of your Ant Media Server instance
 tags:
 - name: Cluster
 paths:
@@ -38,6 +31,8 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Cluster
+      summary: Delete node
+      x-summary-source: derived
   /v2/cluster/node-count:
     get:
       operationId: getNodeCount
@@ -50,6 +45,8 @@ paths:
                 $ref: '#/components/schemas/SimpleStat'
       tags:
       - Cluster
+      summary: Get node count
+      x-summary-source: derived
   /v2/cluster/nodes/{offset}/{size}:
     get:
       operationId: getNodeList
@@ -77,6 +74,8 @@ paths:
                   $ref: '#/components/schemas/ClusterNode'
       tags:
       - Cluster
+      summary: Get node list
+      x-summary-source: derived
   /v2/cluster/node/{id}/note:
     put:
       operationId: updateNodeNote
@@ -99,6 +98,8 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Cluster
+      summary: Update node note
+      x-summary-source: derived
   /cluster/deleteNode/{id}:
     get:
       operationId: deleteNode_1
@@ -117,6 +118,8 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Cluster
+      summary: Delete node 1
+      x-summary-source: derived
   /cluster/node-count:
     get:
       operationId: getNodeCount_1
@@ -129,6 +132,8 @@ paths:
                 $ref: '#/components/schemas/SimpleStat'
       tags:
       - Cluster
+      summary: Get node count 1
+      x-summary-source: derived
   /cluster/nodes/{offset}/{size}:
     get:
       operationId: getNodeList_1
@@ -156,6 +161,8 @@ paths:
                   $ref: '#/components/schemas/ClusterNode'
       tags:
       - Cluster
+      summary: Get node list 1
+      x-summary-source: derived
   /cluster/node/{id}/note:
     put:
       operationId: updateNodeNote_1
@@ -178,17 +185,18 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Cluster
-  /v2/cluster-mode-status:
-    get:
-      summary: Returns the server mode
-      operationId: isInClusterMode
-      responses:
-        '200':
-          description: Server mode returned
-      tags:
-      - Cluster
+      summary: Update node note 1
+      x-summary-source: derived
 components:
   schemas:
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
     ClusterNode:
       type: object
       properties:
@@ -227,14 +235,6 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
-    SimpleStat:
-      type: object
-      properties:
-        number:
-          type: integer
-          description: the stat value
-          format: int64
-      description: Simple generic statistics class to return single values
 externalDocs:
-  url: https://docs.antmedia.io/guides/developer-sdk-and-api/rest-api-guide/management-rest-apis/
-  description: Management Panel REST API Services
+  description: External Docs
+  url: https://antmedia.io

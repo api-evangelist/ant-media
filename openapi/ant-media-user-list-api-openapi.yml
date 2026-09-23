@@ -1,0 +1,32 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST User List API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: User List
+paths:
+  /v2/user-list:
+    get:
+      summary: Returns user list
+      description: Returns user list in the server management panel
+      operationId: getUserList
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - User List
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io

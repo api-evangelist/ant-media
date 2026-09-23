@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Ant Media Server REST API Reference Broadcasts Push Notification API
+  title: Ant Media Server REST API Reference Push Notification API
   description: Ant Media Server REST API Reference
   contact:
     name: Ant Media Info
@@ -38,6 +38,8 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Push Notification
+      summary: Get subscriber authentication token
+      x-summary-source: derived
   /v2/push-notification/subscribers:
     post:
       operationId: sendPushNotification
@@ -60,6 +62,8 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Push Notification
+      summary: Send push notification
+      x-summary-source: derived
   /v2/push-notification/topics/{topic}:
     post:
       operationId: sendPushNotification_1
@@ -87,8 +91,19 @@ paths:
                 $ref: '#/components/schemas/Result'
       tags:
       - Push Notification
+      summary: Send push notification 1
+      x-summary-source: derived
 components:
   schemas:
+    PushNotificationToSubscribers:
+      type: object
+      properties:
+        subscribers:
+          type: array
+          items:
+            type: string
+        jsonMessage:
+          type: string
     Result:
       type: object
       properties:
@@ -106,14 +121,5 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
-    PushNotificationToSubscribers:
-      type: object
-      properties:
-        subscribers:
-          type: array
-          items:
-            type: string
-        jsonMessage:
-          type: string
 externalDocs:
   url: https://antmedia.io

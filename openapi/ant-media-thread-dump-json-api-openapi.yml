@@ -1,0 +1,27 @@
+openapi: 3.2.0
+info:
+  title: Ant Media Server Management Panel REST Thread Dump Json API
+  description: Ant Media Server Management Panel REST API
+  contact:
+    name: Ant Media Info
+    url: https://antmedia.io
+    email: contact@antmedia.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org
+  version: v2.0
+tags:
+- name: Thread Dump Json
+paths:
+  /v2/thread-dump-json:
+    get:
+      summary: Gets thread dump in json format
+      operationId: getThreadDumpJSON
+      responses:
+        '200':
+          description: Successful operation
+      tags:
+      - Thread Dump Json
+externalDocs:
+  description: External Docs
+  url: https://antmedia.io
