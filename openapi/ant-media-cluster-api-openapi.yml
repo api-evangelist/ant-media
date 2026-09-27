@@ -189,14 +189,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SimpleStat:
-      type: object
-      properties:
-        number:
-          type: integer
-          description: the stat value
-          format: int64
-      description: Simple generic statistics class to return single values
     ClusterNode:
       type: object
       properties:
@@ -235,6 +227,14 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
 externalDocs:
   description: External Docs
   url: https://antmedia.io

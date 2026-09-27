@@ -50,97 +50,8 @@ components:
           type: array
           items:
             type: string
-    ServerSettings:
+    BeanFactory:
       type: object
-      properties:
-        allowedDashboardCIDR:
-          type: string
-        hostAddress:
-          type: string
-        serverName:
-          type: string
-        licenceKey:
-          type: string
-        buildForMarket:
-          type: boolean
-        marketplace:
-          type: string
-        logLevel:
-          type: string
-        offlineLicense:
-          type: boolean
-        nativeLogLevel:
-          type: string
-        heartbeatEnabled:
-          type: boolean
-        useGlobalIp:
-          type: boolean
-        proxyAddress:
-          type: string
-        nodeGroup:
-          type: string
-        cpuMeasurementPeriodMs:
-          type: integer
-          format: int32
-        cpuMeasurementWindowSize:
-          type: integer
-          format: int32
-        metricsHistorySamplePeriodMs:
-          type: integer
-          format: int32
-        metricsHistorySize:
-          type: integer
-          format: int32
-        appMetricsHistorySamplePeriodMs:
-          type: integer
-          format: int32
-        appMetricsHistorySize:
-          type: integer
-          format: int32
-        streamMetricsHistorySize:
-          type: integer
-          format: int32
-        defaultHttpPort:
-          type: integer
-          format: int32
-        jwtServerControlEnabled:
-          type: boolean
-        jwtServerSecretKey:
-          type: string
-        jwksURL:
-          type: string
-        originServerPort:
-          type: integer
-          format: int32
-        srtPort:
-          type: integer
-          format: int32
-        appIngestsSrtStreamsWithoutStreamId:
-          type: string
-        sslEnabled:
-          type: boolean
-        rtmpPort:
-          type: integer
-          format: int32
-        serverStatusWebHookURL:
-          type: string
-        localLicenceServerIps:
-          type: string
-        applicationContext:
-          $ref: '#/components/schemas/ApplicationContext'
-        hostAddressFromEnvironment:
-          type: string
-        webRTCLogLevel:
-          type: string
-          enum:
-          - LS_VERBOSE
-          - LS_INFO
-          - LS_WARNING
-          - LS_ERROR
-          - LS_NONE
-        rtmpsEnabled:
-          type: boolean
-          writeOnly: true
     ApplicationContext:
       type: object
       properties:
@@ -386,9 +297,98 @@ components:
             defaultAssertionStatus:
               type: boolean
               writeOnly: true
-    AutowireCapableBeanFactory:
+    ServerSettings:
       type: object
-    BeanFactory:
+      properties:
+        allowedDashboardCIDR:
+          type: string
+        hostAddress:
+          type: string
+        serverName:
+          type: string
+        licenceKey:
+          type: string
+        buildForMarket:
+          type: boolean
+        marketplace:
+          type: string
+        logLevel:
+          type: string
+        offlineLicense:
+          type: boolean
+        nativeLogLevel:
+          type: string
+        heartbeatEnabled:
+          type: boolean
+        useGlobalIp:
+          type: boolean
+        proxyAddress:
+          type: string
+        nodeGroup:
+          type: string
+        cpuMeasurementPeriodMs:
+          type: integer
+          format: int32
+        cpuMeasurementWindowSize:
+          type: integer
+          format: int32
+        metricsHistorySamplePeriodMs:
+          type: integer
+          format: int32
+        metricsHistorySize:
+          type: integer
+          format: int32
+        appMetricsHistorySamplePeriodMs:
+          type: integer
+          format: int32
+        appMetricsHistorySize:
+          type: integer
+          format: int32
+        streamMetricsHistorySize:
+          type: integer
+          format: int32
+        defaultHttpPort:
+          type: integer
+          format: int32
+        jwtServerControlEnabled:
+          type: boolean
+        jwtServerSecretKey:
+          type: string
+        jwksURL:
+          type: string
+        originServerPort:
+          type: integer
+          format: int32
+        srtPort:
+          type: integer
+          format: int32
+        appIngestsSrtStreamsWithoutStreamId:
+          type: string
+        sslEnabled:
+          type: boolean
+        rtmpPort:
+          type: integer
+          format: int32
+        serverStatusWebHookURL:
+          type: string
+        localLicenceServerIps:
+          type: string
+        applicationContext:
+          $ref: '#/components/schemas/ApplicationContext'
+        hostAddressFromEnvironment:
+          type: string
+        webRTCLogLevel:
+          type: string
+          enum:
+          - LS_VERBOSE
+          - LS_INFO
+          - LS_WARNING
+          - LS_ERROR
+          - LS_NONE
+        rtmpsEnabled:
+          type: boolean
+          writeOnly: true
+    AutowireCapableBeanFactory:
       type: object
 externalDocs:
   description: External Docs

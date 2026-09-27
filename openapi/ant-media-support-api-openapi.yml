@@ -34,19 +34,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SupportRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        sendSystemInfo:
-          type: boolean
     Result:
       type: object
       properties:
@@ -64,6 +51,19 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
+    SupportRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        sendSystemInfo:
+          type: boolean
 externalDocs:
   description: External Docs
   url: https://antmedia.io

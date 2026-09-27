@@ -8,6 +8,10 @@ description: >-
   video recording, and REST API management.
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: ant-media/ant-media-server
+    spdx: NOASSERTION
+    stars: 4734
   open_source: unknown
   commercial: true
   callable_host: false
@@ -17,7 +21,7 @@ deliveryModel:
   - openapi
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
