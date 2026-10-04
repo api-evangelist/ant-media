@@ -1,25 +1,23 @@
-# Kin Score artifact — ant-media — 2026-08-27T103455
+# Kin Score artifact — ant-media — 2026-09-24T064009
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: ant-media
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
-  composite: 45.6
-  band: developing
+  schema_version: 0.22.0
+  scored_at: '2026-09-24'
+  run_ts: 2026-09-24T064009
+  composite: 59.8
+  band: strong
   facets:
-    discoverability: 74.1
-    contract_quality: 43.4
-    governance: 25.0
-    operational_transparency: 26.3
-    developer_ergonomics: 57.1
-    commercial_clarity: 47.4
-    contract_governance: 25.0
-    access_clarity: 47.4
+    discoverability: 75.9
+    contract_quality: 49.6
+    contract_governance: 29.5
+    operational_transparency: 42.1
+    developer_ergonomics: 73.2
+    access_clarity: 84.2
   agent_readiness:
-    score: 25.5
-    band: agent-aware
+    score: 30.8
+    band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
@@ -30,8 +28,8 @@ kin_score:
       error_semantics: verified
       openapi_examples: false
       rate_limit_signal: documented
-      event_surface_described: false
-      agent_skills: false
+      event_surface_described: true
+      agent_skills: derived
       well_known_catalog: false
       consent_identity: false
       agent_card: false
@@ -41,9 +39,12 @@ kin_score:
       dynamic_client_registration: false
       agentic_commerce: false
   provenance:
+    mcp: derived
+    skills: derived
     agentic_access: derived
+    conformance: derived
     contracts:
-      total: 5
+      total: 39
       derived: 0
       coverage: 0.0
       callable: 0.0
