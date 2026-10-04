@@ -4,6 +4,7 @@ generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
 - Media, Entertainment & Telecom Content
+- Software & Technology
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,7 +12,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 1
+edge_count: 3
 edges:
 - tag: Broadcasts
   spec_file: ant-media-broadcasts-api-openapi.yml
@@ -25,3 +26,23 @@ edges:
     subtracks and per-stream subscribers/tokens — i.e. operating streaming origin and live stream delivery
     to consumers and partners, which is OTT & Streaming Delivery. Some spread into content protection
     (Token) and telemetry (WebRTC*Stats) schemas, hence not maximal confidence.
+- tag: Users
+  spec_file: ant-media-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /v2/users/authenticate  authenticateUser; POST /v2/users/password  changeUserPassword;
+    DELETE /v2/users/{username}  deleteUser; GET /v2/users/{usermail}/blocked  getBlockedStatus
+  reason: Full account lifecycle plus authentication, password change, session logout and blocked-status
+    checks for administrative users of the server — identity and access management. These are operator
+    accounts, not customers, so CRM readings do not fit.
+- tag: Cluster
+  spec_file: ant-media-cluster-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: GET /v2/cluster/nodes/{offset}/{size} getNodeList 'Get node list', DELETE /v2/cluster/node/{id}
+    'Delete node', schema ClusterNode
+  reason: Managing server cluster nodes is compute infrastructure management for the media server deployment.
