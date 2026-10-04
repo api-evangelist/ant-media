@@ -1359,62 +1359,6 @@ paths:
       - Broadcasts
 components:
   schemas:
-    WebRTCAudioSendStats:
-      type: object
-      properties:
-        audioPacketsSent:
-          type: integer
-          format: int64
-        audioBytesSent:
-          type: integer
-        audioPacketsPerSecond:
-          type: integer
-          format: int64
-        audioBytesSentPerSecond:
-          type: integer
-        timeMs:
-          type: integer
-          format: int64
-        audioPacketsSentPerSecond:
-          type: integer
-          format: int64
-          writeOnly: true
-      description: Audio send stats
-    WebRTCVideoReceiveStats:
-      type: object
-      properties:
-        videoFirCount:
-          type: integer
-          format: int64
-        videoPliCount:
-          type: integer
-          format: int64
-        videoNackCount:
-          type: integer
-          format: int64
-        videoPacketsReceived:
-          type: integer
-          format: int64
-        videoPacketsLost:
-          type: integer
-          format: int32
-        videoFractionLost:
-          type: number
-          format: double
-        videoFrameReceived:
-          type: integer
-          format: int64
-        videoBytesReceived:
-          type: integer
-        videoPacketsReceivedPerSecond:
-          type: integer
-          format: int64
-        videoBytesReceivedPerSecond:
-          type: integer
-        videoFrameReceivedPerSecond:
-          type: integer
-          format: int64
-      description: Video receive stats
     Token:
       type: object
       properties:
@@ -1435,48 +1379,6 @@ components:
           type: string
           description: The id of the conference room which requested streams belong to
       description: The one-time token class
-    ObjectId:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          format: int32
-        date:
-          type: string
-          format: date-time
-      description: The id of the detected object
-    WebRTCVideoSendStats:
-      type: object
-      properties:
-        videoFirCount:
-          type: integer
-          format: int64
-        videoPliCount:
-          type: integer
-          format: int64
-        videoNackCount:
-          type: integer
-          format: int64
-        videoPacketsSent:
-          type: integer
-          format: int64
-        videoFramesEncoded:
-          type: integer
-          format: int64
-        videoBytesSent:
-          type: integer
-        videoPacketsSentPerSecond:
-          type: integer
-          format: int64
-        videoBytesSentPerSecond:
-          type: integer
-        videoFramesEncodedPerSecond:
-          type: integer
-          format: int64
-        timeMs:
-          type: integer
-          format: int64
-      description: Video send stats
     Result:
       type: object
       properties:
@@ -1494,67 +1396,29 @@ components:
           description: The id of error of the operation result
           format: int32
       description: The basic result class
-    HLSParameters:
+    SubscriberStats:
       type: object
       properties:
-        hlsTime:
-          type: string
-          description: Duration of segments in m3u8 files in seconds
-        hlsListSize:
-          type: string
-          description: Set the maximum number of playlist entries, If 0 the list file will contain all the segments
-        hlsPlayListType:
-          type: string
-          description: Playlist type of m3u8 files, Can be 'event' or 'vod' or empty
-    WebRTCAudioReceiveStats:
-      type: object
-      properties:
-        audioPacketsReceived:
-          type: integer
-          format: int64
-        audioBytesReceived:
-          type: integer
-        audioPacketsLost:
-          type: integer
-          format: int32
-        audioJitter:
-          type: number
-          format: double
-        audioFractionLost:
-          type: number
-          format: double
-        audioPacketsReceivedPerSecond:
-          type: integer
-          format: int64
-        audioBytesReceivedPerSecond:
-          type: integer
-      description: Audio receive stats
-    ConnectionEvent:
-      type: object
-      properties:
-        timestamp:
-          type: integer
-          description: the unix timestamp of the event in milliseconds
-          format: int64
-        eventType:
-          type: string
-          description: The type of the event. It can have connected or disconnected values
-        instanceIP:
-          type: string
-          description: IP address of the instance that this event happened
-        type:
-          type: string
-          description: Connection type. It can be publish or play
-        eventProtocol:
-          type: string
-          description: Event protocol. It can be webrtc, hls, dash
-        streamId:
-          type: string
-          description: Stream id of the event
         subscriberId:
           type: string
-          description: Subscriber id of the event
-      description: Connection Event for the subscriber
+          description: The subscriber id of the subscriber
+        streamId:
+          type: string
+          description: The stream id of the token
+        connectionEvents:
+          type: array
+          description: List of connection events
+          items:
+            $ref: '#/components/schemas/ConnectionEvent'
+        avgVideoBitrate:
+          type: integer
+          description: Average video bitrate for a subscriber
+          format: int64
+        avgAudioBitrate:
+          type: integer
+          description: Average audio bitrate for a subscriber
+          format: int64
+      description: Statistics for each subsciber to the stream
     Broadcast:
       type: object
       properties:
@@ -1796,48 +1660,162 @@ components:
         anyoneWatching:
           type: boolean
       description: The basic broadcast class
-    BroadcastStatistics:
+    WebRTCAudioReceiveStats:
       type: object
       properties:
-        totalRTMPWatchersCount:
-          type: integer
-          description: The total RTMP viewers of the stream
-          format: int32
-        totalHLSWatchersCount:
-          type: integer
-          description: The total HLS viewers of the stream
-          format: int32
-        totalWebRTCWatchersCount:
-          type: integer
-          description: The total WebRTC viewers of the stream
-          format: int32
-        totalDASHWatchersCount:
-          type: integer
-          description: The total DASH viewers of the stream
-          format: int32
-    PlayListItem:
-      type: object
-      properties:
-        streamUrl:
-          type: string
-        type:
-          type: string
-        name:
-          type: string
-        durationInMs:
+        audioPacketsReceived:
           type: integer
           format: int64
-        seekTimeInMs:
+        audioBytesReceived:
+          type: integer
+        audioPacketsLost:
+          type: integer
+          format: int32
+        audioJitter:
+          type: number
+          format: double
+        audioFractionLost:
+          type: number
+          format: double
+        audioPacketsReceivedPerSecond:
           type: integer
           format: int64
-    WebRTCReceiveStats:
+        audioBytesReceivedPerSecond:
+          type: integer
+      description: Audio receive stats
+    WebRTCVideoSendStats:
       type: object
       properties:
-        audioReceiveStats:
-          $ref: '#/components/schemas/WebRTCAudioReceiveStats'
-        videoReceiveStats:
-          $ref: '#/components/schemas/WebRTCVideoReceiveStats'
-      description: Aggregation of WebRTC Low Level Receive Stats
+        videoFirCount:
+          type: integer
+          format: int64
+        videoPliCount:
+          type: integer
+          format: int64
+        videoNackCount:
+          type: integer
+          format: int64
+        videoPacketsSent:
+          type: integer
+          format: int64
+        videoFramesEncoded:
+          type: integer
+          format: int64
+        videoBytesSent:
+          type: integer
+        videoPacketsSentPerSecond:
+          type: integer
+          format: int64
+        videoBytesSentPerSecond:
+          type: integer
+        videoFramesEncodedPerSecond:
+          type: integer
+          format: int64
+        timeMs:
+          type: integer
+          format: int64
+      description: Video send stats
+    HLSParameters:
+      type: object
+      properties:
+        hlsTime:
+          type: string
+          description: Duration of segments in m3u8 files in seconds
+        hlsListSize:
+          type: string
+          description: Set the maximum number of playlist entries, If 0 the list file will contain all the segments
+        hlsPlayListType:
+          type: string
+          description: Playlist type of m3u8 files, Can be 'event' or 'vod' or empty
+    ObjectId:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          format: int32
+        date:
+          type: string
+          format: date-time
+      description: The id of the detected object
+    SimpleStat:
+      type: object
+      properties:
+        number:
+          type: integer
+          description: the stat value
+          format: int64
+      description: Simple generic statistics class to return single values
+    WebRTCVideoReceiveStats:
+      type: object
+      properties:
+        videoFirCount:
+          type: integer
+          format: int64
+        videoPliCount:
+          type: integer
+          format: int64
+        videoNackCount:
+          type: integer
+          format: int64
+        videoPacketsReceived:
+          type: integer
+          format: int64
+        videoPacketsLost:
+          type: integer
+          format: int32
+        videoFractionLost:
+          type: number
+          format: double
+        videoFrameReceived:
+          type: integer
+          format: int64
+        videoBytesReceived:
+          type: integer
+        videoPacketsReceivedPerSecond:
+          type: integer
+          format: int64
+        videoBytesReceivedPerSecond:
+          type: integer
+        videoFrameReceivedPerSecond:
+          type: integer
+          format: int64
+      description: Video receive stats
+    TensorFlowObject:
+      type: object
+      properties:
+        dbId:
+          $ref: '#/components/schemas/ObjectId'
+        objectName:
+          type: string
+          description: The name of the detected object
+        probability:
+          type: number
+          description: The probability of the detected object
+          format: float
+        detectionTime:
+          type: integer
+          description: The time of the detected object
+          format: int64
+        imageId:
+          type: string
+          description: The id of the detected image
+        minX:
+          type: number
+          description: The x coordinate of the upper-left corner of detected object frame
+          format: double
+        minY:
+          type: number
+          description: The y coordinate of the upper-left corner of detected object frame
+          format: double
+        maxX:
+          type: number
+          description: The x coordinate of the lower-right corner of detected object frame
+          format: double
+        maxY:
+          type: number
+          description: The y coordinate of the lower-right corner of detected object frame
+          format: double
+      description: The TensorFlow detected object class
     BroadcastUpdate:
       type: object
       properties:
@@ -1994,107 +1972,6 @@ components:
           items:
             $ref: '#/components/schemas/EncoderSettings'
       description: This is the BroadcastUpdate and it's almost same with BroadcastUpdate with all default values are null. We update the fields in update method if it's not null.It makes this data up to date in race conditions.
-    Subscriber:
-      type: object
-      properties:
-        subscriberId:
-          type: string
-          description: The subscriber id of the subscriber
-        streamId:
-          type: string
-          description: The stream id of the token
-        b32Secret:
-          type: string
-          description: Secret code of the subscriber
-          writeOnly: true
-        type:
-          type: string
-          description: Type of subscriber (play or publish). Pay attention that 'publish' type can also play the streams for making easy to join video conferencing
-        connected:
-          type: boolean
-          description: Is subscriber connected
-        currentConcurrentConnections:
-          type: integer
-          description: Count of subscriber usage
-          format: int32
-        concurrentConnectionsLimit:
-          type: integer
-          description: Count of subscriber usage
-          format: int32
-        blockedType:
-          type: string
-        blockedUntilUnitTimeStampMs:
-          type: integer
-          format: int64
-        registeredNodeIp:
-          type: string
-        avgVideoBitrate:
-          type: integer
-          description: Average video bitrate for a subscriber
-          format: int64
-        avgAudioBitrate:
-          type: integer
-          description: Average audio bitrate for a subscriber
-          format: int64
-      description: The time based token subscriber class. This keeps which subscriber can access to which stream and which TOTP
-    Endpoint:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status of the RTMP muxer, possible values are started, finished, failed, broadcasting, {@link IAntMediaStreamHandler#BROADCAST_STATUS_*}
-        type:
-          type: string
-          description: The service name like facebook, periscope, youtube or generic
-        rtmpUrl:
-          type: string
-          description: The RTMP URL of the endpoint
-        endpointServiceId:
-          type: string
-          description: The endpoint service id, this field holds the id of the endpoint
-      description: The endpoint class, such as Facebook, Twitter or custom RTMP endpoints
-    WebRTCClientStats:
-      type: object
-      properties:
-        measuredBitrate:
-          type: integer
-          description: The measured bitrate of the WebRTC Client
-          format: int32
-        sendBitrate:
-          type: integer
-          description: The sent bitrate of the WebRTC Client
-          format: int32
-        videoFrameSendPeriod:
-          type: number
-          description: The video frame sent period of the WebRTC Client
-          format: double
-        audioFrameSendPeriod:
-          type: number
-          description: The audio frame send period of the WebRTC Client
-          format: double
-        clientId:
-          type: integer
-          description: WebRTC Client Id which is basically hash of the object
-          format: int32
-        videoPacketCount:
-          type: integer
-          description: Number of video packets sent
-          format: int64
-        audioPacketCount:
-          type: integer
-          description: Number of audio packets sent
-          format: int64
-        videoSentStats:
-          $ref: '#/components/schemas/WebRTCVideoSendStats'
-        audioSentStats:
-          $ref: '#/components/schemas/WebRTCAudioSendStats'
-        clientInfo:
-          type: string
-          description: Free text information for the client
-        clientIp:
-          type: string
-          description: WebRTC Client's ip address
-      description: WebRTC Client statistics.
     RTMPToWebRTCStats:
       type: object
       properties:
@@ -2149,65 +2026,132 @@ components:
           type: integer
           format: int64
           writeOnly: true
-    TensorFlowObject:
+    WebRTCClientStats:
       type: object
       properties:
-        dbId:
-          $ref: '#/components/schemas/ObjectId'
-        objectName:
-          type: string
-          description: The name of the detected object
-        probability:
-          type: number
-          description: The probability of the detected object
-          format: float
-        detectionTime:
+        measuredBitrate:
           type: integer
-          description: The time of the detected object
+          description: The measured bitrate of the WebRTC Client
+          format: int32
+        sendBitrate:
+          type: integer
+          description: The sent bitrate of the WebRTC Client
+          format: int32
+        videoFrameSendPeriod:
+          type: number
+          description: The video frame sent period of the WebRTC Client
+          format: double
+        audioFrameSendPeriod:
+          type: number
+          description: The audio frame send period of the WebRTC Client
+          format: double
+        clientId:
+          type: integer
+          description: WebRTC Client Id which is basically hash of the object
+          format: int32
+        videoPacketCount:
+          type: integer
+          description: Number of video packets sent
           format: int64
-        imageId:
+        audioPacketCount:
+          type: integer
+          description: Number of audio packets sent
+          format: int64
+        videoSentStats:
+          $ref: '#/components/schemas/WebRTCVideoSendStats'
+        audioSentStats:
+          $ref: '#/components/schemas/WebRTCAudioSendStats'
+        clientInfo:
           type: string
-          description: The id of the detected image
-        minX:
-          type: number
-          description: The x coordinate of the upper-left corner of detected object frame
-          format: double
-        minY:
-          type: number
-          description: The y coordinate of the upper-left corner of detected object frame
-          format: double
-        maxX:
-          type: number
-          description: The x coordinate of the lower-right corner of detected object frame
-          format: double
-        maxY:
-          type: number
-          description: The y coordinate of the lower-right corner of detected object frame
-          format: double
-      description: The TensorFlow detected object class
-    SubscriberStats:
+          description: Free text information for the client
+        clientIp:
+          type: string
+          description: WebRTC Client's ip address
+      description: WebRTC Client statistics.
+    PlayListItem:
       type: object
       properties:
-        subscriberId:
+        streamUrl:
           type: string
-          description: The subscriber id of the subscriber
+        type:
+          type: string
+        name:
+          type: string
+        durationInMs:
+          type: integer
+          format: int64
+        seekTimeInMs:
+          type: integer
+          format: int64
+    Endpoint:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the RTMP muxer, possible values are started, finished, failed, broadcasting, {@link IAntMediaStreamHandler#BROADCAST_STATUS_*}
+        type:
+          type: string
+          description: The service name like facebook, periscope, youtube or generic
+        rtmpUrl:
+          type: string
+          description: The RTMP URL of the endpoint
+        endpointServiceId:
+          type: string
+          description: The endpoint service id, this field holds the id of the endpoint
+      description: The endpoint class, such as Facebook, Twitter or custom RTMP endpoints
+    WebRTCSendStats:
+      type: object
+      properties:
+        audioSendStats:
+          $ref: '#/components/schemas/WebRTCAudioSendStats'
+        videoSendStats:
+          $ref: '#/components/schemas/WebRTCVideoSendStats'
+      description: Aggregation of WebRTC Low Level Send Stats
+    ConnectionEvent:
+      type: object
+      properties:
+        timestamp:
+          type: integer
+          description: the unix timestamp of the event in milliseconds
+          format: int64
+        eventType:
+          type: string
+          description: The type of the event. It can have connected or disconnected values
+        instanceIP:
+          type: string
+          description: IP address of the instance that this event happened
+        type:
+          type: string
+          description: Connection type. It can be publish or play
+        eventProtocol:
+          type: string
+          description: Event protocol. It can be webrtc, hls, dash
         streamId:
           type: string
-          description: The stream id of the token
-        connectionEvents:
-          type: array
-          description: List of connection events
-          items:
-            $ref: '#/components/schemas/ConnectionEvent'
-        avgVideoBitrate:
+          description: Stream id of the event
+        subscriberId:
+          type: string
+          description: Subscriber id of the event
+      description: Connection Event for the subscriber
+    BroadcastStatistics:
+      type: object
+      properties:
+        totalRTMPWatchersCount:
           type: integer
-          description: Average video bitrate for a subscriber
-          format: int64
-        avgAudioBitrate:
+          description: The total RTMP viewers of the stream
+          format: int32
+        totalHLSWatchersCount:
           type: integer
-          description: Average audio bitrate for a subscriber
-          format: int64
-      description: Statistics for each subsciber to the stream
+          description: The total HLS viewers of the stream
+          format: int32
+        totalWebRTCWatchersCount:
+          type: integer
+          description: The total WebRTC viewers of the stream
+          format: int32
+        totalDASHWatchersCount:
+          type: integer
+          description: The total DASH viewers of the stream
+          format: int32
     EncoderSettings:
       type: object
       properties:
@@ -2222,21 +2166,77 @@ components:
           format: int32
         forceEncode:
           type: boolean
-    WebRTCSendStats:
+    WebRTCReceiveStats:
       type: object
       properties:
-        audioSendStats:
-          $ref: '#/components/schemas/WebRTCAudioSendStats'
-        videoSendStats:
-          $ref: '#/components/schemas/WebRTCVideoSendStats'
-      description: Aggregation of WebRTC Low Level Send Stats
-    SimpleStat:
+        audioReceiveStats:
+          $ref: '#/components/schemas/WebRTCAudioReceiveStats'
+        videoReceiveStats:
+          $ref: '#/components/schemas/WebRTCVideoReceiveStats'
+      description: Aggregation of WebRTC Low Level Receive Stats
+    WebRTCAudioSendStats:
       type: object
       properties:
-        number:
+        audioPacketsSent:
           type: integer
-          description: the stat value
           format: int64
-      description: Simple generic statistics class to return single values
+        audioBytesSent:
+          type: integer
+        audioPacketsPerSecond:
+          type: integer
+          format: int64
+        audioBytesSentPerSecond:
+          type: integer
+        timeMs:
+          type: integer
+          format: int64
+        audioPacketsSentPerSecond:
+          type: integer
+          format: int64
+          writeOnly: true
+      description: Audio send stats
+    Subscriber:
+      type: object
+      properties:
+        subscriberId:
+          type: string
+          description: The subscriber id of the subscriber
+        streamId:
+          type: string
+          description: The stream id of the token
+        b32Secret:
+          type: string
+          description: Secret code of the subscriber
+          writeOnly: true
+        type:
+          type: string
+          description: Type of subscriber (play or publish). Pay attention that 'publish' type can also play the streams for making easy to join video conferencing
+        connected:
+          type: boolean
+          description: Is subscriber connected
+        currentConcurrentConnections:
+          type: integer
+          description: Count of subscriber usage
+          format: int32
+        concurrentConnectionsLimit:
+          type: integer
+          description: Count of subscriber usage
+          format: int32
+        blockedType:
+          type: string
+        blockedUntilUnitTimeStampMs:
+          type: integer
+          format: int64
+        registeredNodeIp:
+          type: string
+        avgVideoBitrate:
+          type: integer
+          description: Average video bitrate for a subscriber
+          format: int64
+        avgAudioBitrate:
+          type: integer
+          description: Average audio bitrate for a subscriber
+          format: int64
+      description: The time based token subscriber class. This keeps which subscriber can access to which stream and which TOTP
 externalDocs:
   url: https://antmedia.io

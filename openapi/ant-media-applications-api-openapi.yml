@@ -173,22 +173,6 @@ paths:
       - Applications
 components:
   schemas:
-    EncoderSettings:
-      type: object
-      properties:
-        height:
-          type: integer
-          format: int32
-        videoBitrate:
-          type: integer
-          format: int32
-        audioBitrate:
-          type: integer
-          format: int32
-        forceEncode:
-          type: boolean
-        forceSameResolutionEncode:
-          type: boolean
     AppSettings:
       type: object
       properties:
@@ -626,6 +610,22 @@ components:
         lldashEnabled:
           type: boolean
         llhlsenabled:
+          type: boolean
+    EncoderSettings:
+      type: object
+      properties:
+        height:
+          type: integer
+          format: int32
+        videoBitrate:
+          type: integer
+          format: int32
+        audioBitrate:
+          type: integer
+          format: int32
+        forceEncode:
+          type: boolean
+        forceSameResolutionEncode:
           type: boolean
 externalDocs:
   description: External Docs

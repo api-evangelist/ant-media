@@ -39,7 +39,18 @@ paths:
       - Server Settings
 components:
   schemas:
-    BeanFactory:
+    Environment:
+      type: object
+      properties:
+        activeProfiles:
+          type: array
+          items:
+            type: string
+        defaultProfiles:
+          type: array
+          items:
+            type: string
+    AutowireCapableBeanFactory:
       type: object
     ServerSettings:
       type: object
@@ -377,18 +388,7 @@ components:
             defaultAssertionStatus:
               type: boolean
               writeOnly: true
-    Environment:
-      type: object
-      properties:
-        activeProfiles:
-          type: array
-          items:
-            type: string
-        defaultProfiles:
-          type: array
-          items:
-            type: string
-    AutowireCapableBeanFactory:
+    BeanFactory:
       type: object
 externalDocs:
   description: External Docs
