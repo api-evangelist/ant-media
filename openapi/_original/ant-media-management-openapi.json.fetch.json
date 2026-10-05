@@ -1,0 +1,12 @@
+{
+ "url": "https://test.antmedia.io:5443/openapi/v1.json",
+ "requested_url": "https://test.antmedia.io:5443/openapi/v1.json",
+ "status": 200,
+ "content_type": "application/yaml;charset=ISO-8859-1",
+ "bytes": 48661,
+ "sha256": "c71aba4a26b62bcf1cc1842a9f200f12806e4e65cb43bf0e6fbacb4d240d9fa0",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
