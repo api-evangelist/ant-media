@@ -686,6 +686,8 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 common:
+  - type: FinOps
+    url: finops/ant-media-finops.yml
   - type: Overlay
     url: overlays/ant-media-management-overlay.yaml
   - type: Website
