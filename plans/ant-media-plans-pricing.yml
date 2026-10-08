@@ -134,3 +134,76 @@ maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
     url: https://apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  - subscription
+  units:
+  - compute
+  plans:
+  - name: Community Edition
+    access: free
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - one-time
+  - name: Hourly License
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Monthly License
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Annual License
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Perpetual License
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - one-time
+  - name: AWS Marketplace
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Azure Marketplace
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - hour
+  - name: Google Cloud Marketplace
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - hour
