@@ -1,7 +1,14 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- https://api.nuget.org/v3
 - https://azuremarketplace.microsoft.com/
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -20,3 +27,116 @@ edges:
   seller_name: Ant Media
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/io.antmedia/ant-media-server
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: io.antmedia:ant-media-server
+      version: 3.1.0
+      released: '2026-09-04'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/io.antmedia/ant-media-server
+      repo_leg: github-org:ant-media
+      publisher_leg: groupId:antmedia.io
+      matched_by: domain
+    - name: io.antmedia:rtmp-client
+      version: 3.2.0
+      released: '2021-10-21'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/io.antmedia/rtmp-client
+      repo_leg: github-org:ant-media
+      publisher_leg: groupId:antmedia.io
+      matched_by: domain
+    - name: io.antmedia:webrtc-android-framework
+      version: 2.17.1
+      released: '2026-03-11'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/io.antmedia/webrtc-android-framework
+      repo_leg: github-org:ant-media
+      publisher_leg: groupId:antmedia.io
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+- partner_name: npm registry
+  partner: npm
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (JavaScript/TypeScript)
+  evidence: https://www.npmjs.com/package/@antmedia/react-native-ant-media
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@antmedia/react-native-ant-media'
+      version: 1.11.2
+      released: '2026-08-12'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@antmedia/react-native-ant-media
+      repo_leg: github-org:ant-media
+      publisher_leg: email:antmedia.io
+      matched_by: domain
+    - name: '@antmedia/videojs-webrtc-plugin'
+      version: 2.0.1
+      released: '2026-08-27'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@antmedia/videojs-webrtc-plugin
+      repo_leg: github-org:ant-media
+      publisher_leg: email:antmedia.io
+      matched_by: domain
+    - name: '@antmedia/web_player'
+      version: 2.13.2
+      released: '2026-09-07'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@antmedia/web_player
+      repo_leg: github-org:ant-media
+      publisher_leg: email:antmedia.io
+      matched_by: domain
+    - name: '@antmedia/webrtc_adaptor'
+      version: 2.16.2
+      released: '2026-08-12'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@antmedia/webrtc_adaptor
+      repo_leg: github-org:ant-media
+      publisher_leg: org:antmedia
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
+source:
+- https://api.nuget.org/v3
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
