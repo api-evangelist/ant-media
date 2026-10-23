@@ -393,3 +393,9 @@ components:
 externalDocs:
   description: External Docs
   url: https://antmedia.io
+x-provenance:
+  method: harvested
+  publisher: Ant Media
+  source: https://test.antmedia.io:5443/openapi/v1.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
