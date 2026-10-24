@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "cf1dcd72-3ca5-4daf-9130-baab66b0a8ec",
+    "name": "Ant Media Server Management Panel REST Liveness API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:14.000Z",
+    "updatedAt": "2026-10-22T01:47:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cf1dcd72-3ca5-4daf-9130-baab66b0a8ec"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "liveness",
+          "item": [
+            {
+              "name": "Returns the hostname to check liveness with HTTP type healthcheck",
+              "id": "c2210ffd-ff80-46d9-9bde-04c7e45ce807",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/liveness",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "liveness"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "074721de-a86c-429b-a203-69803e3cd880",
+                  "name": "Liveness check response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/liveness",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "liveness"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-074721de-a86c-429b-a203-69803e3cd880"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:14.000Z",
+              "updatedAt": "2026-10-22T01:47:14.000Z",
+              "uid": "35240-c2210ffd-ff80-46d9-9bde-04c7e45ce807"
+            }
+          ],
+          "id": "5cf5f3b4-e789-4986-b447-78a51edc0f37",
+          "createdAt": "2026-10-22T01:47:14.000Z",
+          "updatedAt": "2026-10-22T01:47:14.000Z",
+          "uid": "35240-5cf5f3b4-e789-4986-b447-78a51edc0f37"
+        }
+      ],
+      "id": "27ad7711-ee95-4db2-91d7-37cc470c310c",
+      "createdAt": "2026-10-22T01:47:14.000Z",
+      "updatedAt": "2026-10-22T01:47:14.000Z",
+      "uid": "35240-27ad7711-ee95-4db2-91d7-37cc470c310c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,104 +1,92 @@
 {
+  "info": {
+    "_postman_id": "b59d8292-f051-4987-bd94-660b561994a7",
+    "name": "Ant Media Version API",
+    "description": "Operations tagged Version across 2 of this provider's published API definitions: ant-media-management-openapi.json, ant-media-openapi.json. Each path carries the servers of the definition it was published in.\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:44:55.000Z",
+    "updatedAt": "2026-10-22T01:44:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b59d8292-f051-4987-bd94-660b561994a7"
+  },
   "item": [
     {
-      "id": "7d50bb31-af9f-4396-8005-67c935b7bbb7",
-      "name": "Version",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "16d791a9-3cf3-43d6-a71d-a2950c81ce46",
-          "name": "Returns the Ant Media Server Version",
-          "request": {
-            "name": "Returns the Ant Media Server Version",
-            "description": {
-              "content": "Retrieves the version information of the Ant Media Server.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "version"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "version",
+          "item": [
             {
-              "id": "2fee0973-857e-4a71-b0fb-57bab82f937d",
-              "name": "Ant Media Server Version",
-              "originalRequest": {
+              "name": "Returns the version of Ant Media Server",
+              "id": "50c2d315-c6c6-4d8a-b563-c641fec37b56",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
                 "url": {
-                  "path": [
-                    "v2",
-                    "version"
-                  ],
+                  "raw": "{{baseUrl}}/v2/version",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  "path": [
+                    "v2",
+                    "version"
+                  ]
+                }
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "9f448464-360e-46f5-a7b5-402e043c79fe",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/version",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "version"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:44:56.000Z",
+                  "updatedAt": "2026-10-22T01:44:56.000Z",
+                  "uid": "35240-9f448464-360e-46f5-a7b5-402e043c79fe"
                 }
               ],
-              "body": "{\n  \"versionName\": \"string\",\n  \"versionType\": \"string\",\n  \"buildNumber\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T01:44:56.000Z",
+              "updatedAt": "2026-10-22T01:44:56.000Z",
+              "uid": "35240-50c2d315-c6c6-4d8a-b563-c641fec37b56"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c8b79d4a-dc4d-486f-a80c-810d4b30e3d4",
+          "createdAt": "2026-10-22T01:44:56.000Z",
+          "updatedAt": "2026-10-22T01:44:56.000Z",
+          "uid": "35240-c8b79d4a-dc4d-486f-a80c-810d4b30e3d4"
         }
       ],
-      "event": []
+      "id": "47e270bf-5c55-407a-8c57-7bf8d3e6dc01",
+      "createdAt": "2026-10-22T01:44:56.000Z",
+      "updatedAt": "2026-10-22T01:44:56.000Z",
+      "uid": "35240-47e270bf-5c55-407a-8c57-7bf8d3e6dc01"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://test.antmedia.io:5443/Sandbox/rest/",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://test.antmedia.io:5443/Sandbox/rest/"
     }
-  ],
-  "info": {
-    "_postman_id": "8f2cbb28-8fd2-4d02-a6e3-4c337640d7c6",
-    "name": "Ant Media Server REST API Reference Broadcasts Version API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Ant Media Server REST API Reference\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

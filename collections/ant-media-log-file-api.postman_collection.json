@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "3c5d4461-30ed-431c-8e7b-acf5127191c1",
+    "name": "Ant Media Server Management Panel REST Log File API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:20.000Z",
+    "updatedAt": "2026-10-22T01:47:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c5d4461-30ed-431c-8e7b-acf5127191c1"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "log-file",
+          "item": [
+            {
+              "name": "{offsetSize}",
+              "item": [
+                {
+                  "name": "{charSize}",
+                  "item": [
+                    {
+                      "name": "Gets log file",
+                      "id": "e7cb2c8c-bd3c-428d-bd5c-e30992636ff7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/log-file/:offsetSize/:charSize?logType=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "log-file",
+                            ":offsetSize",
+                            ":charSize"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Log type. ERROR can be used to get only error logs",
+                              "key": "logType",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "94314bd1-1b3d-44ee-9cf5-31923de06316",
+                              "key": "offsetSize",
+                              "value": "<long>",
+                              "description": "(Required) Offset of the retrieved log"
+                            },
+                            {
+                              "id": "fe1f2d42-421c-48f5-b0e6-b7fd34f9ba11",
+                              "key": "charSize",
+                              "value": "<integer>",
+                              "description": "(Required) Char size of the log"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ac2a1dec-0b06-468a-af09-6b3bfce9242e",
+                          "name": "Log file retrieved successfully",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/log-file/:offsetSize/:charSize?logType=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "log-file",
+                                ":offsetSize",
+                                ":charSize"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Log type. ERROR can be used to get only error logs",
+                                  "key": "logType",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "offsetSize"
+                                },
+                                {
+                                  "key": "charSize"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:21.000Z",
+                          "updatedAt": "2026-10-22T01:47:21.000Z",
+                          "uid": "35240-ac2a1dec-0b06-468a-af09-6b3bfce9242e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:47:21.000Z",
+                      "updatedAt": "2026-10-22T01:47:21.000Z",
+                      "uid": "35240-e7cb2c8c-bd3c-428d-bd5c-e30992636ff7"
+                    }
+                  ],
+                  "id": "65acd2b7-1750-47e8-99e7-a6e91fce6c8b",
+                  "createdAt": "2026-10-22T01:47:21.000Z",
+                  "updatedAt": "2026-10-22T01:47:21.000Z",
+                  "uid": "35240-65acd2b7-1750-47e8-99e7-a6e91fce6c8b"
+                }
+              ],
+              "id": "b408f609-2aad-4f92-a44b-3e6fbc56d0b7",
+              "createdAt": "2026-10-22T01:47:21.000Z",
+              "updatedAt": "2026-10-22T01:47:21.000Z",
+              "uid": "35240-b408f609-2aad-4f92-a44b-3e6fbc56d0b7"
+            }
+          ],
+          "id": "fa0b8a64-b70e-4527-a2d5-f8f7a64f67bb",
+          "createdAt": "2026-10-22T01:47:21.000Z",
+          "updatedAt": "2026-10-22T01:47:21.000Z",
+          "uid": "35240-fa0b8a64-b70e-4527-a2d5-f8f7a64f67bb"
+        }
+      ],
+      "id": "a480baa4-3442-4cb2-a9e7-9a4842c9f6b5",
+      "createdAt": "2026-10-22T01:47:21.000Z",
+      "updatedAt": "2026-10-22T01:47:21.000Z",
+      "uid": "35240-a480baa4-3442-4cb2-a9e7-9a4842c9f6b5"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

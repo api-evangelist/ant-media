@@ -1,0 +1,802 @@
+{
+  "info": {
+    "_postman_id": "50a79215-0f55-4b76-978d-14110c84791b",
+    "name": "Ant Media Server Management Panel REST Applications API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:34.000Z",
+    "updatedAt": "2026-10-22T01:45:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-50a79215-0f55-4b76-978d-14110c84791b"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "applications",
+          "item": [
+            {
+              "name": "settings",
+              "item": [
+                {
+                  "name": "{appname}",
+                  "item": [
+                    {
+                      "name": "Returns the specified application settings",
+                      "id": "d42478de-f523-43e3-80f5-6167fd2e4fdf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/settings/:appname",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            "settings",
+                            ":appname"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1903db82-9b17-45e4-9177-fdad057b0f9d",
+                              "key": "appname",
+                              "value": "<string>",
+                              "description": "(Required) Application name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e0d9e3fb-f49f-4989-bbd4-e1397ac19699",
+                          "name": "Application settings returned",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/applications/settings/:appname",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "applications",
+                                "settings",
+                                ":appname"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "appname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:35.000Z",
+                          "updatedAt": "2026-10-22T01:45:35.000Z",
+                          "uid": "35240-e0d9e3fb-f49f-4989-bbd4-e1397ac19699"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-d42478de-f523-43e3-80f5-6167fd2e4fdf"
+                    },
+                    {
+                      "name": "Changes the application settings",
+                      "id": "befae304-f4a1-46f6-ab6a-ab0efe3e627f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"remoteAllowedCIDR\": \"<string>\",\n  \"mp4MuxingEnabled\": \"<boolean>\",\n  \"webMMuxingEnabled\": \"<boolean>\",\n  \"addDateTimeToMp4FileName\": \"<boolean>\",\n  \"fileNameFormat\": \"<string>\",\n  \"hlsMuxingEnabled\": \"<boolean>\",\n  \"encoderSettingsString\": \"<string>\",\n  \"signalingEnabled\": \"<boolean>\",\n  \"signalingAddress\": \"<string>\",\n  \"hlsListSize\": \"<string>\",\n  \"hlsTime\": \"<string>\",\n  \"uploadExtensionsToS3\": \"<integer>\",\n  \"s3StorageClass\": \"<string>\",\n  \"endpointHealthCheckPeriodMs\": \"<integer>\",\n  \"endpointRepublishLimit\": \"<integer>\",\n  \"endpointLiveEdgeEnabled\": \"<boolean>\",\n  \"dashSegDuration\": \"<string>\",\n  \"dashFragmentDuration\": \"<string>\",\n  \"targetLatency\": \"<string>\",\n  \"dashWindowSize\": \"<string>\",\n  \"dashExtraWindowSize\": \"<string>\",\n  \"hlsEnabledViaDash\": \"<boolean>\",\n  \"useTimelineDashMuxing\": \"<boolean>\",\n  \"webRTCEnabled\": \"<boolean>\",\n  \"useOriginalWebRTCEnabled\": \"<boolean>\",\n  \"deleteHLSFilesOnEnded\": \"<boolean>\",\n  \"deleteDASHFilesOnEnded\": \"<boolean>\",\n  \"tokenHashSecret\": \"<string>\",\n  \"hashControlPublishEnabled\": \"<boolean>\",\n  \"hashControlPlayEnabled\": \"<boolean>\",\n  \"listenerHookURL\": \"<string>\",\n  \"acceptOnlyStreamsInDataStore\": \"<boolean>\",\n  \"acceptOnlyRoomsInDataStore\": \"<boolean>\",\n  \"publishTokenControlEnabled\": \"<boolean>\",\n  \"playTokenControlEnabled\": \"<boolean>\",\n  \"enableTimeTokenForPlay\": \"<boolean>\",\n  \"timeTokenSecretForPlay\": \"<string>\",\n  \"enableTimeTokenForPublish\": \"<boolean>\",\n  \"timeTokenSecretForPublish\": \"<string>\",\n  \"timeTokenPeriod\": \"<integer>\",\n  \"hlsPlayListType\": \"<string>\",\n  \"hlsSegmentType\": \"<string>\",\n  \"hlsSegmentFileSuffixFormat\": \"<string>\",\n  \"previewOverwrite\": \"<boolean>\",\n  \"createPreviewPeriod\": \"<integer>\",\n  \"restartStreamFetcherPeriod\": \"<integer>\",\n  \"startStreamFetcherAutomatically\": \"<boolean>\",\n  \"streamFetcherBufferTime\": \"<integer>\",\n  \"hlsflags\": \"<string>\",\n  \"mySqlClientPath\": \"<string>\",\n  \"muxerFinishScript\": \"<string>\",\n  \"streamStartedScript\": \"<string>\",\n  \"streamEndedScript\": \"<string>\",\n  \"streamIdleTimeoutScript\": \"<string>\",\n  \"webRTCFrameRate\": \"<integer>\",\n  \"webRTCPortRangeMin\": \"<integer>\",\n  \"webRTCPortRangeMax\": \"<integer>\",\n  \"stunServerURI\": \"<string>\",\n  \"turnServerUsername\": \"<string>\",\n  \"turnServerCredential\": \"<string>\",\n  \"webRTCTcpCandidatesEnabled\": \"<boolean>\",\n  \"webRTCSdpSemantics\": \"<string>\",\n  \"portAllocatorFlags\": \"<integer>\",\n  \"encoderName\": \"<string>\",\n  \"encoderParameters\": {\n    \"qui_a_\": {\n      \"irure9ca\": \"<string>\",\n      \"Ut2f\": \"<string>\",\n      \"ut_a\": \"<string>\"\n    }\n  },\n  \"encoderThreadCount\": \"<integer>\",\n  \"encoderThreadType\": \"<integer>\",\n  \"vp8EncoderThreadCount\": \"<integer>\",\n  \"previewHeight\": \"<integer>\",\n  \"generatePreview\": \"<boolean>\",\n  \"previewFormat\": \"<string>\",\n  \"previewQuality\": \"<integer>\",\n  \"writeStatsToDatastore\": \"<boolean>\",\n  \"encoderSelectionPreference\": \"<string>\",\n  \"allowedPublisherCIDR\": \"<string>\",\n  \"excessiveBandwidthValue\": \"<integer>\",\n  \"excessiveBandwidthCallThreshold\": \"<integer>\",\n  \"excessiveBandwithTryCountBeforeSwitchback\": \"<integer>\",\n  \"excessiveBandwidthAlgorithmEnabled\": \"<boolean>\",\n  \"packetLossDiffThresholdForSwitchback\": \"<integer>\",\n  \"rttMeasurementDiffThresholdForSwitchback\": \"<integer>\",\n  \"replaceCandidateAddrWithServerAddr\": \"<boolean>\",\n  \"appName\": \"<string>\",\n  \"webRTCClientStartTimeoutMs\": \"<integer>\",\n  \"updateTime\": \"<long>\",\n  \"httpForwardingExtension\": \"<string>\",\n  \"httpForwardingBaseURL\": \"<string>\",\n  \"maxAnalyzeDurationMS\": \"<integer>\",\n  \"disableIPv6Candidates\": \"<boolean>\",\n  \"rtspPullTransportType\": \"<string>\",\n  \"rtspTimeoutDurationMs\": \"<integer>\",\n  \"maxFpsAccept\": \"<integer>\",\n  \"maxResolutionAccept\": \"<integer>\",\n  \"maxBitrateAccept\": \"<integer>\",\n  \"h264Enabled\": \"<boolean>\",\n  \"vp8Enabled\": \"<boolean>\",\n  \"av1Enabled\": \"<boolean>\",\n  \"h265Enabled\": \"<boolean>\",\n  \"dataChannelEnabled\": \"<boolean>\",\n  \"dataChannelPlayerDistribution\": \"<string>\",\n  \"rtmpIngestBufferTimeMs\": \"<long>\",\n  \"dataChannelWebHookURL\": \"<string>\",\n  \"heightRtmpForwarding\": \"<integer>\",\n  \"audioBitrateSFU\": \"<integer>\",\n  \"dashMuxingEnabled\": \"<boolean>\",\n  \"aacEncodingEnabled\": \"<boolean>\",\n  \"gopSize\": \"<integer>\",\n  \"webRTCViewerLimit\": \"<integer>\",\n  \"appStatus\": \"<string>\",\n  \"appInstallationTime\": \"<long>\",\n  \"pullWarFile\": \"<boolean>\",\n  \"warFileOriginServerAddress\": \"<string>\",\n  \"jwtSecretKey\": \"<string>\",\n  \"jwtControlEnabled\": \"<boolean>\",\n  \"ipFilterEnabled\": \"<boolean>\",\n  \"ingestingStreamLimit\": \"<integer>\",\n  \"webRTCKeyframeTime\": \"<integer>\",\n  \"jwtStreamSecretKey\": \"<string>\",\n  \"publishJwtControlEnabled\": \"<boolean>\",\n  \"playJwtControlEnabled\": \"<boolean>\",\n  \"dashHttpStreaming\": \"<boolean>\",\n  \"subFolder\": \"<string>\",\n  \"s3StreamsFolderPath\": \"<string>\",\n  \"s3PreviewsFolderPath\": \"<string>\",\n  \"dashHttpEndpoint\": \"<string>\",\n  \"hlsHttpEndpoint\": \"<string>\",\n  \"forceDecoding\": \"<boolean>\",\n  \"addOriginalMuxerIntoHLSPlaylist\": \"<boolean>\",\n  \"s3RecordingEnabled\": \"<boolean>\",\n  \"s3AccessKey\": \"<string>\",\n  \"s3SecretKey\": \"<string>\",\n  \"s3BucketName\": \"<string>\",\n  \"s3RegionName\": \"<string>\",\n  \"s3Endpoint\": \"<string>\",\n  \"s3CacheControl\": \"<string>\",\n  \"s3PathStyleAccessEnabled\": \"<boolean>\",\n  \"s3Permission\": \"<string>\",\n  \"s3TransferBufferSizeInBytes\": \"<integer>\",\n  \"hlsEncryptionKeyInfoFile\": \"<string>\",\n  \"jwksURL\": \"<string>\",\n  \"forceAspectRatioInTranscoding\": \"<boolean>\",\n  \"webhookAuthenticateURL\": \"<string>\",\n  \"maxAudioTrackCount\": \"<integer>\",\n  \"maxVideoTrackCount\": \"<integer>\",\n  \"vodUploadFinishScript\": \"<string>\",\n  \"contentSecurityPolicyHeaderValue\": \"<string>\",\n  \"rtmpPlaybackEnabled\": \"<boolean>\",\n  \"originEdgeIdleTimeout\": \"<integer>\",\n  \"addDateTimeToHlsFileName\": \"<boolean>\",\n  \"playWebRTCStreamOnceForEachSession\": \"<boolean>\",\n  \"statsBasedABREnabled\": \"<boolean>\",\n  \"abrDownScalePacketLostRatio\": \"<float>\",\n  \"abrUpScalePacketLostRatio\": \"<float>\",\n  \"abrUpScaleRTTMs\": \"<integer>\",\n  \"abrUpScaleJitterMs\": \"<integer>\",\n  \"clusterCommunicationKey\": \"<string>\",\n  \"id3TagEnabled\": \"<boolean>\",\n  \"sendAudioLevelToViewers\": \"<boolean>\",\n  \"audioLevelThreshold\": \"<integer>\",\n  \"hwScalingEnabled\": \"<boolean>\",\n  \"hwDecoderEnabled\": \"<boolean>\",\n  \"firebaseAccountKeyJSON\": \"<string>\",\n  \"subscriberAuthenticationKey\": \"<string>\",\n  \"apnsServer\": \"<string>\",\n  \"apnTeamId\": \"<string>\",\n  \"apnPrivateKey\": \"<string>\",\n  \"apnKeyId\": \"<string>\",\n  \"webhookRetryCount\": \"<integer>\",\n  \"secureAnalyticEndpoint\": \"<boolean>\",\n  \"webhookRetryDelay\": \"<long>\",\n  \"webhookStreamStatusUpdatePeriodMs\": \"<long>\",\n  \"webhookPlayAuthUrl\": \"<string>\",\n  \"recordingSubfolder\": \"<string>\",\n  \"webhookContentType\": \"<string>\",\n  \"iceGatheringTimeoutMs\": \"<long>\",\n  \"participantVisibilityMatrix\": {\n    \"non_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minim_97_\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"customSettings\": {\n    \"mollit61\": {}\n  },\n  \"relayRTMPMetaDataToMuxers\": \"<boolean>\",\n  \"dropWebRTCIngestIfNoPacketReceived\": \"<boolean>\",\n  \"srtReceiveLatencyInMs\": \"<integer>\",\n  \"encodingQueueSize\": \"<integer>\",\n  \"writeSubscriberEventsToDatastore\": \"<boolean>\",\n  \"disableAudio\": \"<boolean>\",\n  \"encoderSettings\": [\n    {\n      \"height\": \"<integer>\",\n      \"videoBitrate\": \"<integer>\",\n      \"audioBitrate\": \"<integer>\",\n      \"forceEncode\": \"<boolean>\",\n      \"forceSameResolutionEncode\": \"<boolean>\"\n    },\n    {\n      \"height\": \"<integer>\",\n      \"videoBitrate\": \"<integer>\",\n      \"audioBitrate\": \"<integer>\",\n      \"forceEncode\": \"<boolean>\",\n      \"forceSameResolutionEncode\": \"<boolean>\"\n    }\n  ],\n  \"lldashEnabled\": \"<boolean>\",\n  \"llhlsenabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/settings/:appname",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            "settings",
+                            ":appname"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ee0d7574-b844-4ba3-a122-3a2fbc0df442",
+                              "key": "appname",
+                              "value": "<string>",
+                              "description": "(Required) Application name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7d7c3798-5e95-4803-83d2-49fb67767c8a",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"remoteAllowedCIDR\": \"<string>\",\n  \"mp4MuxingEnabled\": \"<boolean>\",\n  \"webMMuxingEnabled\": \"<boolean>\",\n  \"addDateTimeToMp4FileName\": \"<boolean>\",\n  \"fileNameFormat\": \"<string>\",\n  \"hlsMuxingEnabled\": \"<boolean>\",\n  \"encoderSettingsString\": \"<string>\",\n  \"signalingEnabled\": \"<boolean>\",\n  \"signalingAddress\": \"<string>\",\n  \"hlsListSize\": \"<string>\",\n  \"hlsTime\": \"<string>\",\n  \"uploadExtensionsToS3\": \"<integer>\",\n  \"s3StorageClass\": \"<string>\",\n  \"endpointHealthCheckPeriodMs\": \"<integer>\",\n  \"endpointRepublishLimit\": \"<integer>\",\n  \"endpointLiveEdgeEnabled\": \"<boolean>\",\n  \"dashSegDuration\": \"<string>\",\n  \"dashFragmentDuration\": \"<string>\",\n  \"targetLatency\": \"<string>\",\n  \"dashWindowSize\": \"<string>\",\n  \"dashExtraWindowSize\": \"<string>\",\n  \"hlsEnabledViaDash\": \"<boolean>\",\n  \"useTimelineDashMuxing\": \"<boolean>\",\n  \"webRTCEnabled\": \"<boolean>\",\n  \"useOriginalWebRTCEnabled\": \"<boolean>\",\n  \"deleteHLSFilesOnEnded\": \"<boolean>\",\n  \"deleteDASHFilesOnEnded\": \"<boolean>\",\n  \"tokenHashSecret\": \"<string>\",\n  \"hashControlPublishEnabled\": \"<boolean>\",\n  \"hashControlPlayEnabled\": \"<boolean>\",\n  \"listenerHookURL\": \"<string>\",\n  \"acceptOnlyStreamsInDataStore\": \"<boolean>\",\n  \"acceptOnlyRoomsInDataStore\": \"<boolean>\",\n  \"publishTokenControlEnabled\": \"<boolean>\",\n  \"playTokenControlEnabled\": \"<boolean>\",\n  \"enableTimeTokenForPlay\": \"<boolean>\",\n  \"timeTokenSecretForPlay\": \"<string>\",\n  \"enableTimeTokenForPublish\": \"<boolean>\",\n  \"timeTokenSecretForPublish\": \"<string>\",\n  \"timeTokenPeriod\": \"<integer>\",\n  \"hlsPlayListType\": \"<string>\",\n  \"hlsSegmentType\": \"<string>\",\n  \"hlsSegmentFileSuffixFormat\": \"<string>\",\n  \"previewOverwrite\": \"<boolean>\",\n  \"createPreviewPeriod\": \"<integer>\",\n  \"restartStreamFetcherPeriod\": \"<integer>\",\n  \"startStreamFetcherAutomatically\": \"<boolean>\",\n  \"streamFetcherBufferTime\": \"<integer>\",\n  \"hlsflags\": \"<string>\",\n  \"mySqlClientPath\": \"<string>\",\n  \"muxerFinishScript\": \"<string>\",\n  \"streamStartedScript\": \"<string>\",\n  \"streamEndedScript\": \"<string>\",\n  \"streamIdleTimeoutScript\": \"<string>\",\n  \"webRTCFrameRate\": \"<integer>\",\n  \"webRTCPortRangeMin\": \"<integer>\",\n  \"webRTCPortRangeMax\": \"<integer>\",\n  \"stunServerURI\": \"<string>\",\n  \"turnServerUsername\": \"<string>\",\n  \"turnServerCredential\": \"<string>\",\n  \"webRTCTcpCandidatesEnabled\": \"<boolean>\",\n  \"webRTCSdpSemantics\": \"<string>\",\n  \"portAllocatorFlags\": \"<integer>\",\n  \"encoderName\": \"<string>\",\n  \"encoderParameters\": {\n    \"qui_a_\": {\n      \"irure9ca\": \"<string>\",\n      \"Ut2f\": \"<string>\",\n      \"ut_a\": \"<string>\"\n    }\n  },\n  \"encoderThreadCount\": \"<integer>\",\n  \"encoderThreadType\": \"<integer>\",\n  \"vp8EncoderThreadCount\": \"<integer>\",\n  \"previewHeight\": \"<integer>\",\n  \"generatePreview\": \"<boolean>\",\n  \"previewFormat\": \"<string>\",\n  \"previewQuality\": \"<integer>\",\n  \"writeStatsToDatastore\": \"<boolean>\",\n  \"encoderSelectionPreference\": \"<string>\",\n  \"allowedPublisherCIDR\": \"<string>\",\n  \"excessiveBandwidthValue\": \"<integer>\",\n  \"excessiveBandwidthCallThreshold\": \"<integer>\",\n  \"excessiveBandwithTryCountBeforeSwitchback\": \"<integer>\",\n  \"excessiveBandwidthAlgorithmEnabled\": \"<boolean>\",\n  \"packetLossDiffThresholdForSwitchback\": \"<integer>\",\n  \"rttMeasurementDiffThresholdForSwitchback\": \"<integer>\",\n  \"replaceCandidateAddrWithServerAddr\": \"<boolean>\",\n  \"appName\": \"<string>\",\n  \"webRTCClientStartTimeoutMs\": \"<integer>\",\n  \"updateTime\": \"<long>\",\n  \"httpForwardingExtension\": \"<string>\",\n  \"httpForwardingBaseURL\": \"<string>\",\n  \"maxAnalyzeDurationMS\": \"<integer>\",\n  \"disableIPv6Candidates\": \"<boolean>\",\n  \"rtspPullTransportType\": \"<string>\",\n  \"rtspTimeoutDurationMs\": \"<integer>\",\n  \"maxFpsAccept\": \"<integer>\",\n  \"maxResolutionAccept\": \"<integer>\",\n  \"maxBitrateAccept\": \"<integer>\",\n  \"h264Enabled\": \"<boolean>\",\n  \"vp8Enabled\": \"<boolean>\",\n  \"av1Enabled\": \"<boolean>\",\n  \"h265Enabled\": \"<boolean>\",\n  \"dataChannelEnabled\": \"<boolean>\",\n  \"dataChannelPlayerDistribution\": \"<string>\",\n  \"rtmpIngestBufferTimeMs\": \"<long>\",\n  \"dataChannelWebHookURL\": \"<string>\",\n  \"heightRtmpForwarding\": \"<integer>\",\n  \"audioBitrateSFU\": \"<integer>\",\n  \"dashMuxingEnabled\": \"<boolean>\",\n  \"aacEncodingEnabled\": \"<boolean>\",\n  \"gopSize\": \"<integer>\",\n  \"webRTCViewerLimit\": \"<integer>\",\n  \"appStatus\": \"<string>\",\n  \"appInstallationTime\": \"<long>\",\n  \"pullWarFile\": \"<boolean>\",\n  \"warFileOriginServerAddress\": \"<string>\",\n  \"jwtSecretKey\": \"<string>\",\n  \"jwtControlEnabled\": \"<boolean>\",\n  \"ipFilterEnabled\": \"<boolean>\",\n  \"ingestingStreamLimit\": \"<integer>\",\n  \"webRTCKeyframeTime\": \"<integer>\",\n  \"jwtStreamSecretKey\": \"<string>\",\n  \"publishJwtControlEnabled\": \"<boolean>\",\n  \"playJwtControlEnabled\": \"<boolean>\",\n  \"dashHttpStreaming\": \"<boolean>\",\n  \"subFolder\": \"<string>\",\n  \"s3StreamsFolderPath\": \"<string>\",\n  \"s3PreviewsFolderPath\": \"<string>\",\n  \"dashHttpEndpoint\": \"<string>\",\n  \"hlsHttpEndpoint\": \"<string>\",\n  \"forceDecoding\": \"<boolean>\",\n  \"addOriginalMuxerIntoHLSPlaylist\": \"<boolean>\",\n  \"s3RecordingEnabled\": \"<boolean>\",\n  \"s3AccessKey\": \"<string>\",\n  \"s3SecretKey\": \"<string>\",\n  \"s3BucketName\": \"<string>\",\n  \"s3RegionName\": \"<string>\",\n  \"s3Endpoint\": \"<string>\",\n  \"s3CacheControl\": \"<string>\",\n  \"s3PathStyleAccessEnabled\": \"<boolean>\",\n  \"s3Permission\": \"<string>\",\n  \"s3TransferBufferSizeInBytes\": \"<integer>\",\n  \"hlsEncryptionKeyInfoFile\": \"<string>\",\n  \"jwksURL\": \"<string>\",\n  \"forceAspectRatioInTranscoding\": \"<boolean>\",\n  \"webhookAuthenticateURL\": \"<string>\",\n  \"maxAudioTrackCount\": \"<integer>\",\n  \"maxVideoTrackCount\": \"<integer>\",\n  \"vodUploadFinishScript\": \"<string>\",\n  \"contentSecurityPolicyHeaderValue\": \"<string>\",\n  \"rtmpPlaybackEnabled\": \"<boolean>\",\n  \"originEdgeIdleTimeout\": \"<integer>\",\n  \"addDateTimeToHlsFileName\": \"<boolean>\",\n  \"playWebRTCStreamOnceForEachSession\": \"<boolean>\",\n  \"statsBasedABREnabled\": \"<boolean>\",\n  \"abrDownScalePacketLostRatio\": \"<float>\",\n  \"abrUpScalePacketLostRatio\": \"<float>\",\n  \"abrUpScaleRTTMs\": \"<integer>\",\n  \"abrUpScaleJitterMs\": \"<integer>\",\n  \"clusterCommunicationKey\": \"<string>\",\n  \"id3TagEnabled\": \"<boolean>\",\n  \"sendAudioLevelToViewers\": \"<boolean>\",\n  \"audioLevelThreshold\": \"<integer>\",\n  \"hwScalingEnabled\": \"<boolean>\",\n  \"hwDecoderEnabled\": \"<boolean>\",\n  \"firebaseAccountKeyJSON\": \"<string>\",\n  \"subscriberAuthenticationKey\": \"<string>\",\n  \"apnsServer\": \"<string>\",\n  \"apnTeamId\": \"<string>\",\n  \"apnPrivateKey\": \"<string>\",\n  \"apnKeyId\": \"<string>\",\n  \"webhookRetryCount\": \"<integer>\",\n  \"secureAnalyticEndpoint\": \"<boolean>\",\n  \"webhookRetryDelay\": \"<long>\",\n  \"webhookStreamStatusUpdatePeriodMs\": \"<long>\",\n  \"webhookPlayAuthUrl\": \"<string>\",\n  \"recordingSubfolder\": \"<string>\",\n  \"webhookContentType\": \"<string>\",\n  \"iceGatheringTimeoutMs\": \"<long>\",\n  \"participantVisibilityMatrix\": {\n    \"non_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"minim_97_\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"customSettings\": {\n    \"mollit61\": {}\n  },\n  \"relayRTMPMetaDataToMuxers\": \"<boolean>\",\n  \"dropWebRTCIngestIfNoPacketReceived\": \"<boolean>\",\n  \"srtReceiveLatencyInMs\": \"<integer>\",\n  \"encodingQueueSize\": \"<integer>\",\n  \"writeSubscriberEventsToDatastore\": \"<boolean>\",\n  \"disableAudio\": \"<boolean>\",\n  \"encoderSettings\": [\n    {\n      \"height\": \"<integer>\",\n      \"videoBitrate\": \"<integer>\",\n      \"audioBitrate\": \"<integer>\",\n      \"forceEncode\": \"<boolean>\",\n      \"forceSameResolutionEncode\": \"<boolean>\"\n    },\n    {\n      \"height\": \"<integer>\",\n      \"videoBitrate\": \"<integer>\",\n      \"audioBitrate\": \"<integer>\",\n      \"forceEncode\": \"<boolean>\",\n      \"forceSameResolutionEncode\": \"<boolean>\"\n    }\n  ],\n  \"lldashEnabled\": \"<boolean>\",\n  \"llhlsenabled\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/applications/settings/:appname",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "applications",
+                                "settings",
+                                ":appname"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "appname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:35.000Z",
+                          "updatedAt": "2026-10-22T01:45:35.000Z",
+                          "uid": "35240-7d7c3798-5e95-4803-83d2-49fb67767c8a"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-befae304-f4a1-46f6-ab6a-ab0efe3e627f"
+                    }
+                  ],
+                  "id": "386c44fa-4edc-4042-b7cf-96883244c65d",
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-386c44fa-4edc-4042-b7cf-96883244c65d"
+                }
+              ],
+              "id": "17327a6b-60ff-4853-835b-f24f5d8522c1",
+              "createdAt": "2026-10-22T01:45:35.000Z",
+              "updatedAt": "2026-10-22T01:45:35.000Z",
+              "uid": "35240-17327a6b-60ff-4853-835b-f24f5d8522c1"
+            },
+            {
+              "name": "{appName}",
+              "item": [
+                {
+                  "name": "metrics-history",
+                  "item": [
+                    {
+                      "name": "Gets recent per-application metric history (viewers, live streams)",
+                      "id": "5d37a1a5-9e94-47f1-9c10-4f885a543752",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/:appName/metrics-history",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            ":appName",
+                            "metrics-history"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a0d32c0d-7af5-44c4-9971-8f6c7332a843",
+                              "key": "appName",
+                              "value": "<string>",
+                              "description": "(Required) Application name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6238eb6f-6810-4b89-b3f0-3faf53557c06",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/applications/:appName/metrics-history",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "applications",
+                                ":appName",
+                                "metrics-history"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "appName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:35.000Z",
+                          "updatedAt": "2026-10-22T01:45:35.000Z",
+                          "uid": "35240-6238eb6f-6810-4b89-b3f0-3faf53557c06"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-5d37a1a5-9e94-47f1-9c10-4f885a543752"
+                    }
+                  ],
+                  "id": "0738c2d3-6bfd-4ae7-8631-f6c287579367",
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-0738c2d3-6bfd-4ae7-8631-f6c287579367"
+                },
+                {
+                  "name": "Creates a new application with given name and supports uploading custom WAR\u2026",
+                  "id": "12a487dc-b3a9-4f31-80de-dbf5ea23696d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) file",
+                          "key": "file",
+                          "value": "[object Object]",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/applications/:appName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "applications",
+                        ":appName"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9b7a88fe-fc65-4742-87b1-92b445aa7c59",
+                          "key": "appName",
+                          "value": "<string>",
+                          "description": "(Required) Name for the new application"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ca705187-3420-464b-a8e9-1e78850c623f",
+                      "name": "Custom application created successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) file",
+                              "key": "file",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/:appName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            ":appName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "appName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-ca705187-3420-464b-a8e9-1e78850c623f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-12a487dc-b3a9-4f31-80de-dbf5ea23696d"
+                },
+                {
+                  "name": "Creates a new application with given name",
+                  "id": "899cae0b-93a2-4f5c-b211-b2b66584a273",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/applications/:appName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "applications",
+                        ":appName"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bf890d89-829e-4f7e-83f6-f69c37b683e4",
+                          "key": "appName",
+                          "value": "<string>",
+                          "description": "(Required) Name for the new application"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e1c1ff4a-a971-4c26-b2f9-b721a0fc4034",
+                      "name": "Application created successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/:appName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            ":appName"
+                          ],
+                          "variable": [
+                            {
+                              "key": "appName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-e1c1ff4a-a971-4c26-b2f9-b721a0fc4034"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-899cae0b-93a2-4f5c-b211-b2b66584a273"
+                },
+                {
+                  "name": "Deletes application with the given name",
+                  "id": "e1079c18-a87b-4b08-8933-b229fdc77d1a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/applications/:appName?deleteDB=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "applications",
+                        ":appName"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Whether to delete associated database",
+                          "key": "deleteDB",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "16b7c9b9-2431-4c37-b2b5-330092f2107e",
+                          "key": "appName",
+                          "value": "<string>",
+                          "description": "(Required) Name of the application to delete"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "25dfc9cc-209c-4b2d-bb68-a59cfc0a81d1",
+                      "name": "Application deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/:appName?deleteDB=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            ":appName"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Whether to delete associated database",
+                              "key": "deleteDB",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "appName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-25dfc9cc-209c-4b2d-bb68-a59cfc0a81d1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-e1079c18-a87b-4b08-8933-b229fdc77d1a"
+                }
+              ],
+              "id": "bba42408-1d42-4dee-94bd-063a460933d0",
+              "createdAt": "2026-10-22T01:45:35.000Z",
+              "updatedAt": "2026-10-22T01:45:35.000Z",
+              "uid": "35240-bba42408-1d42-4dee-94bd-063a460933d0"
+            },
+            {
+              "name": "live-streams",
+              "item": [
+                {
+                  "name": "{appname}",
+                  "item": [
+                    {
+                      "name": "Returns live streams in the specified application",
+                      "id": "d7df34b5-f6ff-4a1b-a771-6452b212d173",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/live-streams/:appname",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            "live-streams",
+                            ":appname"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f11e4352-ad13-47d1-9a91-94fbbd34ab0c",
+                              "key": "appname",
+                              "value": "<string>",
+                              "description": "(Required) Application name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7becc472-9192-4eac-8659-f65535837982",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/applications/live-streams/:appname",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "applications",
+                                "live-streams",
+                                ":appname"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "appname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:35.000Z",
+                          "updatedAt": "2026-10-22T01:45:35.000Z",
+                          "uid": "35240-7becc472-9192-4eac-8659-f65535837982"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-d7df34b5-f6ff-4a1b-a771-6452b212d173"
+                    }
+                  ],
+                  "id": "39ebe981-9f24-4f75-84d0-762350127213",
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-39ebe981-9f24-4f75-84d0-762350127213"
+                }
+              ],
+              "id": "342df7cd-a4f6-41bf-ab18-5493471bf3cb",
+              "createdAt": "2026-10-22T01:45:35.000Z",
+              "updatedAt": "2026-10-22T01:45:35.000Z",
+              "uid": "35240-342df7cd-a4f6-41bf-ab18-5493471bf3cb"
+            },
+            {
+              "name": "{appname}",
+              "item": [
+                {
+                  "name": "reset",
+                  "item": [
+                    {
+                      "name": "Resets the viewer counts and broadcasts statuses in the db",
+                      "id": "d33df8b9-c408-48b5-b025-c876ee02c2e4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/applications/:appname/reset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "applications",
+                            ":appname",
+                            "reset"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e1c0e07c-d494-4939-a91a-17878668cb1b",
+                              "key": "appname",
+                              "value": "<string>",
+                              "description": "(Required) Application name"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2ee22984-7c63-4a27-b44e-c65ee1689096",
+                          "name": "Broadcasts reset successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/applications/:appname/reset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "applications",
+                                ":appname",
+                                "reset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "appname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:35.000Z",
+                          "updatedAt": "2026-10-22T01:45:35.000Z",
+                          "uid": "35240-2ee22984-7c63-4a27-b44e-c65ee1689096"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:35.000Z",
+                      "updatedAt": "2026-10-22T01:45:35.000Z",
+                      "uid": "35240-d33df8b9-c408-48b5-b025-c876ee02c2e4"
+                    }
+                  ],
+                  "id": "5d3af35a-ddeb-40b7-b52b-f90731e183ab",
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-5d3af35a-ddeb-40b7-b52b-f90731e183ab"
+                }
+              ],
+              "id": "b40f46c3-966f-4ffd-8873-6b9bac7ac1f4",
+              "createdAt": "2026-10-22T01:45:35.000Z",
+              "updatedAt": "2026-10-22T01:45:35.000Z",
+              "uid": "35240-b40f46c3-966f-4ffd-8873-6b9bac7ac1f4"
+            },
+            {
+              "name": "Gets the applications in the server",
+              "id": "25aad434-5c5f-4dcf-b5aa-74e235ac902f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "applications"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "4cafca44-e154-411d-be2a-3154c7f8c009",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/applications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "applications"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:45:35.000Z",
+                  "updatedAt": "2026-10-22T01:45:35.000Z",
+                  "uid": "35240-4cafca44-e154-411d-be2a-3154c7f8c009"
+                }
+              ],
+              "createdAt": "2026-10-22T01:45:35.000Z",
+              "updatedAt": "2026-10-22T01:45:35.000Z",
+              "uid": "35240-25aad434-5c5f-4dcf-b5aa-74e235ac902f"
+            }
+          ],
+          "id": "7d4b4976-723f-4a8f-90ee-9682bcc7ffee",
+          "createdAt": "2026-10-22T01:45:35.000Z",
+          "updatedAt": "2026-10-22T01:45:35.000Z",
+          "uid": "35240-7d4b4976-723f-4a8f-90ee-9682bcc7ffee"
+        }
+      ],
+      "id": "3bb7d052-f5c4-480d-a9cf-5d2f8a0a1698",
+      "createdAt": "2026-10-22T01:45:35.000Z",
+      "updatedAt": "2026-10-22T01:45:35.000Z",
+      "uid": "35240-3bb7d052-f5c4-480d-a9cf-5d2f8a0a1698"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

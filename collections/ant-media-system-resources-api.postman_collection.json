@@ -1,0 +1,157 @@
+{
+  "info": {
+    "_postman_id": "51173d82-b8e0-443b-8f28-2fe90a524a42",
+    "name": "Ant Media Server Management Panel REST System Resources API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:48:24.000Z",
+    "updatedAt": "2026-10-22T01:48:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-51173d82-b8e0-443b-8f28-2fe90a524a42"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "system-resources",
+          "item": [
+            {
+              "name": "history",
+              "item": [
+                {
+                  "name": "Gets recent system resource usage history",
+                  "id": "b67dad98-80e8-4a3f-9e8b-cc089c1b9be4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/system-resources/history",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "system-resources",
+                        "history"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6cb3a9e9-fce8-414a-ba59-b99fc3ba9b0a",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/system-resources/history",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "system-resources",
+                            "history"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:48:24.000Z",
+                      "updatedAt": "2026-10-22T01:48:24.000Z",
+                      "uid": "35240-6cb3a9e9-fce8-414a-ba59-b99fc3ba9b0a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:24.000Z",
+                  "updatedAt": "2026-10-22T01:48:24.000Z",
+                  "uid": "35240-b67dad98-80e8-4a3f-9e8b-cc089c1b9be4"
+                }
+              ],
+              "id": "0ebfdeaf-fa89-4f39-9aad-a53846b2c46b",
+              "createdAt": "2026-10-22T01:48:24.000Z",
+              "updatedAt": "2026-10-22T01:48:24.000Z",
+              "uid": "35240-0ebfdeaf-fa89-4f39-9aad-a53846b2c46b"
+            },
+            {
+              "name": "Gets system resource information",
+              "id": "a3c6d36c-402c-47b8-8771-c10230847d4d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/system-resources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "system-resources"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "67201975-ee5e-4365-bb93-fce1164ece3e",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/system-resources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "system-resources"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:48:24.000Z",
+                  "updatedAt": "2026-10-22T01:48:24.000Z",
+                  "uid": "35240-67201975-ee5e-4365-bb93-fce1164ece3e"
+                }
+              ],
+              "createdAt": "2026-10-22T01:48:24.000Z",
+              "updatedAt": "2026-10-22T01:48:24.000Z",
+              "uid": "35240-a3c6d36c-402c-47b8-8771-c10230847d4d"
+            }
+          ],
+          "id": "b997a675-a84d-4d2a-b6b8-1e0aa9782705",
+          "createdAt": "2026-10-22T01:48:24.000Z",
+          "updatedAt": "2026-10-22T01:48:24.000Z",
+          "uid": "35240-b997a675-a84d-4d2a-b6b8-1e0aa9782705"
+        }
+      ],
+      "id": "e11edea2-28d7-4301-b7cb-417d6ec26fcc",
+      "createdAt": "2026-10-22T01:48:24.000Z",
+      "updatedAt": "2026-10-22T01:48:24.000Z",
+      "uid": "35240-e11edea2-28d7-4301-b7cb-417d6ec26fcc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

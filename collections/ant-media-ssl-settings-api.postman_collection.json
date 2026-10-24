@@ -1,0 +1,164 @@
+{
+  "info": {
+    "_postman_id": "2150ddb7-2021-410d-b3b5-de50a797b464",
+    "name": "Ant Media Server Management Panel REST Ssl Settings API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:53.000Z",
+    "updatedAt": "2026-10-22T01:47:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2150ddb7-2021-410d-b3b5-de50a797b464"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "ssl-settings",
+          "item": [
+            {
+              "name": "Changes ssl settings",
+              "id": "11964b9a-d9d6-44f6-847f-602a866c7c18",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "fullChainFile",
+                      "value": "[object Object]",
+                      "type": "text"
+                    },
+                    {
+                      "key": "privateKeyFile",
+                      "value": "[object Object]",
+                      "type": "text"
+                    },
+                    {
+                      "key": "chainFile",
+                      "value": "[object Object]",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/ssl-settings?domain=<string>&type=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "ssl-settings"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) SSL settings",
+                      "key": "domain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "62d0195d-95a8-4495-9f23-0f897826cbde",
+                  "name": "SSL settings configured, server will be restarted",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "key": "fullChainFile",
+                          "value": "[object Object]",
+                          "type": "text"
+                        },
+                        {
+                          "key": "privateKeyFile",
+                          "value": "[object Object]",
+                          "type": "text"
+                        },
+                        {
+                          "key": "chainFile",
+                          "value": "[object Object]",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/ssl-settings?domain=<string>&type=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "ssl-settings"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) SSL settings",
+                          "key": "domain",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:53.000Z",
+                  "updatedAt": "2026-10-22T01:47:53.000Z",
+                  "uid": "35240-62d0195d-95a8-4495-9f23-0f897826cbde"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:53.000Z",
+              "updatedAt": "2026-10-22T01:47:53.000Z",
+              "uid": "35240-11964b9a-d9d6-44f6-847f-602a866c7c18"
+            }
+          ],
+          "id": "fbd9d1e2-5012-4b82-9c6a-6c018212ff61",
+          "createdAt": "2026-10-22T01:47:53.000Z",
+          "updatedAt": "2026-10-22T01:47:53.000Z",
+          "uid": "35240-fbd9d1e2-5012-4b82-9c6a-6c018212ff61"
+        }
+      ],
+      "id": "9ea42017-fe25-459c-9755-7c4c58c49551",
+      "createdAt": "2026-10-22T01:47:53.000Z",
+      "updatedAt": "2026-10-22T01:47:53.000Z",
+      "uid": "35240-9ea42017-fe25-459c-9755-7c4c58c49551"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

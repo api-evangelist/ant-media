@@ -1,0 +1,891 @@
+{
+  "info": {
+    "_postman_id": "3c9ddf44-f2c7-4d66-9b65-a0447443ed6c",
+    "name": "Ant Media Server Management Panel REST Cluster API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:18.000Z",
+    "updatedAt": "2026-10-22T01:45:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c9ddf44-f2c7-4d66-9b65-a0447443ed6c"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "cluster",
+          "item": [
+            {
+              "name": "node",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "note",
+                      "item": [
+                        {
+                          "name": "Update node note",
+                          "id": "fbc132b1-a0ff-466d-8463-77a3562dc96d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cluster/node/:id/note?note=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cluster",
+                                "node",
+                                ":id",
+                                "note"
+                              ],
+                              "query": [
+                                {
+                                  "key": "note",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7718e02c-2695-4238-a93e-db602dc451cf",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "79fb22ab-b0d7-4df0-aa25-1f506c3212fe",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/cluster/node/:id/note?note=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "cluster",
+                                    "node",
+                                    ":id",
+                                    "note"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "note",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-22T01:45:18.000Z",
+                              "updatedAt": "2026-10-22T01:45:18.000Z",
+                              "uid": "35240-79fb22ab-b0d7-4df0-aa25-1f506c3212fe"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:45:18.000Z",
+                          "updatedAt": "2026-10-22T01:45:18.000Z",
+                          "uid": "35240-fbc132b1-a0ff-466d-8463-77a3562dc96d"
+                        }
+                      ],
+                      "id": "ea1b3329-d29e-420e-a1c4-f3f7215457d8",
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-ea1b3329-d29e-420e-a1c4-f3f7215457d8"
+                    },
+                    {
+                      "name": "Delete node",
+                      "id": "a38b47b3-7724-43ab-bb27-31277887b7d9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cluster/node/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cluster",
+                            "node",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "81a47c37-4c8b-4f64-b157-58745c5b051d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "626c3267-fd66-4ee5-8c80-e32989df1d0a",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cluster/node/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cluster",
+                                "node",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T01:45:18.000Z",
+                          "updatedAt": "2026-10-22T01:45:18.000Z",
+                          "uid": "35240-626c3267-fd66-4ee5-8c80-e32989df1d0a"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-a38b47b3-7724-43ab-bb27-31277887b7d9"
+                    }
+                  ],
+                  "id": "b5de6b0b-cda9-480e-80d5-0169b688b00e",
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-b5de6b0b-cda9-480e-80d5-0169b688b00e"
+                }
+              ],
+              "id": "41570815-1b03-4d57-ba40-40ce32002a8d",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-41570815-1b03-4d57-ba40-40ce32002a8d"
+            },
+            {
+              "name": "node-count",
+              "item": [
+                {
+                  "name": "Get node count",
+                  "id": "36094858-d831-49d3-baff-1d21c9ab4f13",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/cluster/node-count",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "cluster",
+                        "node-count"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "fd263b07-36d2-47c1-b877-02041d4527bb",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cluster/node-count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cluster",
+                            "node-count"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"number\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-fd263b07-36d2-47c1-b877-02041d4527bb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-36094858-d831-49d3-baff-1d21c9ab4f13"
+                }
+              ],
+              "id": "dbc27a6d-d83f-4be8-bc43-d928815a9428",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-dbc27a6d-d83f-4be8-bc43-d928815a9428"
+            },
+            {
+              "name": "nodes",
+              "item": [
+                {
+                  "name": "{offset}",
+                  "item": [
+                    {
+                      "name": "{size}",
+                      "item": [
+                        {
+                          "name": "Get node list",
+                          "id": "cf9c472d-1840-4e6f-ab9a-dbac84ae4ff5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cluster/nodes/:offset/:size",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cluster",
+                                "nodes",
+                                ":offset",
+                                ":size"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7c15ef4e-a4ad-4dd0-b7a0-09ddc1e13b7e",
+                                  "key": "offset",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "28c17f1d-b76a-4bde-8e02-1aec80bf231e",
+                                  "key": "size",
+                                  "value": "<integer>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7d29e3a3-6587-4929-bde8-11c02899288c",
+                              "name": "default response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/cluster/nodes/:offset/:size",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "cluster",
+                                    "nodes",
+                                    ":offset",
+                                    ":size"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "offset"
+                                    },
+                                    {
+                                      "key": "size"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"ip\": \"<string>\",\n    \"lastUpdateTime\": \"<long>\",\n    \"memory\": \"<string>\",\n    \"cpu\": \"<string>\",\n    \"dbQueryAveargeTimeMs\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"ip\": \"<string>\",\n    \"lastUpdateTime\": \"<long>\",\n    \"memory\": \"<string>\",\n    \"cpu\": \"<string>\",\n    \"dbQueryAveargeTimeMs\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-10-22T01:45:18.000Z",
+                              "updatedAt": "2026-10-22T01:45:18.000Z",
+                              "uid": "35240-7d29e3a3-6587-4929-bde8-11c02899288c"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:45:18.000Z",
+                          "updatedAt": "2026-10-22T01:45:18.000Z",
+                          "uid": "35240-cf9c472d-1840-4e6f-ab9a-dbac84ae4ff5"
+                        }
+                      ],
+                      "id": "b94ef673-c481-4c69-812c-51eadedf2b92",
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-b94ef673-c481-4c69-812c-51eadedf2b92"
+                    }
+                  ],
+                  "id": "887d8ee7-c25b-409e-b151-9292a79787ad",
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-887d8ee7-c25b-409e-b151-9292a79787ad"
+                }
+              ],
+              "id": "284b9afe-02ad-4056-a1c7-09c1c3ae2fd2",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-284b9afe-02ad-4056-a1c7-09c1c3ae2fd2"
+            }
+          ],
+          "id": "36bd7655-35c1-48bb-b3af-dbd9584b303f",
+          "createdAt": "2026-10-22T01:45:18.000Z",
+          "updatedAt": "2026-10-22T01:45:18.000Z",
+          "uid": "35240-36bd7655-35c1-48bb-b3af-dbd9584b303f"
+        }
+      ],
+      "id": "b87ebcc0-06a4-4f4f-80b5-0d0070eb4212",
+      "createdAt": "2026-10-22T01:45:18.000Z",
+      "updatedAt": "2026-10-22T01:45:18.000Z",
+      "uid": "35240-b87ebcc0-06a4-4f4f-80b5-0d0070eb4212"
+    },
+    {
+      "name": "cluster",
+      "item": [
+        {
+          "name": "deleteNode",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Delete node 1",
+                  "id": "6aec36c2-9e95-4fe6-8814-6f6ad71bb4e0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cluster/deleteNode/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cluster",
+                        "deleteNode",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4469cdd2-ff1d-4e6b-a701-450475c76cd6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "10972392-1641-40e4-bf96-81f9f8a80d1a",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cluster/deleteNode/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cluster",
+                            "deleteNode",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-10972392-1641-40e4-bf96-81f9f8a80d1a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-6aec36c2-9e95-4fe6-8814-6f6ad71bb4e0"
+                }
+              ],
+              "id": "22d5e221-c514-4fa2-9bde-e2c7b757d825",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-22d5e221-c514-4fa2-9bde-e2c7b757d825"
+            }
+          ],
+          "id": "628d8b23-3ec0-487c-a6af-d4637210782c",
+          "createdAt": "2026-10-22T01:45:18.000Z",
+          "updatedAt": "2026-10-22T01:45:18.000Z",
+          "uid": "35240-628d8b23-3ec0-487c-a6af-d4637210782c"
+        },
+        {
+          "name": "node-count",
+          "item": [
+            {
+              "name": "Get node count 1",
+              "id": "577ed35d-b95d-4d04-bc41-4ee18979748a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cluster/node-count",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cluster",
+                    "node-count"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e021c382-1e21-4236-8f4c-af6a0061a05b",
+                  "name": "default response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cluster/node-count",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cluster",
+                        "node-count"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"number\": \"<long>\"\n}",
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-e021c382-1e21-4236-8f4c-af6a0061a05b"
+                }
+              ],
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-577ed35d-b95d-4d04-bc41-4ee18979748a"
+            }
+          ],
+          "id": "f6edac39-2d50-4bce-ae72-7b9278cd1008",
+          "createdAt": "2026-10-22T01:45:18.000Z",
+          "updatedAt": "2026-10-22T01:45:18.000Z",
+          "uid": "35240-f6edac39-2d50-4bce-ae72-7b9278cd1008"
+        },
+        {
+          "name": "nodes",
+          "item": [
+            {
+              "name": "{offset}",
+              "item": [
+                {
+                  "name": "{size}",
+                  "item": [
+                    {
+                      "name": "Get node list 1",
+                      "id": "490192b5-5824-4918-8436-d8fc6bf92282",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cluster/nodes/:offset/:size",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cluster",
+                            "nodes",
+                            ":offset",
+                            ":size"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5fde0e0d-c1af-4b28-b561-f170ecf3ea70",
+                              "key": "offset",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "8a6e15c3-bc59-4364-8fb2-5627f5364011",
+                              "key": "size",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7ffaf950-52d0-4b14-b57d-b9108d89555f",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cluster/nodes/:offset/:size",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cluster",
+                                "nodes",
+                                ":offset",
+                                ":size"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "offset"
+                                },
+                                {
+                                  "key": "size"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"id\": \"<string>\",\n    \"ip\": \"<string>\",\n    \"lastUpdateTime\": \"<long>\",\n    \"memory\": \"<string>\",\n    \"cpu\": \"<string>\",\n    \"dbQueryAveargeTimeMs\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"ip\": \"<string>\",\n    \"lastUpdateTime\": \"<long>\",\n    \"memory\": \"<string>\",\n    \"cpu\": \"<string>\",\n    \"dbQueryAveargeTimeMs\": \"<integer>\",\n    \"note\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-10-22T01:45:18.000Z",
+                          "updatedAt": "2026-10-22T01:45:18.000Z",
+                          "uid": "35240-7ffaf950-52d0-4b14-b57d-b9108d89555f"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-490192b5-5824-4918-8436-d8fc6bf92282"
+                    }
+                  ],
+                  "id": "86c07261-4629-4225-a8e6-f1436f09c135",
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-86c07261-4629-4225-a8e6-f1436f09c135"
+                }
+              ],
+              "id": "81c6d968-b608-41da-82a0-828b9cb07b50",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-81c6d968-b608-41da-82a0-828b9cb07b50"
+            }
+          ],
+          "id": "974a7b9d-4a67-44e0-82a6-04c6ea4cb8e6",
+          "createdAt": "2026-10-22T01:45:18.000Z",
+          "updatedAt": "2026-10-22T01:45:18.000Z",
+          "uid": "35240-974a7b9d-4a67-44e0-82a6-04c6ea4cb8e6"
+        },
+        {
+          "name": "node",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "note",
+                  "item": [
+                    {
+                      "name": "Update node note 1",
+                      "id": "b6343061-8e55-4713-a8e5-d5e0c1cfaa89",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cluster/node/:id/note?note=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cluster",
+                            "node",
+                            ":id",
+                            "note"
+                          ],
+                          "query": [
+                            {
+                              "key": "note",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "04eabb8f-a87e-4732-a43c-aeb7f54a4010",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d81033d0-8b92-43d9-bc16-e800ed1369eb",
+                          "name": "default response",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/cluster/node/:id/note?note=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "cluster",
+                                "node",
+                                ":id",
+                                "note"
+                              ],
+                              "query": [
+                                {
+                                  "key": "note",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T01:45:18.000Z",
+                          "updatedAt": "2026-10-22T01:45:18.000Z",
+                          "uid": "35240-d81033d0-8b92-43d9-bc16-e800ed1369eb"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:18.000Z",
+                      "updatedAt": "2026-10-22T01:45:18.000Z",
+                      "uid": "35240-b6343061-8e55-4713-a8e5-d5e0c1cfaa89"
+                    }
+                  ],
+                  "id": "bf1d3b61-4cf5-4cd7-bae3-b2b60cf39995",
+                  "createdAt": "2026-10-22T01:45:18.000Z",
+                  "updatedAt": "2026-10-22T01:45:18.000Z",
+                  "uid": "35240-bf1d3b61-4cf5-4cd7-bae3-b2b60cf39995"
+                }
+              ],
+              "id": "b115bc45-cf44-4b09-92e2-96c3ef77d37c",
+              "createdAt": "2026-10-22T01:45:18.000Z",
+              "updatedAt": "2026-10-22T01:45:18.000Z",
+              "uid": "35240-b115bc45-cf44-4b09-92e2-96c3ef77d37c"
+            }
+          ],
+          "id": "261fd6cd-dcb4-4c72-a9f9-d8d76125269d",
+          "createdAt": "2026-10-22T01:45:18.000Z",
+          "updatedAt": "2026-10-22T01:45:18.000Z",
+          "uid": "35240-261fd6cd-dcb4-4c72-a9f9-d8d76125269d"
+        }
+      ],
+      "id": "566d652e-2c1b-44bc-b35d-21a6c21ca66a",
+      "createdAt": "2026-10-22T01:45:18.000Z",
+      "updatedAt": "2026-10-22T01:45:18.000Z",
+      "uid": "35240-566d652e-2c1b-44bc-b35d-21a6c21ca66a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

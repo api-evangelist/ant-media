@@ -1,1050 +1,1102 @@
 {
+  "info": {
+    "_postman_id": "a8178055-a2f0-4ac0-bc96-7ff2568c981d",
+    "name": "Ant Media Server REST API Reference Vods API",
+    "description": "Ant Media Server REST API Reference\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:02.000Z",
+    "updatedAt": "2026-10-22T01:45:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a8178055-a2f0-4ac0-bc96-7ff2568c981d"
+  },
   "item": [
     {
-      "id": "5c670241-89dc-4915-9fef-a8931868acec",
-      "name": "Vods",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "70b55e87-7f95-4059-a708-760c352add16",
-          "name": "VoD file from database",
-          "request": {
-            "name": "VoD file from database",
-            "description": {
-              "content": "Retrieves a VoD file from the database by its ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the VoD file"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "vods",
+          "item": [
             {
-              "id": "db47f124-a844-4e59-80e0-f24cfc7a203d",
-              "name": "VoD file retrieved successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "VoD file from database",
+                  "id": "1fd4e641-2d2a-4f75-b258-060925959c5e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d431cc3b-ac6b-495b-8ca0-8f5e96672e0f",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the VoD file"
+                        }
+                      ]
+                    },
+                    "description": "Retrieves a VoD file from the database by its ID."
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the VoD file"
+                      "id": "1262a577-cf8d-433e-961e-3b15a17bf272",
+                      "name": "VoD file retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"streamName\": \"<string>\",\n  \"vodName\": \"<string>\",\n  \"streamId\": \"<string>\",\n  \"creationDate\": \"<long>\",\n  \"startTime\": \"<long>\",\n  \"duration\": \"<long>\",\n  \"fileSize\": \"<long>\",\n  \"filePath\": \"<string>\",\n  \"vodId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"previewFilePath\": \"<string>\",\n  \"processStatus\": \"<string>\",\n  \"processStartTime\": \"<long>\",\n  \"processEndTime\": \"<long>\",\n  \"description\": \"<string>\",\n  \"metadata\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"altitude\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-1262a577-cf8d-433e-961e-3b15a17bf272"
+                    },
+                    {
+                      "id": "3b40ac1b-d154-4518-8e8c-54e30360a6f3",
+                      "name": "VoD file not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-3b40ac1b-d154-4518-8e8c-54e30360a6f3"
                     }
-                  ]
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-1fd4e641-2d2a-4f75-b258-060925959c5e"
                 },
+                {
+                  "name": "Delete specific VoD File",
+                  "id": "2f41cef4-964e-40a7-a547-7ae76e022b9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6dc7e139-8749-486b-b1ee-203837d0cee4",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the VoD file"
+                        }
+                      ]
+                    },
+                    "description": "Deletes a specific VoD file from the database by its ID."
+                  },
+                  "response": [
+                    {
+                      "id": "95a26183-5067-4247-b356-d24e675b3596",
+                      "name": "VoD file deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-95a26183-5067-4247-b356-d24e675b3596"
+                    },
+                    {
+                      "id": "349e1947-9120-4c9d-8bba-6e7faff495ce",
+                      "name": "VoD file not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-349e1947-9120-4c9d-8bba-6e7faff495ce"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-2f41cef4-964e-40a7-a547-7ae76e022b9a"
+                }
+              ],
+              "id": "5800811e-1b4a-4e7b-a0ac-77aac2de802e",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-5800811e-1b4a-4e7b-a0ac-77aac2de802e"
+            },
+            {
+              "name": "count",
+              "item": [
+                {
+                  "name": "{search}",
+                  "item": [
+                    {
+                      "name": "Get the partial number of VoDs depending on the searched items",
+                      "id": "d6e1fff5-ffb6-4312-97f6-ff94cb9c544b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/count/:search",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "count",
+                            ":search"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d4921ad1-54fe-42dd-af89-914d882a36db",
+                              "key": "search",
+                              "value": "<string>",
+                              "description": "(Required) Search parameter to get the number of items including it"
+                            }
+                          ]
+                        },
+                        "description": "Retrieves the number of VoD files that include the specified search parameter."
+                      },
+                      "response": [
+                        {
+                          "id": "8767430c-a873-4cc6-8964-8ca87437c277",
+                          "name": "Partial number of VoDs retrieved successfully",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/vods/count/:search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "vods",
+                                "count",
+                                ":search"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "search"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"number\": \"<long>\"\n}",
+                          "createdAt": "2026-10-22T01:45:03.000Z",
+                          "updatedAt": "2026-10-22T01:45:03.000Z",
+                          "uid": "35240-8767430c-a873-4cc6-8964-8ca87437c277"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-d6e1fff5-ffb6-4312-97f6-ff94cb9c544b"
+                    }
+                  ],
+                  "id": "15078814-1c18-4951-8439-a19c392f3ec7",
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-15078814-1c18-4951-8439-a19c392f3ec7"
+                },
+                {
+                  "name": "Get the total number of VoDs",
+                  "id": "7b307f09-6e14-4873-a87f-d6cc0cb69e97",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/count",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        "count"
+                      ]
+                    },
+                    "description": "Retrieves the total number of VoD files in the database."
+                  },
+                  "response": [
+                    {
+                      "id": "1f582cad-bc2a-4580-9b98-4baefde883b0",
+                      "name": "Total number of VoDs retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/count",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "count"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"number\": \"<long>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-1f582cad-bc2a-4580-9b98-4baefde883b0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-7b307f09-6e14-4873-a87f-d6cc0cb69e97"
+                }
+              ],
+              "id": "94b1a750-4512-4fe8-a2d3-32e62469894b",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-94b1a750-4512-4fe8-a2d3-32e62469894b"
+            },
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "{offset}",
+                  "item": [
+                    {
+                      "name": "{size}",
+                      "item": [
+                        {
+                          "name": "Get the VoD list from database",
+                          "id": "721e6023-fcbc-4edc-bfc2-f6b614834d1e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/vods/list/:offset/:size?sort_by=<string>&order_by=<string>&streamId=<string>&search=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "vods",
+                                "list",
+                                ":offset",
+                                ":size"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Field to sort. Possible values are 'name', 'date'",
+                                  "key": "sort_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "'asc' for Ascending, 'desc' for Descending order",
+                                  "key": "order_by",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "ID of the stream to filter the results by stream ID",
+                                  "key": "streamId",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Search string",
+                                  "key": "search",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ba97dfc0-90cc-4e8c-b2fa-16d678874f42",
+                                  "key": "offset",
+                                  "value": "<integer>",
+                                  "description": "(Required) Offset of the list"
+                                },
+                                {
+                                  "id": "25dc7fcf-c234-40fd-88ee-e4d868b51373",
+                                  "key": "size",
+                                  "value": "<integer>",
+                                  "description": "(Required) Number of items that will be fetched"
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the list of VoD files from the database. It returns up to 50 items. You can use offset value to get result page by page."
+                          },
+                          "response": [
+                            {
+                              "id": "b477f862-9671-4734-9b25-4a6811a0790c",
+                              "name": "VoD list retrieved successfully",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/vods/list/:offset/:size?sort_by=<string>&order_by=<string>&streamId=<string>&search=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "vods",
+                                    "list",
+                                    ":offset",
+                                    ":size"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Field to sort. Possible values are 'name', 'date'",
+                                      "key": "sort_by",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "'asc' for Ascending, 'desc' for Descending order",
+                                      "key": "order_by",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "ID of the stream to filter the results by stream ID",
+                                      "key": "streamId",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Search string",
+                                      "key": "search",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "offset"
+                                    },
+                                    {
+                                      "key": "size"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"streamName\": \"<string>\",\n  \"vodName\": \"<string>\",\n  \"streamId\": \"<string>\",\n  \"creationDate\": \"<long>\",\n  \"startTime\": \"<long>\",\n  \"duration\": \"<long>\",\n  \"fileSize\": \"<long>\",\n  \"filePath\": \"<string>\",\n  \"vodId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"previewFilePath\": \"<string>\",\n  \"processStatus\": \"<string>\",\n  \"processStartTime\": \"<long>\",\n  \"processEndTime\": \"<long>\",\n  \"description\": \"<string>\",\n  \"metadata\": \"<string>\",\n  \"latitude\": \"<string>\",\n  \"longitude\": \"<string>\",\n  \"altitude\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:45:03.000Z",
+                              "updatedAt": "2026-10-22T01:45:03.000Z",
+                              "uid": "35240-b477f862-9671-4734-9b25-4a6811a0790c"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:45:03.000Z",
+                          "updatedAt": "2026-10-22T01:45:03.000Z",
+                          "uid": "35240-721e6023-fcbc-4edc-bfc2-f6b614834d1e"
+                        }
+                      ],
+                      "id": "6ee04381-3df5-4f53-94d7-bcea61ee8341",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-6ee04381-3df5-4f53-94d7-bcea61ee8341"
+                    }
+                  ],
+                  "id": "b40551e7-6fd5-4108-b988-b5c57b893d2b",
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-b40551e7-6fd5-4108-b988-b5c57b893d2b"
+                }
+              ],
+              "id": "35f6a2da-e5e6-4613-846e-e6eb1d537470",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-35f6a2da-e5e6-4613-846e-e6eb1d537470"
+            },
+            {
+              "name": "directory",
+              "item": [
+                {
+                  "name": "Import VoD files from a directory and make them streamable",
+                  "id": "70f4b91d-b0ac-4489-af45-5e37f9847791",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/directory?directory=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        "directory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The full path of the directory that VoD files will be imported to the datastore and linked to the streams",
+                          "key": "directory",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Imports VoD files from a directory to the datastore and links them to the streams."
+                  },
+                  "response": [
+                    {
+                      "id": "89504c62-efdf-4290-b339-44051179f784",
+                      "name": "VoD files imported successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/directory?directory=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "directory"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The full path of the directory that VoD files will be imported to the datastore and linked to the streams",
+                              "key": "directory",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-89504c62-efdf-4290-b339-44051179f784"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-70f4b91d-b0ac-4489-af45-5e37f9847791"
+                },
+                {
+                  "name": "Unlinks VoD path from streams directory and delete the database record",
+                  "id": "3b9b00a0-cd1b-467f-bf6e-aeea27d18e1e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/directory?directory=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        "directory"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The full path of the directory from which imported VoD files will be deleted from the database",
+                          "key": "directory",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Deletes the database record associated with the specified directory, without deleting the files themselves."
+                  },
+                  "response": [
+                    {
+                      "id": "e03bd198-514f-4fc3-853b-6f2a882853e1",
+                      "name": "VoD records unlinked successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/directory?directory=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "directory"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The full path of the directory from which imported VoD files will be deleted from the database",
+                              "key": "directory",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-e03bd198-514f-4fc3-853b-6f2a882853e1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-3b9b00a0-cd1b-467f-bf6e-aeea27d18e1e"
+                }
+              ],
+              "id": "adbc501f-03c0-444a-b4d8-ad0eeb04c94f",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-adbc501f-03c0-444a-b4d8-ad0eeb04c94f"
+            },
+            {
+              "name": "import-to-stalker",
+              "item": [
+                {
+                  "name": "Import VoDs to Stalker Portal",
+                  "id": "31199441-385f-4b2d-a654-6599190f3fa4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/import-to-stalker",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        "import-to-stalker"
+                      ]
+                    },
+                    "description": "Imports VoDs to the Stalker Portal."
+                  },
+                  "response": [
+                    {
+                      "id": "56499977-04eb-4803-9ba6-213fb4002c38",
+                      "name": "VoDs imported successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/import-to-stalker",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "import-to-stalker"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-56499977-04eb-4803-9ba6-213fb4002c38"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-31199441-385f-4b2d-a654-6599190f3fa4"
+                }
+              ],
+              "id": "724b6d32-6241-41d6-9ea0-d556fbaa5f51",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-724b6d32-6241-41d6-9ea0-d556fbaa5f51"
+            },
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Upload external VoD file to Ant Media Server",
+                  "id": "7658cfda-822d-4b5a-bf15-02d8ffad46e2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) VoD file",
+                          "key": "file",
+                          "value": "[object Object]",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods/create?name=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods",
+                        "create"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Name of the VoD File",
+                          "key": "name",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Uploads an external VoD file to Ant Media Server."
+                  },
+                  "response": [
+                    {
+                      "id": "b6fd3c6f-4e1d-494d-a393-24bada98cbe0",
+                      "name": "VoD file uploaded successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) VoD file",
+                              "key": "file",
+                              "value": "[object Object]",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/vods/create?name=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "vods",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name of the VoD File",
+                              "key": "name",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:45:03.000Z",
+                      "updatedAt": "2026-10-22T01:45:03.000Z",
+                      "uid": "35240-b6fd3c6f-4e1d-494d-a393-24bada98cbe0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-7658cfda-822d-4b5a-bf15-02d8ffad46e2"
+                }
+              ],
+              "id": "20d026b7-17d2-4445-bb44-a979bff6b66d",
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-20d026b7-17d2-4445-bb44-a979bff6b66d"
+            },
+            {
+              "name": "Delete bulk VoD Files based on Vod Id",
+              "id": "3d0ac1ce-1b59-4e7f-93bb-ca8300854eaa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"streamName\": \"string\",\n  \"vodName\": \"string\",\n  \"streamId\": \"string\",\n  \"creationDate\": 1481,\n  \"startTime\": 8263,\n  \"duration\": 9100,\n  \"fileSize\": 3703,\n  \"filePath\": \"string\",\n  \"vodId\": \"string\",\n  \"type\": \"string\",\n  \"previewFilePath\": \"string\",\n  \"processStatus\": \"string\",\n  \"processStartTime\": 610,\n  \"processEndTime\": 9022,\n  \"description\": \"string\",\n  \"metadata\": \"string\",\n  \"latitude\": \"string\",\n  \"longitude\": \"string\",\n  \"altitude\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "97ca23d4-50c3-43ff-b128-3db1c0379232",
-              "name": "VoD file not found",
-              "originalRequest": {
                 "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    ":id"
-                  ],
+                  "raw": "{{baseUrl}}/v2/vods?ids=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the VoD file"
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ea03e1dc-cc81-42a0-ac2c-8549d88866ce",
-          "name": "Delete specific VoD File",
-          "request": {
-            "name": "Delete specific VoD File",
-            "description": {
-              "content": "Deletes a specific VoD file from the database by its ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) ID of the VoD file"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "edfb487b-6f41-4e18-812d-ed790d66a9ea",
-              "name": "VoD file deleted successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the VoD file"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "49b9369f-318e-4943-ba54-3c59a64faab3",
-              "name": "VoD file not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) ID of the VoD file"
-                    }
-                  ]
-                },
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6c78f74a-4cba-47d5-8803-81e56023214e",
-          "name": "Delete bulk VoD Files based on Vod Id",
-          "request": {
-            "name": "Delete bulk VoD Files based on Vod Id",
-            "description": {
-              "content": "Deletes multiple VoD files from the database by their IDs.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "ids",
-                  "value": "<string>",
-                  "description": "(Required) Comma-separated IDs of the VoD files"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1e56695e-8f6c-4737-a94c-51116fcb9b1d",
-              "name": "VoD files deleted successfully",
-              "originalRequest": {
-                "url": {
                   "path": [
                     "v2",
                     "vods"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) Comma-separated IDs of the VoD files",
                       "key": "ids",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a5e53477-e744-41da-9459-46193c754b42",
-          "name": "Get the total number of VoDs",
-          "request": {
-            "name": "Get the total number of VoDs",
-            "description": {
-              "content": "Retrieves the total number of VoD files in the database.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "count"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "dcc6fc32-4155-4a03-ad18-c2b3fe5c49e2",
-              "name": "Total number of VoDs retrieved successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "count"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"number\": 3694\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b2da972f-af9b-422f-9e4e-170944f0edd3",
-          "name": "Get the partial number of VoDs depending on the searched items",
-          "request": {
-            "name": "Get the partial number of VoDs depending on the searched items",
-            "description": {
-              "content": "Retrieves the number of VoD files that include the specified search parameter.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "count",
-                ":search"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "search",
-                  "description": "(Required) Search parameter to get the number of items including it"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "210225e7-76dc-4410-9679-7bf7ddf8660a",
-              "name": "Partial number of VoDs retrieved successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "count",
-                    ":search"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "search",
-                      "description": "(Required) Search parameter to get the number of items including it"
-                    }
                   ]
                 },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Deletes multiple VoD files from the database by their IDs."
               },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"number\": 3694\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ac69f4b4-41ce-434a-8e7d-c718accab086",
-          "name": "Get the VoD list from database",
-          "request": {
-            "name": "Get the VoD list from database",
-            "description": {
-              "content": "Retrieves the list of VoD files from the database. It returns up to 50 items. You can use offset value to get result page by page.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "list",
-                ":offset",
-                ":size"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "sort_by",
-                  "value": "<string>",
-                  "description": "Field to sort. Possible values are 'name', 'date'"
-                },
-                {
-                  "disabled": false,
-                  "key": "order_by",
-                  "value": "<string>",
-                  "description": "'asc' for Ascending, 'desc' for Descending order"
-                },
-                {
-                  "disabled": false,
-                  "key": "streamId",
-                  "value": "<string>",
-                  "description": "ID of the stream to filter the results by stream ID"
-                },
-                {
-                  "disabled": false,
-                  "key": "search",
-                  "value": "<string>",
-                  "description": "Search string"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "offset",
-                  "description": "(Required) Offset of the list"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "size",
-                  "description": "(Required) Number of items that will be fetched"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8295adb5-3831-4dd1-9f93-cc4e430d680b",
-              "name": "VoD list retrieved successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "list",
-                    ":offset",
-                    ":size"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "ccc4c12b-03f4-4f50-9985-1893a1fbdc7c",
+                  "name": "VoD files deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/vods?ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "vods"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated IDs of the VoD files",
+                          "key": "ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "sort_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "order_by",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "streamId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "search",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "offset",
-                      "description": "(Required) Offset of the list"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "size",
-                      "description": "(Required) Number of items that will be fetched"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T01:45:03.000Z",
+                  "updatedAt": "2026-10-22T01:45:03.000Z",
+                  "uid": "35240-ccc4c12b-03f4-4f50-9985-1893a1fbdc7c"
                 }
               ],
-              "body": "{\n  \"streamName\": \"string\",\n  \"vodName\": \"string\",\n  \"streamId\": \"string\",\n  \"creationDate\": 1481,\n  \"startTime\": 8263,\n  \"duration\": 9100,\n  \"fileSize\": 3703,\n  \"filePath\": \"string\",\n  \"vodId\": \"string\",\n  \"type\": \"string\",\n  \"previewFilePath\": \"string\",\n  \"processStatus\": \"string\",\n  \"processStartTime\": 610,\n  \"processEndTime\": 9022,\n  \"description\": \"string\",\n  \"metadata\": \"string\",\n  \"latitude\": \"string\",\n  \"longitude\": \"string\",\n  \"altitude\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-22T01:45:03.000Z",
+              "updatedAt": "2026-10-22T01:45:03.000Z",
+              "uid": "35240-3d0ac1ce-1b59-4e7f-93bb-ca8300854eaa"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "501b8877-d75c-4011-b4d6-6f57f73518e1",
-          "name": "Import VoD files from a directory and make them streamable.",
-          "request": {
-            "name": "Import VoD files from a directory and make them streamable.",
-            "description": {
-              "content": "Imports VoD files from a directory to the datastore and links them to the streams.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "directory"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "directory",
-                  "value": "<string>",
-                  "description": "(Required) The full path of the directory that VoD files will be imported to the datastore and linked to the streams"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "40ed9383-4df7-4963-a42e-b12e3cc3387d",
-              "name": "VoD files imported successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "directory"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "directory",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8aff0c8a-7493-42a6-898d-caeb0f72b9aa",
-          "name": "Unlinks VoD path from streams directory and delete the database record.",
-          "request": {
-            "name": "Unlinks VoD path from streams directory and delete the database record.",
-            "description": {
-              "content": "Deletes the database record associated with the specified directory, without deleting the files themselves.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "directory"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "directory",
-                  "value": "<string>",
-                  "description": "(Required) The full path of the directory from which imported VoD files will be deleted from the database"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4a52d756-80b9-4ee2-a510-ce3146921989",
-              "name": "VoD records unlinked successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "directory"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "directory",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "45fe544d-24a5-45d4-a267-09acf0ff4f75",
-          "name": "Import VoDs to Stalker Portal",
-          "request": {
-            "name": "Import VoDs to Stalker Portal",
-            "description": {
-              "content": "Imports VoDs to the Stalker Portal.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "import-to-stalker"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "dd327c3d-24a1-4bdf-b991-8566ea51cf65",
-              "name": "VoDs imported successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "import-to-stalker"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5affae1c-0ffa-447d-9e2a-cf8a4b492d55",
-          "name": "Upload external VoD file to Ant Media Server",
-          "request": {
-            "name": "Upload external VoD file to Ant Media Server",
-            "description": {
-              "content": "Uploads an external VoD file to Ant Media Server.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v2",
-                "vods",
-                "create"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "name",
-                  "value": "<string>",
-                  "description": "(Required) Name of the VoD File"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "file",
-                  "value": "<object>",
-                  "type": "text",
-                  "description": "(Required) VoD file"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "49101965-c483-41e0-9b0f-b034e567949a",
-              "name": "VoD file uploaded successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "vods",
-                    "create"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "name",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "description": {
-                        "content": "(Required) VoD file",
-                        "type": "text/plain"
-                      },
-                      "key": "file",
-                      "value": "<object>",
-                      "type": "text"
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"success\": false,\n  \"message\": \"string\",\n  \"dataId\": \"string\",\n  \"errorId\": 3142\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "ccd31a22-3248-4dcd-ad61-87a25ecc4a54",
+          "createdAt": "2026-10-22T01:45:03.000Z",
+          "updatedAt": "2026-10-22T01:45:03.000Z",
+          "uid": "35240-ccd31a22-3248-4dcd-ad61-87a25ecc4a54"
         }
       ],
-      "event": []
+      "id": "506844a7-566e-4aed-a092-e18a7611bdc9",
+      "createdAt": "2026-10-22T01:45:03.000Z",
+      "updatedAt": "2026-10-22T01:45:03.000Z",
+      "uid": "35240-506844a7-566e-4aed-a092-e18a7611bdc9"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://test.antmedia.io:5443/Sandbox/rest/",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://test.antmedia.io:5443/Sandbox/rest/"
     }
-  ],
-  "info": {
-    "_postman_id": "f56fc713-b7f1-46c5-b8dd-0c27fc5142c9",
-    "name": "Ant Media Server REST API Reference Broadcasts Vods API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Ant Media Server REST API Reference\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

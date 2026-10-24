@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "ead5d3cd-ea7e-4d7f-bbc8-f123fec349d9",
+    "name": "Ant Media Server Management Panel REST Cluster Mode Status\u2026",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:55.000Z",
+    "updatedAt": "2026-10-22T01:45:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ead5d3cd-ea7e-4d7f-bbc8-f123fec349d9"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "cluster-mode-status",
+          "item": [
+            {
+              "name": "Returns the server mode",
+              "id": "03481d20-33ed-49d0-a0ac-8d950c1c8021",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/cluster-mode-status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "cluster-mode-status"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0c9194e2-e605-4b57-ba08-cc1727b1de21",
+                  "name": "Server mode returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/cluster-mode-status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "cluster-mode-status"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:45:56.000Z",
+                  "updatedAt": "2026-10-22T01:45:56.000Z",
+                  "uid": "35240-0c9194e2-e605-4b57-ba08-cc1727b1de21"
+                }
+              ],
+              "createdAt": "2026-10-22T01:45:56.000Z",
+              "updatedAt": "2026-10-22T01:45:56.000Z",
+              "uid": "35240-03481d20-33ed-49d0-a0ac-8d950c1c8021"
+            }
+          ],
+          "id": "53f22105-fe55-4cb0-99ff-186ceb1f7a98",
+          "createdAt": "2026-10-22T01:45:56.000Z",
+          "updatedAt": "2026-10-22T01:45:56.000Z",
+          "uid": "35240-53f22105-fe55-4cb0-99ff-186ceb1f7a98"
+        }
+      ],
+      "id": "1ac6303c-ca2b-4a08-afa7-b42165b58444",
+      "createdAt": "2026-10-22T01:45:56.000Z",
+      "updatedAt": "2026-10-22T01:45:56.000Z",
+      "uid": "35240-1ac6303c-ca2b-4a08-afa7-b42165b58444"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "561591a8-0359-405a-8723-38917a4a4359",
+    "name": "Ant Media Server Management Panel REST User List API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:48:48.000Z",
+    "updatedAt": "2026-10-22T01:48:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-561591a8-0359-405a-8723-38917a4a4359"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "user-list",
+          "item": [
+            {
+              "name": "Returns user list",
+              "id": "407dee4d-6c68-43c2-9e27-8bc3b9d72b41",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/user-list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "user-list"
+                  ]
+                },
+                "description": "Returns user list in the server management panel"
+              },
+              "response": [
+                {
+                  "id": "2d8f2086-f21d-40f3-b0d9-6c73f8c7656c",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/user-list",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "user-list"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-10-22T01:48:49.000Z",
+                  "updatedAt": "2026-10-22T01:48:49.000Z",
+                  "uid": "35240-2d8f2086-f21d-40f3-b0d9-6c73f8c7656c"
+                }
+              ],
+              "createdAt": "2026-10-22T01:48:49.000Z",
+              "updatedAt": "2026-10-22T01:48:49.000Z",
+              "uid": "35240-407dee4d-6c68-43c2-9e27-8bc3b9d72b41"
+            }
+          ],
+          "id": "7f7b7d9b-5507-4320-8795-a450a6a4ef59",
+          "createdAt": "2026-10-22T01:48:49.000Z",
+          "updatedAt": "2026-10-22T01:48:49.000Z",
+          "uid": "35240-7f7b7d9b-5507-4320-8795-a450a6a4ef59"
+        }
+      ],
+      "id": "8f0a5ac6-8955-487e-9dfd-4b619cfc14ad",
+      "createdAt": "2026-10-22T01:48:49.000Z",
+      "updatedAt": "2026-10-22T01:48:49.000Z",
+      "uid": "35240-8f0a5ac6-8955-487e-9dfd-4b619cfc14ad"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

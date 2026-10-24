@@ -1,0 +1,176 @@
+{
+  "info": {
+    "_postman_id": "57939fc3-2b8b-4cc9-ab42-ae73f56c86d8",
+    "name": "Ant Media Server Management Panel REST Server Settings API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:31.000Z",
+    "updatedAt": "2026-10-22T01:47:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57939fc3-2b8b-4cc9-ab42-ae73f56c86d8"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "server-settings",
+          "item": [
+            {
+              "name": "Returns the server settings",
+              "id": "f927f33e-a2ef-474e-9c60-864ca69d50e7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/server-settings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "server-settings"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "fde56cdd-8aa8-47ed-b8c6-91d5c44cb51a",
+                  "name": "Server settings returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/server-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "server-settings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:32.000Z",
+                  "updatedAt": "2026-10-22T01:47:32.000Z",
+                  "uid": "35240-fde56cdd-8aa8-47ed-b8c6-91d5c44cb51a"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:32.000Z",
+              "updatedAt": "2026-10-22T01:47:32.000Z",
+              "uid": "35240-f927f33e-a2ef-474e-9c60-864ca69d50e7"
+            },
+            {
+              "name": "Changes server settings",
+              "id": "e6bd7c88-455a-42bc-8e6d-fb5b5eca3e4c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allowedDashboardCIDR\": \"<string>\",\n  \"hostAddress\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"licenceKey\": \"<string>\",\n  \"buildForMarket\": \"<boolean>\",\n  \"marketplace\": \"<string>\",\n  \"logLevel\": \"<string>\",\n  \"offlineLicense\": \"<boolean>\",\n  \"nativeLogLevel\": \"<string>\",\n  \"heartbeatEnabled\": \"<boolean>\",\n  \"useGlobalIp\": \"<boolean>\",\n  \"proxyAddress\": \"<string>\",\n  \"nodeGroup\": \"<string>\",\n  \"cpuMeasurementPeriodMs\": \"<integer>\",\n  \"cpuMeasurementWindowSize\": \"<integer>\",\n  \"metricsHistorySamplePeriodMs\": \"<integer>\",\n  \"metricsHistorySize\": \"<integer>\",\n  \"appMetricsHistorySamplePeriodMs\": \"<integer>\",\n  \"appMetricsHistorySize\": \"<integer>\",\n  \"streamMetricsHistorySize\": \"<integer>\",\n  \"defaultHttpPort\": \"<integer>\",\n  \"jwtServerControlEnabled\": \"<boolean>\",\n  \"jwtServerSecretKey\": \"<string>\",\n  \"jwksURL\": \"<string>\",\n  \"originServerPort\": \"<integer>\",\n  \"srtPort\": \"<integer>\",\n  \"appIngestsSrtStreamsWithoutStreamId\": \"<string>\",\n  \"sslEnabled\": \"<boolean>\",\n  \"rtmpPort\": \"<integer>\",\n  \"serverStatusWebHookURL\": \"<string>\",\n  \"localLicenceServerIps\": \"<string>\",\n  \"applicationContext\": {\n    \"parent\": {\n      \"value\": \"<Circular reference to #/components/schemas/ApplicationContext detected>\"\n    },\n    \"id\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"startupDate\": \"<long>\",\n    \"applicationName\": \"<string>\",\n    \"autowireCapableBeanFactory\": {},\n    \"environment\": {\n      \"activeProfiles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultProfiles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"beanDefinitionCount\": \"<integer>\",\n    \"beanDefinitionNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"parentBeanFactory\": {},\n    \"classLoader\": {\n      \"name\": \"<string>\",\n      \"registeredAsParallelCapable\": \"<boolean>\",\n      \"parent\": {\n        \"name\": \"<string>\",\n        \"registeredAsParallelCapable\": \"<boolean>\",\n        \"unnamedModule\": {\n          \"name\": \"<string>\",\n          \"classLoader\": {\n            \"name\": \"<string>\",\n            \"registeredAsParallelCapable\": \"<boolean>\",\n            \"definedPackages\": [\n              {\n                \"name\": \"<string>\",\n                \"sealed\": \"<boolean>\",\n                \"specificationTitle\": \"<string>\",\n                \"specificationVersion\": \"<string>\",\n                \"specificationVendor\": \"<string>\",\n                \"implementationTitle\": \"<string>\",\n                \"implementationVersion\": \"<string>\",\n                \"implementationVendor\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"sealed\": \"<boolean>\",\n                \"specificationTitle\": \"<string>\",\n                \"specificationVersion\": \"<string>\",\n                \"specificationVendor\": \"<string>\",\n                \"implementationTitle\": \"<string>\",\n                \"implementationVersion\": \"<string>\",\n                \"implementationVendor\": \"<string>\"\n              }\n            ],\n            \"defaultAssertionStatus\": \"<boolean>\"\n          },\n          \"descriptor\": {\n            \"open\": \"<boolean>\",\n            \"automatic\": \"<boolean>\"\n          },\n          \"named\": \"<boolean>\",\n          \"packages\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"nativeAccessEnabled\": \"<boolean>\",\n          \"layer\": {}\n        },\n        \"definedPackages\": [\n          {\n            \"name\": \"<string>\",\n            \"sealed\": \"<boolean>\",\n            \"specificationTitle\": \"<string>\",\n            \"specificationVersion\": \"<string>\",\n            \"specificationVendor\": \"<string>\",\n            \"implementationTitle\": \"<string>\",\n            \"implementationVersion\": \"<string>\",\n            \"implementationVendor\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"sealed\": \"<boolean>\",\n            \"specificationTitle\": \"<string>\",\n            \"specificationVersion\": \"<string>\",\n            \"specificationVendor\": \"<string>\",\n            \"implementationTitle\": \"<string>\",\n            \"implementationVersion\": \"<string>\",\n            \"implementationVendor\": \"<string>\"\n          }\n        ],\n        \"defaultAssertionStatus\": \"<boolean>\"\n      },\n      \"unnamedModule\": {\n        \"name\": \"<string>\",\n        \"classLoader\": {\n          \"name\": \"<string>\",\n          \"registeredAsParallelCapable\": \"<boolean>\",\n          \"definedPackages\": [\n            {\n              \"name\": \"<string>\",\n              \"sealed\": \"<boolean>\",\n              \"specificationTitle\": \"<string>\",\n              \"specificationVersion\": \"<string>\",\n              \"specificationVendor\": \"<string>\",\n              \"implementationTitle\": \"<string>\",\n              \"implementationVersion\": \"<string>\",\n              \"implementationVendor\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"sealed\": \"<boolean>\",\n              \"specificationTitle\": \"<string>\",\n              \"specificationVersion\": \"<string>\",\n              \"specificationVendor\": \"<string>\",\n              \"implementationTitle\": \"<string>\",\n              \"implementationVersion\": \"<string>\",\n              \"implementationVendor\": \"<string>\"\n            }\n          ],\n          \"defaultAssertionStatus\": \"<boolean>\"\n        },\n        \"descriptor\": {\n          \"open\": \"<boolean>\",\n          \"automatic\": \"<boolean>\"\n        },\n        \"named\": \"<boolean>\",\n        \"packages\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nativeAccessEnabled\": \"<boolean>\",\n        \"layer\": {}\n      },\n      \"definedPackages\": [\n        {\n          \"name\": \"<string>\",\n          \"sealed\": \"<boolean>\",\n          \"specificationTitle\": \"<string>\",\n          \"specificationVersion\": \"<string>\",\n          \"specificationVendor\": \"<string>\",\n          \"implementationTitle\": \"<string>\",\n          \"implementationVersion\": \"<string>\",\n          \"implementationVendor\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"sealed\": \"<boolean>\",\n          \"specificationTitle\": \"<string>\",\n          \"specificationVersion\": \"<string>\",\n          \"specificationVendor\": \"<string>\",\n          \"implementationTitle\": \"<string>\",\n          \"implementationVersion\": \"<string>\",\n          \"implementationVendor\": \"<string>\"\n        }\n      ],\n      \"defaultAssertionStatus\": \"<boolean>\"\n    }\n  },\n  \"hostAddressFromEnvironment\": \"<string>\",\n  \"webRTCLogLevel\": \"LS_INFO\",\n  \"rtmpsEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/server-settings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "server-settings"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "aaff83c2-bcac-4d96-a5c1-527a597b0bc2",
+                  "name": "Server settings changed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"allowedDashboardCIDR\": \"<string>\",\n  \"hostAddress\": \"<string>\",\n  \"serverName\": \"<string>\",\n  \"licenceKey\": \"<string>\",\n  \"buildForMarket\": \"<boolean>\",\n  \"marketplace\": \"<string>\",\n  \"logLevel\": \"<string>\",\n  \"offlineLicense\": \"<boolean>\",\n  \"nativeLogLevel\": \"<string>\",\n  \"heartbeatEnabled\": \"<boolean>\",\n  \"useGlobalIp\": \"<boolean>\",\n  \"proxyAddress\": \"<string>\",\n  \"nodeGroup\": \"<string>\",\n  \"cpuMeasurementPeriodMs\": \"<integer>\",\n  \"cpuMeasurementWindowSize\": \"<integer>\",\n  \"metricsHistorySamplePeriodMs\": \"<integer>\",\n  \"metricsHistorySize\": \"<integer>\",\n  \"appMetricsHistorySamplePeriodMs\": \"<integer>\",\n  \"appMetricsHistorySize\": \"<integer>\",\n  \"streamMetricsHistorySize\": \"<integer>\",\n  \"defaultHttpPort\": \"<integer>\",\n  \"jwtServerControlEnabled\": \"<boolean>\",\n  \"jwtServerSecretKey\": \"<string>\",\n  \"jwksURL\": \"<string>\",\n  \"originServerPort\": \"<integer>\",\n  \"srtPort\": \"<integer>\",\n  \"appIngestsSrtStreamsWithoutStreamId\": \"<string>\",\n  \"sslEnabled\": \"<boolean>\",\n  \"rtmpPort\": \"<integer>\",\n  \"serverStatusWebHookURL\": \"<string>\",\n  \"localLicenceServerIps\": \"<string>\",\n  \"applicationContext\": {\n    \"parent\": {\n      \"value\": \"<Circular reference to #/components/schemas/ApplicationContext detected>\"\n    },\n    \"id\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"startupDate\": \"<long>\",\n    \"applicationName\": \"<string>\",\n    \"autowireCapableBeanFactory\": {},\n    \"environment\": {\n      \"activeProfiles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"defaultProfiles\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"beanDefinitionCount\": \"<integer>\",\n    \"beanDefinitionNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"parentBeanFactory\": {},\n    \"classLoader\": {\n      \"name\": \"<string>\",\n      \"registeredAsParallelCapable\": \"<boolean>\",\n      \"parent\": {\n        \"name\": \"<string>\",\n        \"registeredAsParallelCapable\": \"<boolean>\",\n        \"unnamedModule\": {\n          \"name\": \"<string>\",\n          \"classLoader\": {\n            \"name\": \"<string>\",\n            \"registeredAsParallelCapable\": \"<boolean>\",\n            \"definedPackages\": [\n              {\n                \"name\": \"<string>\",\n                \"sealed\": \"<boolean>\",\n                \"specificationTitle\": \"<string>\",\n                \"specificationVersion\": \"<string>\",\n                \"specificationVendor\": \"<string>\",\n                \"implementationTitle\": \"<string>\",\n                \"implementationVersion\": \"<string>\",\n                \"implementationVendor\": \"<string>\"\n              },\n              {\n                \"name\": \"<string>\",\n                \"sealed\": \"<boolean>\",\n                \"specificationTitle\": \"<string>\",\n                \"specificationVersion\": \"<string>\",\n                \"specificationVendor\": \"<string>\",\n                \"implementationTitle\": \"<string>\",\n                \"implementationVersion\": \"<string>\",\n                \"implementationVendor\": \"<string>\"\n              }\n            ],\n            \"defaultAssertionStatus\": \"<boolean>\"\n          },\n          \"descriptor\": {\n            \"open\": \"<boolean>\",\n            \"automatic\": \"<boolean>\"\n          },\n          \"named\": \"<boolean>\",\n          \"packages\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"nativeAccessEnabled\": \"<boolean>\",\n          \"layer\": {}\n        },\n        \"definedPackages\": [\n          {\n            \"name\": \"<string>\",\n            \"sealed\": \"<boolean>\",\n            \"specificationTitle\": \"<string>\",\n            \"specificationVersion\": \"<string>\",\n            \"specificationVendor\": \"<string>\",\n            \"implementationTitle\": \"<string>\",\n            \"implementationVersion\": \"<string>\",\n            \"implementationVendor\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"sealed\": \"<boolean>\",\n            \"specificationTitle\": \"<string>\",\n            \"specificationVersion\": \"<string>\",\n            \"specificationVendor\": \"<string>\",\n            \"implementationTitle\": \"<string>\",\n            \"implementationVersion\": \"<string>\",\n            \"implementationVendor\": \"<string>\"\n          }\n        ],\n        \"defaultAssertionStatus\": \"<boolean>\"\n      },\n      \"unnamedModule\": {\n        \"name\": \"<string>\",\n        \"classLoader\": {\n          \"name\": \"<string>\",\n          \"registeredAsParallelCapable\": \"<boolean>\",\n          \"definedPackages\": [\n            {\n              \"name\": \"<string>\",\n              \"sealed\": \"<boolean>\",\n              \"specificationTitle\": \"<string>\",\n              \"specificationVersion\": \"<string>\",\n              \"specificationVendor\": \"<string>\",\n              \"implementationTitle\": \"<string>\",\n              \"implementationVersion\": \"<string>\",\n              \"implementationVendor\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"sealed\": \"<boolean>\",\n              \"specificationTitle\": \"<string>\",\n              \"specificationVersion\": \"<string>\",\n              \"specificationVendor\": \"<string>\",\n              \"implementationTitle\": \"<string>\",\n              \"implementationVersion\": \"<string>\",\n              \"implementationVendor\": \"<string>\"\n            }\n          ],\n          \"defaultAssertionStatus\": \"<boolean>\"\n        },\n        \"descriptor\": {\n          \"open\": \"<boolean>\",\n          \"automatic\": \"<boolean>\"\n        },\n        \"named\": \"<boolean>\",\n        \"packages\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"nativeAccessEnabled\": \"<boolean>\",\n        \"layer\": {}\n      },\n      \"definedPackages\": [\n        {\n          \"name\": \"<string>\",\n          \"sealed\": \"<boolean>\",\n          \"specificationTitle\": \"<string>\",\n          \"specificationVersion\": \"<string>\",\n          \"specificationVendor\": \"<string>\",\n          \"implementationTitle\": \"<string>\",\n          \"implementationVersion\": \"<string>\",\n          \"implementationVendor\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"sealed\": \"<boolean>\",\n          \"specificationTitle\": \"<string>\",\n          \"specificationVersion\": \"<string>\",\n          \"specificationVendor\": \"<string>\",\n          \"implementationTitle\": \"<string>\",\n          \"implementationVersion\": \"<string>\",\n          \"implementationVendor\": \"<string>\"\n        }\n      ],\n      \"defaultAssertionStatus\": \"<boolean>\"\n    }\n  },\n  \"hostAddressFromEnvironment\": \"<string>\",\n  \"webRTCLogLevel\": \"LS_INFO\",\n  \"rtmpsEnabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/server-settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "server-settings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:32.000Z",
+                  "updatedAt": "2026-10-22T01:47:32.000Z",
+                  "uid": "35240-aaff83c2-bcac-4d96-a5c1-527a597b0bc2"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:32.000Z",
+              "updatedAt": "2026-10-22T01:47:32.000Z",
+              "uid": "35240-e6bd7c88-455a-42bc-8e6d-fb5b5eca3e4c"
+            }
+          ],
+          "id": "b591e147-17c4-46b2-96d6-adf67cf640e1",
+          "createdAt": "2026-10-22T01:47:32.000Z",
+          "updatedAt": "2026-10-22T01:47:32.000Z",
+          "uid": "35240-b591e147-17c4-46b2-96d6-adf67cf640e1"
+        }
+      ],
+      "id": "68f83f1e-bb19-41f4-87ae-b148cf0f7012",
+      "createdAt": "2026-10-22T01:47:32.000Z",
+      "updatedAt": "2026-10-22T01:47:32.000Z",
+      "uid": "35240-68f83f1e-bb19-41f4-87ae-b148cf0f7012"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

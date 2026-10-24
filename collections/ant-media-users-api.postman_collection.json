@@ -1,0 +1,826 @@
+{
+  "info": {
+    "_postman_id": "26fcae67-7260-49c5-aa89-5fa1f9a9a4d1",
+    "name": "Ant Media Server Management Panel REST Users API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:48:52.000Z",
+    "updatedAt": "2026-10-22T01:48:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-26fcae67-7260-49c5-aa89-5fa1f9a9a4d1"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "initial",
+              "item": [
+                {
+                  "name": "Creates initial user",
+                  "id": "b0090153-a61f-4714-9d70-8c3e191ab25b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/initial",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        "initial"
+                      ]
+                    },
+                    "description": "Creates initial user. This is a one time scenario when initial user creation required and shouldn't be used otherwise. User object is required and can't be null"
+                  },
+                  "response": [
+                    {
+                      "id": "994ec412-3b7e-451e-bd8c-870f3a9b07ba",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/initial",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            "initial"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-994ec412-3b7e-451e-bd8c-870f3a9b07ba"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-b0090153-a61f-4714-9d70-8c3e191ab25b"
+                }
+              ],
+              "id": "a9cbdf38-c463-4eb1-91d6-e87b5d840c9e",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-a9cbdf38-c463-4eb1-91d6-e87b5d840c9e"
+            },
+            {
+              "name": "authenticate",
+              "item": [
+                {
+                  "name": "Authenticates user",
+                  "id": "16203b26-a600-49d4-9464-4070ec3dfa0e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/authenticate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        "authenticate"
+                      ]
+                    },
+                    "description": "Authenticates user with given username and password. Requires user object to authenticate."
+                  },
+                  "response": [
+                    {
+                      "id": "e24d6d9a-8cc0-4695-946c-796f84b0c5e0",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/authenticate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            "authenticate"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-e24d6d9a-8cc0-4695-946c-796f84b0c5e0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-16203b26-a600-49d4-9464-4070ec3dfa0e"
+                }
+              ],
+              "id": "7a7d197c-07a6-46fc-b6c7-fe7a3d1d12ba",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-7a7d197c-07a6-46fc-b6c7-fe7a3d1d12ba"
+            },
+            {
+              "name": "password",
+              "item": [
+                {
+                  "name": "Changes the given user's password",
+                  "id": "2443ce9d-c7a7-4426-80ec-9f358d87c3c0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/password",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        "password"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ce8558f8-6637-4213-b70a-76d5229534cc",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/password",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            "password"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-ce8558f8-6637-4213-b70a-76d5229534cc"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-2443ce9d-c7a7-4426-80ec-9f358d87c3c0"
+                }
+              ],
+              "id": "68ab78b5-d240-4010-ab18-57da10a9d125",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-68ab78b5-d240-4010-ab18-57da10a9d125"
+            },
+            {
+              "name": "logout",
+              "item": [
+                {
+                  "name": "Delete session",
+                  "id": "8af9be05-7733-43e8-85d4-5836b91793bc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/logout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        "logout"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8a9445ea-c913-4c25-b4bc-bb4c2c4319f9",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/logout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            "logout"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-8a9445ea-c913-4c25-b4bc-bb4c2c4319f9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-8af9be05-7733-43e8-85d4-5836b91793bc"
+                }
+              ],
+              "id": "9a42ea38-31b9-42b1-ba35-8e108491d9d4",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-9a42ea38-31b9-42b1-ba35-8e108491d9d4"
+            },
+            {
+              "name": "{username}",
+              "item": [
+                {
+                  "name": "Delete the user",
+                  "id": "3c0abd6a-a899-4f3d-808f-62039a2bfabb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users/:username",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users",
+                        ":username"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8cc20f0c-0116-4ea2-b851-ed0c56c7c117",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) User name or e-mail of the user to be deleted"
+                        }
+                      ]
+                    },
+                    "description": "Delete the user from the server management panel's user list"
+                  },
+                  "response": [
+                    {
+                      "id": "835d7213-5993-490f-94ac-afa0582f71b8",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/:username",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            ":username"
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-835d7213-5993-490f-94ac-afa0582f71b8"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-3c0abd6a-a899-4f3d-808f-62039a2bfabb"
+                }
+              ],
+              "id": "ca047822-a273-4764-a255-b4e0b6a28e30",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-ca047822-a273-4764-a255-b4e0b6a28e30"
+            },
+            {
+              "name": "{usermail}",
+              "item": [
+                {
+                  "name": "blocked",
+                  "item": [
+                    {
+                      "name": "Returns if user is blocked",
+                      "id": "fffd41fc-7d15-4217-b73d-5b140f044f55",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/users/:usermail/blocked",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "users",
+                            ":usermail",
+                            "blocked"
+                          ],
+                          "variable": [
+                            {
+                              "id": "44c33f57-d1c2-4523-a472-731c513018ce",
+                              "key": "usermail",
+                              "value": "<string>",
+                              "description": "(Required) User name or e-mail of the user to check its status"
+                            }
+                          ]
+                        },
+                        "description": "User is blocked for a specific time if there are login attempts"
+                      },
+                      "response": [
+                        {
+                          "id": "e5ca3cb5-2fb2-4075-929d-31379a1d8d2e",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/users/:usermail/blocked",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "users",
+                                ":usermail",
+                                "blocked"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "usermail"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-22T01:48:52.000Z",
+                          "updatedAt": "2026-10-22T01:48:52.000Z",
+                          "uid": "35240-e5ca3cb5-2fb2-4075-929d-31379a1d8d2e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:48:52.000Z",
+                      "updatedAt": "2026-10-22T01:48:52.000Z",
+                      "uid": "35240-fffd41fc-7d15-4217-b73d-5b140f044f55"
+                    }
+                  ],
+                  "id": "901a563d-da4b-4f0c-9ff7-c35455e0133e",
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-901a563d-da4b-4f0c-9ff7-c35455e0133e"
+                }
+              ],
+              "id": "3889686d-0b42-4269-a6db-d95a06321eef",
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-3889686d-0b42-4269-a6db-d95a06321eef"
+            },
+            {
+              "name": "Edit the user",
+              "id": "3b1796f7-d933-4523-b489-5bc1b6e0c615",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "users"
+                  ]
+                },
+                "description": "Edit the user in the server management panel's user list. It can change password or user type (admin, read-only)."
+              },
+              "response": [
+                {
+                  "id": "c2fdf322-41ed-4a33-bd94-7be1ffea71d5",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-c2fdf322-41ed-4a33-bd94-7be1ffea71d5"
+                }
+              ],
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-3b1796f7-d933-4523-b489-5bc1b6e0c615"
+            },
+            {
+              "name": "Creates a new user",
+              "id": "9fb93078-d78f-4388-bd29-e9f34624a732",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "users"
+                  ]
+                },
+                "description": "Creates a new user. If user object is null or if user is not authenticated, new user won't be created."
+              },
+              "response": [
+                {
+                  "id": "e02ef99f-ba23-48dd-b5c2-dc0ca1f4a2c4",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"<string>\",\n  \"password\": \"<string>\",\n  \"userType\": \"READ_ONLY\",\n  \"scope\": \"<string>\",\n  \"appNameUserType\": {\n    \"culpa_c\": \"<string>\",\n    \"Duis_3\": \"<string>\"\n  },\n  \"newPassword\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"fullName\": \"<string>\",\n  \"picture\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T01:48:52.000Z",
+                  "updatedAt": "2026-10-22T01:48:52.000Z",
+                  "uid": "35240-e02ef99f-ba23-48dd-b5c2-dc0ca1f4a2c4"
+                }
+              ],
+              "createdAt": "2026-10-22T01:48:52.000Z",
+              "updatedAt": "2026-10-22T01:48:52.000Z",
+              "uid": "35240-9fb93078-d78f-4388-bd29-e9f34624a732"
+            }
+          ],
+          "id": "bea3fa90-1c3b-4fee-a668-22b1ac095d51",
+          "createdAt": "2026-10-22T01:48:52.000Z",
+          "updatedAt": "2026-10-22T01:48:52.000Z",
+          "uid": "35240-bea3fa90-1c3b-4fee-a668-22b1ac095d51"
+        }
+      ],
+      "id": "246c3d96-ed8f-45de-adaf-0708cd6de0ce",
+      "createdAt": "2026-10-22T01:48:52.000Z",
+      "updatedAt": "2026-10-22T01:48:52.000Z",
+      "uid": "35240-246c3d96-ed8f-45de-adaf-0708cd6de0ce"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

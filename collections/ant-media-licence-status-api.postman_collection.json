@@ -1,0 +1,106 @@
+{
+  "info": {
+    "_postman_id": "eaa6f7ba-1813-4141-9bb3-600839d2e2f4",
+    "name": "Ant Media Server Management Panel REST Licence Status API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:58.000Z",
+    "updatedAt": "2026-10-22T01:46:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eaa6f7ba-1813-4141-9bb3-600839d2e2f4"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "licence-status",
+          "item": [
+            {
+              "name": "Returns license status",
+              "id": "180881df-a125-4711-9896-d3b17480a88c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/licence-status?key=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "licence-status"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) License key",
+                      "key": "key",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "60f7e5c5-3d7b-4058-b6d7-7e6b9c79a8d8",
+                  "name": "License status returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/licence-status?key=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "licence-status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) License key",
+                          "key": "key",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:46:59.000Z",
+                  "updatedAt": "2026-10-22T01:46:59.000Z",
+                  "uid": "35240-60f7e5c5-3d7b-4058-b6d7-7e6b9c79a8d8"
+                }
+              ],
+              "createdAt": "2026-10-22T01:46:59.000Z",
+              "updatedAt": "2026-10-22T01:46:59.000Z",
+              "uid": "35240-180881df-a125-4711-9896-d3b17480a88c"
+            }
+          ],
+          "id": "684f1c9d-27d8-423f-83ee-b954860866fb",
+          "createdAt": "2026-10-22T01:46:58.000Z",
+          "updatedAt": "2026-10-22T01:46:58.000Z",
+          "uid": "35240-684f1c9d-27d8-423f-83ee-b954860866fb"
+        }
+      ],
+      "id": "52f46267-fa2b-4317-9078-3380004a51cb",
+      "createdAt": "2026-10-22T01:46:58.000Z",
+      "updatedAt": "2026-10-22T01:46:58.000Z",
+      "uid": "35240-52f46267-fa2b-4317-9078-3380004a51cb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

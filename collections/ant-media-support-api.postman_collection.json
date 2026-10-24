@@ -1,0 +1,146 @@
+{
+  "info": {
+    "_postman_id": "8d9f2f74-4eff-4c55-b6eb-82dd7dbd5e92",
+    "name": "Ant Media Server Management Panel REST Support API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:48:07.000Z",
+    "updatedAt": "2026-10-22T01:48:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8d9f2f74-4eff-4c55-b6eb-82dd7dbd5e92"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "support",
+          "item": [
+            {
+              "name": "request",
+              "item": [
+                {
+                  "name": "Send support request",
+                  "id": "557113c9-1d75-4d18-b5fa-f83ecd60dc34",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sendSystemInfo\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/support/request",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "support",
+                        "request"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e10984d6-c6b6-42ce-8de0-f9fa1681bf2d",
+                      "name": "default response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"sendSystemInfo\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/support/request",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "support",
+                            "request"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                      "createdAt": "2026-10-22T01:48:08.000Z",
+                      "updatedAt": "2026-10-22T01:48:08.000Z",
+                      "uid": "35240-e10984d6-c6b6-42ce-8de0-f9fa1681bf2d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:08.000Z",
+                  "updatedAt": "2026-10-22T01:48:08.000Z",
+                  "uid": "35240-557113c9-1d75-4d18-b5fa-f83ecd60dc34"
+                }
+              ],
+              "id": "ee2fd2a0-f579-450c-8dd9-8d755468c460",
+              "createdAt": "2026-10-22T01:48:08.000Z",
+              "updatedAt": "2026-10-22T01:48:08.000Z",
+              "uid": "35240-ee2fd2a0-f579-450c-8dd9-8d755468c460"
+            }
+          ],
+          "id": "8cd0980a-0ef2-4d48-8c7d-b8b53c0f3f7f",
+          "createdAt": "2026-10-22T01:48:08.000Z",
+          "updatedAt": "2026-10-22T01:48:08.000Z",
+          "uid": "35240-8cd0980a-0ef2-4d48-8c7d-b8b53c0f3f7f"
+        }
+      ],
+      "id": "824fb979-b728-4f02-b582-6bdfa9ce7372",
+      "createdAt": "2026-10-22T01:48:08.000Z",
+      "updatedAt": "2026-10-22T01:48:08.000Z",
+      "uid": "35240-824fb979-b728-4f02-b582-6bdfa9ce7372"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

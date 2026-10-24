@@ -1,0 +1,141 @@
+{
+  "info": {
+    "_postman_id": "cc8430ab-b214-4234-b261-c2f0a785a7d2",
+    "name": "Ant Media Server Management Panel REST Shutdown Proper\u2026",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:42.000Z",
+    "updatedAt": "2026-10-22T01:47:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc8430ab-b214-4234-b261-c2f0a785a7d2"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "shutdown-proper-status",
+          "item": [
+            {
+              "name": "Checks whether application or applications have shutdown properly",
+              "id": "01330cfc-0f5a-447d-adb5-9ff1827785de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/shutdown-proper-status?appNames=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "shutdown-proper-status"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Application name",
+                      "key": "appNames",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9c4c9437-5838-4b74-8179-e2f1f0cfdaa5",
+                  "name": "Returns the shutdown status of entered applications.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/shutdown-proper-status?appNames=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "shutdown-proper-status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Application name",
+                          "key": "appNames",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:42.000Z",
+                  "updatedAt": "2026-10-22T01:47:42.000Z",
+                  "uid": "35240-9c4c9437-5838-4b74-8179-e2f1f0cfdaa5"
+                },
+                {
+                  "id": "c2a0f0f9-5083-4041-82db-bd4db0d6cf85",
+                  "name": "Either entered in wrong format or typed incorrectly application names",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/shutdown-proper-status?appNames=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "shutdown-proper-status"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Application name",
+                          "key": "appNames",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:42.000Z",
+                  "updatedAt": "2026-10-22T01:47:42.000Z",
+                  "uid": "35240-c2a0f0f9-5083-4041-82db-bd4db0d6cf85"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:42.000Z",
+              "updatedAt": "2026-10-22T01:47:42.000Z",
+              "uid": "35240-01330cfc-0f5a-447d-adb5-9ff1827785de"
+            }
+          ],
+          "id": "cb3c5ff6-bfed-462a-aaa5-729a9278b14c",
+          "createdAt": "2026-10-22T01:47:42.000Z",
+          "updatedAt": "2026-10-22T01:47:42.000Z",
+          "uid": "35240-cb3c5ff6-bfed-462a-aaa5-729a9278b14c"
+        }
+      ],
+      "id": "c70f0513-8228-48a9-9ca3-1fd6e32fe08e",
+      "createdAt": "2026-10-22T01:47:42.000Z",
+      "updatedAt": "2026-10-22T01:47:42.000Z",
+      "uid": "35240-c70f0513-8228-48a9-9ca3-1fd6e32fe08e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

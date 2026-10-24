@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "f164351d-8431-4783-8994-69ecd2aef1a6",
+    "name": "Ant Media Server Management Panel REST System API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:48:11.000Z",
+    "updatedAt": "2026-10-22T01:48:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f164351d-8431-4783-8994-69ecd2aef1a6"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "system",
+          "item": [
+            {
+              "name": "gc",
+              "item": [
+                {
+                  "name": "Trigger garbage collector",
+                  "id": "5e3c0249-0c9b-45a4-a254-ad98e70667b3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/system/gc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "system",
+                        "gc"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0a1e2e1e-5ce3-4202-bdb4-a10e4389c530",
+                      "name": "Garbage collection triggered",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/system/gc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "system",
+                            "gc"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:48:12.000Z",
+                      "updatedAt": "2026-10-22T01:48:12.000Z",
+                      "uid": "35240-0a1e2e1e-5ce3-4202-bdb4-a10e4389c530"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:48:12.000Z",
+                  "updatedAt": "2026-10-22T01:48:12.000Z",
+                  "uid": "35240-5e3c0249-0c9b-45a4-a254-ad98e70667b3"
+                }
+              ],
+              "id": "04ed679c-e2d0-4c1c-8716-e1d20420dfcd",
+              "createdAt": "2026-10-22T01:48:12.000Z",
+              "updatedAt": "2026-10-22T01:48:12.000Z",
+              "uid": "35240-04ed679c-e2d0-4c1c-8716-e1d20420dfcd"
+            }
+          ],
+          "id": "e72e7aff-3204-4623-80f4-8fb4f8287b9e",
+          "createdAt": "2026-10-22T01:48:12.000Z",
+          "updatedAt": "2026-10-22T01:48:12.000Z",
+          "uid": "35240-e72e7aff-3204-4623-80f4-8fb4f8287b9e"
+        }
+      ],
+      "id": "7e7b2b28-5ed0-4519-9124-e02ae4276deb",
+      "createdAt": "2026-10-22T01:48:12.000Z",
+      "updatedAt": "2026-10-22T01:48:12.000Z",
+      "uid": "35240-7e7b2b28-5ed0-4519-9124-e02ae4276deb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "info": {
+    "_postman_id": "7242158c-c653-410c-8d0c-656e4b756a3d",
+    "name": "Ant Media Server Management Panel REST First Login Status\u2026",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:24.000Z",
+    "updatedAt": "2026-10-22T01:46:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7242158c-c653-410c-8d0c-656e4b756a3d"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "first-login-status",
+          "item": [
+            {
+              "name": "Checks first login status",
+              "id": "65445a42-91c5-4856-a604-fa46b2f91ced",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/first-login-status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "first-login-status"
+                  ]
+                },
+                "description": "Checks first login status. If server being logged in first time, it returns true, otherwise false."
+              },
+              "response": [
+                {
+                  "id": "c81d4ab1-9b7b-4bc2-a77e-3b06255b3125",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/first-login-status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "first-login-status"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"message\": \"<string>\",\n  \"dataId\": \"<string>\",\n  \"errorId\": \"<integer>\"\n}",
+                  "createdAt": "2026-10-22T01:46:24.000Z",
+                  "updatedAt": "2026-10-22T01:46:24.000Z",
+                  "uid": "35240-c81d4ab1-9b7b-4bc2-a77e-3b06255b3125"
+                }
+              ],
+              "createdAt": "2026-10-22T01:46:24.000Z",
+              "updatedAt": "2026-10-22T01:46:24.000Z",
+              "uid": "35240-65445a42-91c5-4856-a604-fa46b2f91ced"
+            }
+          ],
+          "id": "c4784ebe-4e5b-436c-838b-a6464250ed8d",
+          "createdAt": "2026-10-22T01:46:24.000Z",
+          "updatedAt": "2026-10-22T01:46:24.000Z",
+          "uid": "35240-c4784ebe-4e5b-436c-838b-a6464250ed8d"
+        }
+      ],
+      "id": "f679f4c3-31ed-4b06-9567-8dd6b45ad8a9",
+      "createdAt": "2026-10-22T01:46:24.000Z",
+      "updatedAt": "2026-10-22T01:46:24.000Z",
+      "uid": "35240-f679f4c3-31ed-4b06-9567-8dd6b45ad8a9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

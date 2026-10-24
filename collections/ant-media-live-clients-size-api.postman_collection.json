@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "69499037-2c88-46fc-838b-f3acc8af0bb9",
+    "name": "Ant Media Server Management Panel REST Live Clients Size API",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:07.000Z",
+    "updatedAt": "2026-10-22T01:47:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69499037-2c88-46fc-838b-f3acc8af0bb9"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "live-clients-size",
+          "item": [
+            {
+              "name": "Returns total number of live streams",
+              "id": "32197655-e60e-4463-9827-961e56fb0068",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/live-clients-size",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "live-clients-size"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a98a3cb9-9a41-48c2-9b83-55a8a0e4a591",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/live-clients-size",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "live-clients-size"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:07.000Z",
+                  "updatedAt": "2026-10-22T01:47:07.000Z",
+                  "uid": "35240-a98a3cb9-9a41-48c2-9b83-55a8a0e4a591"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:07.000Z",
+              "updatedAt": "2026-10-22T01:47:07.000Z",
+              "uid": "35240-32197655-e60e-4463-9827-961e56fb0068"
+            }
+          ],
+          "id": "baca7d50-fc4f-46c6-baf6-13677c175ad7",
+          "createdAt": "2026-10-22T01:47:07.000Z",
+          "updatedAt": "2026-10-22T01:47:07.000Z",
+          "uid": "35240-baca7d50-fc4f-46c6-baf6-13677c175ad7"
+        }
+      ],
+      "id": "934f56a8-efd5-457f-8b4a-d9d8c5719d26",
+      "createdAt": "2026-10-22T01:47:07.000Z",
+      "updatedAt": "2026-10-22T01:47:07.000Z",
+      "uid": "35240-934f56a8-efd5-457f-8b4a-d9d8c5719d26"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

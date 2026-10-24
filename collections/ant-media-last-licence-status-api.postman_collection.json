@@ -1,0 +1,92 @@
+{
+  "info": {
+    "_postman_id": "ac12be05-40f9-453a-ae2c-a439d20ac56a",
+    "name": "Ant Media Server Management Panel REST Last Licence Status\u2026",
+    "description": "Ant Media Server Management Panel REST API\n\nContact Support:\n Name: Ant Media Info\n Email: contact@antmedia.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:52.000Z",
+    "updatedAt": "2026-10-22T01:46:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ac12be05-40f9-453a-ae2c-a439d20ac56a"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "last-licence-status",
+          "item": [
+            {
+              "name": "Returns the last checked license status",
+              "id": "0eea6778-f1eb-4356-9810-371ae23af9f5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/last-licence-status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "last-licence-status"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bf9c6c52-8b1b-41a4-ac05-bf11691b6ae0",
+                  "name": "Last checked license status returned",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/last-licence-status",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "last-licence-status"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:46:52.000Z",
+                  "updatedAt": "2026-10-22T01:46:52.000Z",
+                  "uid": "35240-bf9c6c52-8b1b-41a4-ac05-bf11691b6ae0"
+                }
+              ],
+              "createdAt": "2026-10-22T01:46:52.000Z",
+              "updatedAt": "2026-10-22T01:46:52.000Z",
+              "uid": "35240-0eea6778-f1eb-4356-9810-371ae23af9f5"
+            }
+          ],
+          "id": "80e676fc-6026-4d6e-b595-2123d077214d",
+          "createdAt": "2026-10-22T01:46:52.000Z",
+          "updatedAt": "2026-10-22T01:46:52.000Z",
+          "uid": "35240-80e676fc-6026-4d6e-b595-2123d077214d"
+        }
+      ],
+      "id": "3c71b39a-7cbe-4f19-a129-076ade8902f0",
+      "createdAt": "2026-10-22T01:46:52.000Z",
+      "updatedAt": "2026-10-22T01:46:52.000Z",
+      "uid": "35240-3c71b39a-7cbe-4f19-a129-076ade8902f0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
