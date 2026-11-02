@@ -1,0 +1,139 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://antmedia.io/pricing/
+sources:
+- https://antmedia.io/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-28'
+  evidence: Self Hosted Solutions Get a license and run wherever you want
+  managed_tier: Hourly License
+published: true
+note: Cloud marketplace pricing covers license only; infrastructure billed separately by cloud provider.
+plan_count: 7
+currency: USD
+plans:
+- name: AWS Cloud (Quick Launch)
+  price_text: Starting from $0.33/hr
+  price: 0.33
+  currency: USD
+  period: per-use
+  unit: hour
+  included_quota: Hourly/Annual Subscription Options, Run Enterprise & Community Editions, Ready in Minutes
+- name: Azure Cloud
+  price_text: Starting from $0.44/hr
+  price: 0.44
+  currency: USD
+  period: per-use
+  unit: hour
+  included_quota: Hourly/Annual Subscription Options, Run Enterprise & Community Editions
+- name: Google Cloud
+  price_text: Starting from $0.56/hr
+  price: 0.56
+  currency: USD
+  period: per-use
+  unit: hour
+  included_quota: Hourly Subscription, Run Enterprise Editions
+- name: Hourly License
+  price_text: $0.24 Per Instance Per Hour Uptime
+  price: 0.24
+  currency: USD
+  period: per-use
+  unit: instance per hour uptime
+  included_quota: Enterprise Edition, No Connection Limit, Transcoding, SDKs, Standard Support, Free Software
+    Upgrade
+  overage: Sign Up Fee - $1
+- name: Monthly License
+  price_text: $109 Per Instance Per Month
+  price: 109
+  currency: USD
+  period: month
+  unit: instance
+  included_quota: Enterprise Edition, Transcoding, Flex Scalability, SDKs, Standard Support
+- name: Annual License
+  price_text: $89 Per Instance Per Month
+  price: 89
+  currency: USD
+  period: month
+  unit: instance
+  included_quota: Enterprise Edition including Annual Subscription, Advanced Scalability
+- name: Perpetual License
+  price_text: $2799 Per Instance
+  price: 2799
+  currency: USD
+  period: one-time
+  unit: instance
+  included_quota: Lifetime Usage, Standard Support For 1st Year
+  overage: 'Standard Support/Upgrade: $449/year After 1st Year'
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  plans:
+  - name: AWS Cloud (Quick Launch)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Azure Cloud
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Google Cloud
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Hourly License
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Monthly License
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - month
+  - name: Annual License
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - month
+  - name: Perpetual License
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - one-time
