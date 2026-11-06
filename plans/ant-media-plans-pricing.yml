@@ -74,7 +74,7 @@ plans:
   included_quota: Lifetime Usage, Standard Support For 1st Year
   overage: 'Standard Support/Upgrade: $449/year After 1st Year'
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
